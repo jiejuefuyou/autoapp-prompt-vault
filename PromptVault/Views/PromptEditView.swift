@@ -10,7 +10,7 @@ struct PromptEditView: View {
     var onUse: ((String) -> Void)? = nil
 
     @State private var title: String
-    @State private var body: String
+    @State private var promptBody: String
     @State private var tagsText: String
     @State private var variableValues: [String: String] = [:]
     @State private var showPaywall = false
@@ -24,7 +24,7 @@ struct PromptEditView: View {
         self.onDelete = onDelete
         self.onUse = onUse
         _title    = State(initialValue: initial?.title ?? "")
-        _body     = State(initialValue: initial?.body ?? "")
+        _promptBody = State(initialValue: initial?.body ?? "")
         _tagsText = State(initialValue: (initial?.tags ?? []).joined(separator: ", "))
     }
 
@@ -32,7 +32,7 @@ struct PromptEditView: View {
         Prompt(
             id: initial?.id ?? UUID(),
             title: title.trimmingCharacters(in: .whitespacesAndNewlines),
-            body: body,
+            body: promptBody,
             tags: tagsText.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty },
             useCount: initial?.useCount ?? 0,
             createdAt: initial?.createdAt ?? .now
@@ -51,7 +51,7 @@ struct PromptEditView: View {
                         .submitLabel(.done)
                 }
                 Section("Prompt body") {
-                    TextEditor(text: $body)
+                    TextEditor(text: $promptBody)
                         .frame(minHeight: 140)
                         .font(.system(.body, design: .monospaced))
                 }
@@ -116,7 +116,7 @@ struct PromptEditView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save", action: save)
                         .disabled(title.trimmingCharacters(in: .whitespaces).isEmpty
-                                  || body.trimmingCharacters(in: .whitespaces).isEmpty)
+                                  || promptBody.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
             }
             .sheet(isPresented: $showPaywall) { PaywallView() }
