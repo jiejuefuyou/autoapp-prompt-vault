@@ -1,0 +1,152 @@
+[
+  {
+    "title": "Translate to natural English",
+    "body": "Translate the following text into natural, conversational English. Preserve technical terms; rewrite anything that would sound awkward to a native speaker.\n\n{{text}}",
+    "tags": ["翻译", "Translation", "ChatGPT"]
+  },
+  {
+    "title": "翻译成简体中文",
+    "body": "把下面的内容翻译成简体中文。要求：自然口语化，保留专业术语，不要逐字直译。\n\n{{text}}",
+    "tags": ["翻译", "Translation"]
+  },
+  {
+    "title": "Summarize a long article in 5 bullets",
+    "body": "Summarize the following article in 5 bullet points, then 1 takeaway sentence at the end.\n\n{{article}}",
+    "tags": ["总结", "Summarize"]
+  },
+  {
+    "title": "Explain code in plain English",
+    "body": "Explain what this code does, line by line, in plain English a junior engineer would understand. Then list any subtle bugs or edge cases you notice.\n\n```\n{{code}}\n```",
+    "tags": ["编程", "Coding", "Cursor"]
+  },
+  {
+    "title": "Refactor for readability",
+    "body": "Refactor this code for readability. Keep behavior identical. Prefer named functions over comments. Output only the refactored code; explain only the non-obvious choices in 1-2 lines after.\n\n```\n{{code}}\n```",
+    "tags": ["编程", "Coding", "Cursor", "Claude Code"]
+  },
+  {
+    "title": "Write a unit test for this function",
+    "body": "Write a unit test for the following function in {{language}}. Cover the happy path + 2 edge cases + 1 error case. Use the project's existing test framework.\n\n```\n{{function}}\n```",
+    "tags": ["编程", "Coding", "Testing"]
+  },
+  {
+    "title": "Code review like a senior",
+    "body": "Review the following code change as a senior {{language}} engineer would. Focus on: correctness, performance, error handling, naming, and any non-obvious concurrency / race-condition risks. Be terse — only flag what matters.\n\n```\n{{diff}}\n```",
+    "tags": ["编程", "Coding", "Code Review"]
+  },
+  {
+    "title": "AI 绘画提示词（中文 → SD/Midjourney）",
+    "body": "把下面这段中文描述转换成英文 Stable Diffusion / Midjourney 提示词。要求：用逗号分隔、加权重 (word:1.2)、加质量词、按主体 / 场景 / 风格 / 光影 / 镜头 / 质量 顺序排列。\n\n描述：{{description}}\n风格倾向：{{style}}",
+    "tags": ["AI绘画", "Image-Gen", "Midjourney", "SD"]
+  },
+  {
+    "title": "ComfyUI workflow troubleshoot",
+    "body": "I'm running this ComfyUI workflow and getting {{error}}. Walk me through diagnosing the cause: which node usually outputs that error, what input dimensions might be off, and what conditioning / sampler settings to check.",
+    "tags": ["AI绘画", "ComfyUI", "Image-Gen"]
+  },
+  {
+    "title": "拍摄文案 → 短视频脚本",
+    "body": "根据下面的拍摄文案，输出一个 60 秒短视频脚本，含：开头钩子（3 秒）、3 个分镜（每个 ≤ 15 秒）、结尾引导互动。语气：{{tone}}\n\n文案：{{copy}}",
+    "tags": ["短视频", "Script", "AI视频"]
+  },
+  {
+    "title": "DeepSeek / Claude 系统提示词模板",
+    "body": "你是一个 {{role}}。回答时遵循：\n1. 先给结论，再讲过程\n2. 不写废话过渡句\n3. 引用代码 / 数据 / 文献时给出可验证来源\n4. 不确定时直接说\"我不确定\"，不要编造\n\n用户问题：{{question}}",
+    "tags": ["LLM", "System Prompt", "DeepSeek", "Claude"]
+  },
+  {
+    "title": "邮件起草（专业语气）",
+    "body": "Draft an email to {{recipient}} about {{topic}}. Tone: professional but warm. Constraints: ≤ 150 words, single CTA, no jargon, no thank-you-in-advance.",
+    "tags": ["邮件", "Email", "Writing"]
+  },
+  {
+    "title": "邮件起草（中文商务）",
+    "body": "起草一封中文商务邮件给{{对象}}，主题{{话题}}。要求：正式但不生硬，控制在 200 字内，只有一个明确请求，不要客套话堆砌。",
+    "tags": ["邮件", "Email", "Writing"]
+  },
+  {
+    "title": "Brainstorm 10 angles",
+    "body": "Generate 10 distinct angles or hooks for the following topic, each in one sentence. Optimize for novelty — skip the obvious takes.\n\nTopic: {{topic}}\nAudience: {{audience}}",
+    "tags": ["创意", "Brainstorm", "Writing"]
+  },
+  {
+    "title": "Job description → resume bullets",
+    "body": "Match my background to this job description. Output 5 resume bullets that prove fit, each starting with an action verb and ending with a quantified outcome.\n\nJob:\n{{jd}}\n\nMy background:\n{{background}}",
+    "tags": ["求职", "Resume", "Career"]
+  },
+  {
+    "title": "面试官提问准备",
+    "body": "我下周面试 {{position}} 岗位。基于这份 JD（下方），列 10 道最可能问的技术 + 行为题，每题给一个简短答题骨架（不要展开）。\n\nJD：{{jd}}",
+    "tags": ["求职", "面试", "Career"]
+  },
+  {
+    "title": "Daily standup helper",
+    "body": "Turn my notes into a 3-line standup: yesterday / today / blockers. Trim filler. If a blocker has no owner, suggest one.\n\n{{notes}}",
+    "tags": ["效率", "Productivity", "Work"]
+  },
+  {
+    "title": "周报生成（基于 git log）",
+    "body": "下面是我这周的 git commit 记录。把它整理成 5 条人能看的中文周报项，每项形式：[做了什么] → [带来什么影响]。隐去 commit hash 和分支名。\n\n{{git_log}}",
+    "tags": ["效率", "周报", "Work"]
+  },
+  {
+    "title": "OKR 拆解",
+    "body": "基于这个 Objective，拆出 3-4 个有数字、有时间、可验证的 Key Results。每个 KR 用「By [date], [metric] from X to Y」格式。\n\nObjective: {{objective}}",
+    "tags": ["效率", "OKR", "Work"]
+  },
+  {
+    "title": "决策框架（Pros/Cons + 推荐）",
+    "body": "我面前有这两个选择，帮我做结构化对比 + 给推荐：\n\n选择 A：{{option_a}}\n选择 B：{{option_b}}\n\n输出格式：\n1. 各 3 条最强 pro\n2. 各 2 条最强 con\n3. 一句话推荐 + 一句反对该推荐的最强反驳",
+    "tags": ["决策", "Decision", "Productivity"]
+  },
+  {
+    "title": "ELI5 — explain like I'm 5",
+    "body": "Explain {{concept}} like I'm 5 years old. Use one analogy from everyday life. No jargon.",
+    "tags": ["学习", "Learning"]
+  },
+  {
+    "title": "Feynman 学习法",
+    "body": "我刚学了 {{topic}}。请扮演一个完全不懂这个主题的人，用质疑式提问帮我找出我哪里没真懂。每轮一个问题，等我答完再问下一个。",
+    "tags": ["学习", "Feynman"]
+  },
+  {
+    "title": "PDF / 长文 chunked 总结",
+    "body": "下面这段文档很长。请按主题分块总结，每块给：标题 + 3-5 句要点 + 1 句 \"为什么这块重要\"。如果检测到结构性错误（比如自相矛盾、逻辑断裂），单独标记。\n\n{{document}}",
+    "tags": ["总结", "Summarize", "Reading"]
+  },
+  {
+    "title": "对比同类产品",
+    "body": "对比 {{product_a}} 和 {{product_b}}：\n1. 各自最强差异化（一句话）\n2. 价格 / 订阅模型对比\n3. 谁更适合 {{use_case}}\n\n来源最近半年内的公开信息；不确定的地方明确标注。",
+    "tags": ["调研", "Research"]
+  },
+  {
+    "title": "App Store description 优化",
+    "body": "下面是一段 App Store 描述。优化它：保留原意，但提高 conversion-readability — 第一句必须是一个具体场景钩子，bullet 不超过 6 条，每条 ≤ 12 字。\n\n{{description}}",
+    "tags": ["ASO", "App Store", "Marketing"]
+  },
+  {
+    "title": "ASO keyword research",
+    "body": "Suggest 10 App Store keywords for an app that does {{description}}. Each keyword should be: ≤ 12 chars, low competition, descriptive (not branded). Sort by estimated search volume desc.",
+    "tags": ["ASO", "App Store"]
+  },
+  {
+    "title": "Reddit Show & Tell post",
+    "body": "Draft a Reddit /r/{{subreddit}} \"Show & Tell\" post for my project: {{project}}.\n\nConstraints:\n- Title ≤ 70 chars, no clickbait, no emoji\n- Body: lead with the constraint or non-obvious choice, not features\n- End with one specific question to invite comments\n- No links until paragraph 3",
+    "tags": ["Marketing", "Reddit", "Launch"]
+  },
+  {
+    "title": "Twitter/X thread builder",
+    "body": "Turn this rough draft into a 6-tweet thread:\n- Tweet 1: hook in ≤ 80 chars\n- Tweets 2-5: one specific point each, all under 240 chars\n- Tweet 6: links + soft CTA\n- No emoji, no thread emojis (1/, 2/), no \"buckle up\"\n\nDraft: {{draft}}",
+    "tags": ["Marketing", "Twitter", "Writing"]
+  },
+  {
+    "title": "Product Hunt 文案",
+    "body": "我准备把 {{product}} 上 Product Hunt。生成：\n1. Tagline（≤ 60 字符）\n2. 一段 Description（≤ 260 字）\n3. 第一条 Maker comment 的草稿（强调约束 / 非显性设计选择，不要列功能）",
+    "tags": ["Marketing", "Product Hunt", "Launch"]
+  },
+  {
+    "title": "Coze / Dify 智能体 prompt 骨架",
+    "body": "我要在 {{platform}} 搭一个 {{role}} 智能体。给我一个高质量 system prompt 起手：\n- 角色定义（≤ 100 字）\n- 能力边界（明确说不做什么）\n- 输出格式约束（JSON / Markdown / 自然语言）\n- 失败/不确定时的兜底\n- 一段示例 input → output 演示",
+    "tags": ["Agent", "Coze", "Dify", "智能体"]
+  }
+]

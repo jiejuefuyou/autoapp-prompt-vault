@@ -1,0 +1,7 @@
+PromptVault is a fully offline AI-prompt manager. There is no account system, no server, no notifications, no cloud sync. The app is usable immediately on launch — first launch automatically loads a bundled "starter pack" of 30 free prompts so the user has functional content from second one.
+
+The single in-app purchase (com.jiejuefuyou.promptvault.premium, $2.99 one-time non-consumable) unlocks unlimited prompts, the full 200+ curated starter pack, unlimited tags per prompt, per-prompt usage statistics, and JSON import/export. The free tier (10 prompts, 3 tags per prompt) is fully functional.
+
+Privacy posture: declared in PrivacyInfo.xcprivacy. Zero data collection, zero networking. Verifiable from the public source repo at https://github.com/jiejuefuyou/autoapp-prompt-vault.
+
+No demo credentials needed.

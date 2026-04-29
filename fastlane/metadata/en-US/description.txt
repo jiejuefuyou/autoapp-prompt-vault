@@ -1,0 +1,31 @@
+The prompt manager that doesn't sync to a server.
+
+Save the AI prompts you actually use — for ChatGPT, Claude, Midjourney, ComfyUI, Coze, anything. Type your placeholders as {{variables}}. When you need a prompt, tap it, fill the blanks, copy. Done.
+
+WHY THIS APP EXISTS
+Most prompt managers want to be a marketplace, a team workspace, or a subscription. PromptVault is a single-screen iPhone app that does one thing: keep your prompts findable and reusable. No account. No cloud. No upsell.
+
+WHAT IT DOES
+• Save prompts with title, body, and tags
+• Use {{variable}} placeholders — fill them when you need to copy
+• Live preview of the rendered prompt before you copy
+• Search across titles, bodies, and tags
+• One-tap copy with usage stats per prompt
+• Pull-out tag filter so big libraries stay navigable
+
+WHAT IT DOESN'T DO
+• No accounts. No login.
+• No network calls. Zero. Verifiable in the source repo.
+• No analytics or third-party SDKs
+• No cloud sync — your prompts stay on your device
+
+PREMIUM (one-time $2.99)
+• Unlimited prompts (free tier: 10)
+• 200+ curated starter prompts (translation, summarization, code review, AI image gen, agent system prompts, marketing, OKRs, learning…)
+• Unlimited tags per prompt (free tier: 3)
+• Per-prompt usage stats
+• JSON import/export
+
+No subscription. Pay once, keep it forever.
+
+Made for iOS 17 and up. AutoApp portfolio — same offline-first principles as our other apps.

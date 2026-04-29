@@ -1,0 +1,5 @@
+git_url("https://github.com/jiejuefuyou/autoapp-certs")
+storage_mode("git")
+type("appstore")
+app_identifier([ENV["APP_BUNDLE_ID"] || "com.jiejuefuyou.promptvault"])
+username(ENV["FASTLANE_USER"]) if ENV["FASTLANE_USER"]

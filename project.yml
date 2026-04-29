@@ -1,0 +1,84 @@
+name: PromptVault
+options:
+  bundleIdPrefix: com.jiejuefuyou
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+configs:
+  Debug: debug
+  Release: release
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Manual
+    ENABLE_USER_SCRIPT_SANDBOXING: "YES"
+    GENERATE_INFOPLIST_FILE: "YES"
+    INFOPLIST_KEY_NSHumanReadableCopyright: "Copyright © 2026 jiejuefuyou. All rights reserved."
+    INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: "NO"
+targets:
+  PromptVault:
+    type: application
+    platform: iOS
+    sources:
+      - path: PromptVault
+        excludes:
+          - "Resources/StoreKitConfiguration.storekit"
+    resources:
+      - path: PromptVault/Resources/Assets.xcassets
+      - path: PromptVault/Resources/PrivacyInfo.xcprivacy
+      - path: PromptVault/Resources/StoreKitConfiguration.storekit
+        buildPhase: none
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jiejuefuyou.promptvault
+        PRODUCT_NAME: PromptVault
+        INFOPLIST_KEY_CFBundleDisplayName: PromptVault
+        INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: "YES"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MACCATALYST: "NO"
+  PromptVaultTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: PromptVaultTests
+    dependencies:
+      - target: PromptVault
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jiejuefuyou.promptvault.tests
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/PromptVault.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PromptVault"
+  PromptVaultUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: PromptVaultUITests
+    dependencies:
+      - target: PromptVault
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jiejuefuyou.promptvault.uitests
+        TEST_TARGET_NAME: PromptVault
+schemes:
+  PromptVault:
+    build:
+      targets:
+        PromptVault: all
+        PromptVaultTests: [test]
+        PromptVaultUITests: [test]
+    test:
+      config: Debug
+      targets:
+        - PromptVaultTests
+        - PromptVaultUITests
+    run:
+      config: Debug
+    archive:
+      config: Release

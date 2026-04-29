@@ -1,0 +1,59 @@
+name: TestFlight
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      changelog:
+        description: "What's new in this beta build"
+        required: false
+        default: "Automated build from CI."
+
+concurrency:
+  group: testflight
+  cancel-in-progress: false
+
+jobs:
+  beta:
+    name: Beta to TestFlight
+    runs-on: macos-15
+    timeout-minutes: 60
+    environment: testflight
+    env:
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+      APP_BUNDLE_ID: com.jiejuefuyou.promptvault
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select latest stable Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Install xcodegen + imagemagick
+        run: brew install xcodegen imagemagick
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Run unit tests
+        run: bundle exec fastlane test
+
+      - name: Build & upload TestFlight
+        env:
+          ASC_KEY_ID:                     ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID:                  ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_CONTENT:                ${{ secrets.ASC_KEY_CONTENT }}
+          MATCH_PASSWORD:                 ${{ secrets.MATCH_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION:  ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          FASTLANE_USER:                  ${{ secrets.FASTLANE_USER }}
+          TEAM_ID:                        ${{ secrets.TEAM_ID }}
+          ITC_TEAM_ID:                    ${{ secrets.ITC_TEAM_ID }}
+          BETA_CHANGELOG:                 ${{ github.event.inputs.changelog || format('Build from commit {0}', github.sha) }}
+          BUILD_NUMBER:                   ${{ github.run_number }}
+        run: bundle exec fastlane beta

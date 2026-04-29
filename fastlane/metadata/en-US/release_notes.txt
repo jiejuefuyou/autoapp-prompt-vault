@@ -1,0 +1,8 @@
+First release.
+
+• Save AI prompts with title, body, and tags
+• {{variable}} substitution with live preview
+• Search across titles / bodies / tags
+• One-tap copy with usage stats
+• 30 starter prompts free; 200+ in premium
+• Completely offline. Zero data collection.

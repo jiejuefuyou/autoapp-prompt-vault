@@ -1,0 +1,35 @@
+{
+  "identifier" : "0E0F0003-AC-AC-AC-PROMPTVAULT001",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "PREMIUM_INTERNAL_ID",
+      "localizations" : [
+        {
+          "description" : "Unlock unlimited prompts, the full 200+ starter pack, unlimited tags, and per-prompt usage stats.",
+          "displayName" : "PromptVault Premium",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.jiejuefuyou.promptvault.premium",
+      "referenceName" : "Premium",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "PROMPTVAULT_APP",
+    "_developerTeamID" : "",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 0,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : []
+  },
+  "subscriptionGroups" : [],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

@@ -1,0 +1,70 @@
+name: Init Signing
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: "Certificate type to (re)create"
+        required: true
+        default: "appstore"
+        type: choice
+        options: [appstore, development]
+      force:
+        description: "Pass --force to recreate certs even if existing ones are valid (use with care)"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: init-signing
+  cancel-in-progress: false
+
+jobs:
+  init:
+    name: fastlane match (${{ inputs.type }})
+    runs-on: macos-15
+    timeout-minutes: 30
+    environment: testflight
+    env:
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+      APP_BUNDLE_ID: com.jiejuefuyou.promptvault
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Install xcodegen + imagemagick
+        run: brew install xcodegen imagemagick
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Run fastlane match (writes encrypted certs to autoapp-certs)
+        env:
+          ASC_KEY_ID:                     ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID:                  ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_CONTENT:                ${{ secrets.ASC_KEY_CONTENT }}
+          MATCH_PASSWORD:                 ${{ secrets.MATCH_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION:  ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          FASTLANE_USER:                  ${{ secrets.FASTLANE_USER }}
+          TEAM_ID:                        ${{ secrets.TEAM_ID }}
+          MATCH_TYPE:                     ${{ inputs.type }}
+          MATCH_FORCE:                    ${{ inputs.force }}
+        run: |
+          set -euxo pipefail
+          # Inline lane invocation — bypasses the Fastfile's beta lane to write certs.
+          if [ "$MATCH_FORCE" = "true" ]; then
+            FORCE_FLAG="--force"
+          else
+            FORCE_FLAG=""
+          fi
+          bundle exec fastlane run match \
+            type:"$MATCH_TYPE" \
+            readonly:false \
+            app_identifier:"$APP_BUNDLE_ID" \
+            $FORCE_FLAG
