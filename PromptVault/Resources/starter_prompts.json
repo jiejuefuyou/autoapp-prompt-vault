@@ -742,5 +742,263 @@
       "PR",
       "Coding-Agent"
     ]
+  },
+  {
+    "title": "AI 学习路径生成（30 天计划）",
+    "body": "我想 30 天内入门 {{topic}}（当前水平 {{current_level}}）。每天 {{hours_per_day}} 小时。\n\n输出：\n- 每周一个里程碑（4 个里程碑）\n- 每天具体任务（任务名 + 时长 + 资源链接 if 公开）\n- 第 7/14/21/30 天的自检测验（≤ 5 题）\n- 容易卡住的 3 个点 + 卡住时怎么求助\n\n避免：列大堆视频让我看；要给可执行的小任务。",
+    "tags": [
+      "学习",
+      "AI助手",
+      "效率"
+    ]
+  },
+  {
+    "title": "Feynman 笔记法 LLM 版",
+    "body": "我学了 {{topic}}。请扮演 12 岁的人，对我用大白话讲这个主题的尝试提问。每轮 1 个问题，等我答完再下一题。\n\n规则：\n- 不要赞美我的回答；直击没讲清楚的点\n- 我说\"过\"才进入下一题\n- 每 3 题给我一次「你哪里讲不清」的反馈\n- 8 题后总结我哪些理解还有缺口",
+    "tags": [
+      "学习",
+      "Feynman",
+      "AI助手"
+    ]
+  },
+  {
+    "title": "知识点 → mermaid 图",
+    "body": "把下面的知识点 / 概念关系，输出为 mermaid 图（flowchart 或 mindmap，自选合适的）。要求：\n- 节点名简洁（≤ 6 字）\n- 每条边带 label 说明关系\n- 复杂层级用 subgraph 分组\n- 末尾给 1 句话总结这张图想表达的核心\n\n知识点：{{points}}",
+    "tags": [
+      "学习",
+      "可视化",
+      "笔记"
+    ]
+  },
+  {
+    "title": "自媒体选题挖掘 prompt",
+    "body": "我要做 {{niche}} 方向的自媒体，平台 {{platform}}。基于：\n- 当前热点 {{trending}}\n- 我的差异化优势 {{my_edge}}\n\n生成 20 个潜在选题，每个：\n- 标题（≤ 18 字）\n- 钩子（一句话承诺读者能 take away 什么）\n- 工作量预估（轻 / 中 / 重）\n- 同质化风险（已有多少同类内容）\n\n按「钩子强度 - 工作量 - 同质化风险」综合分排序。",
+    "tags": [
+      "自媒体",
+      "选题",
+      "Marketing"
+    ]
+  },
+  {
+    "title": "短视频脚本 Hook 测试",
+    "body": "为这个内容生成 5 种不同的开场 hook（前 3 秒），目标：滑到的人忍不住停下。\n\n内容主题：{{theme}}\n受众：{{audience}}\n\n5 种 hook 风格：\n1. 反常识陈述\n2. 具体数字 + 对比\n3. 第一人称糟糕经历\n4. 直接挑战观众认知\n5. 神秘感（讲一半留悬念）\n\n每个 hook ≤ 20 字。",
+    "tags": [
+      "短视频",
+      "Marketing",
+      "Writing"
+    ]
+  },
+  {
+    "title": "公众号长文结构 outline",
+    "body": "为下面的素材组织成一篇 2000-3000 字的公众号长文：\n\n素材：{{material}}\n核心论点：{{core_argument}}\n\n输出 outline：\n- 标题（≤ 25 字，避开关键词堆砌）\n- 开篇钩子 100 字\n- 正文 4-5 个段落（每段 1 个分论点 + 1 个具体例证）\n- 结尾 80 字（call to think，不是 call to action）\n- 末尾 3 个备选标题（不同角度）\n",
+    "tags": [
+      "公众号",
+      "Writing",
+      "Marketing"
+    ]
+  },
+  {
+    "title": "代码迁移 prompt（语言 / 框架）",
+    "body": "把这段 {{from_lang}} 代码迁移到 {{to_lang}}。\n\n```\n{{code}}\n```\n\n要求：\n1. 保持语义等价；不重构\n2. 保留原注释（翻译成 {{to_lang}} 习惯用法）\n3. 标准库 / 第三方库映射用 {{to_lang}} 生态主流的（不要冷门）\n4. 边界情况：原代码没显式处理的，新代码也别加（保持等价）\n5. 末尾列出 3 个值得人类 review 的语义微妙点",
+    "tags": [
+      "编程",
+      "迁移",
+      "Coding-Agent"
+    ]
+  },
+  {
+    "title": "API 设计 review",
+    "body": "Review 这个 API 设计草稿。重点关注：\n\n1. RESTful 一致性（资源命名、HTTP 动词使用）\n2. 错误响应：4xx vs 5xx 划分对吗？错误体 schema 一致吗？\n3. 幂等性：哪些端点应该 idempotent，是否做到\n4. 分页：cursor-based 还是 offset？是否一致\n5. 版本管理（URL vs Header）\n6. 认证：哪些端点缺 auth？\n7. 返回字段 deprecation 策略\n\n设计：\n{{api_spec}}",
+    "tags": [
+      "API",
+      "Code Review",
+      "Coding-Agent"
+    ]
+  },
+  {
+    "title": "数据库 schema 演进 prompt",
+    "body": "我有这个 {{db_dialect}} schema：\n```\n{{current_schema}}\n```\n\n需要支持新需求：{{requirement}}\n\n输出：\n1. 推荐 schema 改动（DDL）\n2. 数据迁移 SQL（生产安全的：分批、index 先建后删等）\n3. 是否需要 application code 改动同步\n4. 回滚方案\n5. 性能影响估计（哪些 query 变慢/变快）\n6. 建议的索引",
+    "tags": [
+      "数据库",
+      "SQL",
+      "Coding-Agent"
+    ]
+  },
+  {
+    "title": "性能瓶颈定位 prompt",
+    "body": "下面是性能 profile / log 输出：\n\n```\n{{profile}}\n```\n\n应用类型：{{app_type}}（web/CLI/iOS/...）\n问题症状：{{symptom}}\n\n分析：\n1. 最可疑的 3 个瓶颈（按概率排序）\n2. 每个瓶颈：怎么进一步验证？怎么修？\n3. 不要的：CPU 100% 这种总览描述；要具体函数 / SQL / 网络调用\n4. 末尾：低 risk 的 quick win 1 个 + 高 leverage 但需要重写的 1 个",
+    "tags": [
+      "性能",
+      "Debug",
+      "Coding-Agent"
+    ]
+  },
+  {
+    "title": "商业模式画布快速填",
+    "body": "为「{{idea_one_liner}}」填 Business Model Canvas 9 格：\n\n1. Customer Segments\n2. Value Propositions\n3. Channels\n4. Customer Relationships\n5. Revenue Streams\n6. Key Resources\n7. Key Activities\n8. Key Partnerships\n9. Cost Structure\n\n每格 ≤ 50 字。空着的格子直接说\"未确定\"，不要硬填。\n末尾：1 句话指出哪一格是这个 idea 的最大风险。",
+    "tags": [
+      "创业",
+      "决策",
+      "商业模式"
+    ]
+  },
+  {
+    "title": "AI 分析竞品",
+    "body": "竞品：{{competitor}}\n我的产品：{{my_product}}\n相似维度：{{similarity}}\n差异维度：{{differentiator}}\n\n分析：\n1. 它的核心增长引擎是什么（推荐 / SEO / 销售 / 网络效应）\n2. 它最强的 3 个能力 + 最弱的 3 个\n3. 我可以「正面打」的点 vs 必须绕开的点\n4. 它最近 6 个月的动作（公开信息）\n5. 我应该模仿 / 参考 / 远离的具体做法各 2 条",
+    "tags": [
+      "竞品分析",
+      "调研",
+      "决策"
+    ]
+  },
+  {
+    "title": "用户访谈半结构化模板",
+    "body": "为 {{product_or_idea}} 设计用户访谈剧本。半结构化（≤ 30 分钟）。\n\n输出：\n- 暖场 3 分钟：让对方放松的开场（与产品无关）\n- 背景挖掘 5 分钟：他在 {{problem_space}} 里现有的工作流是怎样的\n- 核心 15 分钟：3-4 个开放问题，每个有 follow-up 提示\n- 反向问 5 分钟：让对方教我没想到的\n- 收尾 2 分钟\n\n问题原则：用 \"上次你 X 是什么时候？讲讲那次\" 而不是 \"你会 X 吗？\"",
+    "tags": [
+      "用户研究",
+      "调研",
+      "决策"
+    ]
+  },
+  {
+    "title": "AI 帮我做菜单（按冰箱）",
+    "body": "我冰箱有：{{ingredients}}\n餐厅倾向：{{cuisine}}\n几个人吃：{{servings}}\n做菜时间预算：{{minutes}} 分钟\n\n推荐 3 个菜，按「时间 - 难度 - 营养」综合排。每个：\n- 菜名\n- 缺哪些原料需要买（如果要买的话）\n- 总耗时（含洗切）\n- 关键步骤（≤ 5 步）\n- 替代方案（如果某个原料没有）",
+    "tags": [
+      "生活",
+      "美食"
+    ]
+  },
+  {
+    "title": "AI 旅行规划器",
+    "body": "目的地：{{destination}}\n时间：{{date}} 起 {{days}} 天\n预算：{{budget}}\n人数：{{travelers}}\n偏好：{{preferences}}（自然/美食/历史/购物 等）\n\n规划：\n1. Day-by-day 行程（每天 3-4 活动 + 餐 + 交通）\n2. 必订（机票 / 关键景点门票 / 热门餐厅）\n3. 不要去（坑 / 已经过气 / 性价比低）\n4. 当地特别提示（不为人知的小经验）\n5. 应急联系（领事馆 / 翻译 app）\n\n避免：千篇一律的「打卡景点」清单。",
+    "tags": [
+      "生活",
+      "旅行"
+    ]
+  },
+  {
+    "title": "AI 健身计划生成",
+    "body": "目标：{{goal}}（增肌 / 减脂 / 塑形 / 维持）\n现状：身高 {{height}} 体重 {{weight}} 体脂 {{bf_pct}}\n训练经验：{{experience}}\n频率：每周 {{days_per_week}} 天，每次 {{minutes}} 分钟\n场地：{{location}}（家 / 健身房 / 户外）\n限制：{{limitations}}（伤病 / 设备）\n\n输出：\n- 4 周渐进计划（每周 split）\n- 每个训练日的 4-6 个动作 + 组数 + 次数\n- 渐进过载怎么调（每 2 周）\n- 配套饮食建议（不细节，给方向 + 蛋白质 / 总热量目标）\n- 红色警告（什么征兆要立刻停）",
+    "tags": [
+      "生活",
+      "健身"
+    ]
+  },
+  {
+    "title": "合同条款风险排查 prompt",
+    "body": "下面是合同条款。我是 {{my_role}}（甲方/乙方/作者/被授权方等）。\n\n审查重点：\n1. 单方面对我不利的条款（标黄）\n2. 模糊措辞（容易扯皮的）\n3. 缺失保护我的条款（应有但没写）\n4. 过度宽泛的责任 / 赔偿 / 知识产权归属\n5. 终止条款的对称性\n\n要求：每条标出原文位置 + 风险描述 + 修改建议。不要给一般性\"建议找律师\"的废话。\n\n合同：\n{{contract}}",
+    "tags": [
+      "法律",
+      "合同",
+      "决策"
+    ]
+  },
+  {
+    "title": "App 隐私政策 + 用户协议生成",
+    "body": "为 {{app_name}}（{{app_type}}）生成隐私政策 + 用户协议。\n\n核心信息：\n- 收集数据类型：{{data_collected}}\n- 是否使用第三方 SDK：{{sdks}}\n- 用户权限请求：{{permissions}}\n- 法律辖区：{{jurisdictions}}\n- 是否面向 13 岁以下：{{coppa}}\n\n要求：\n- 中英双语对照\n- 符合 GDPR / CCPA / 中国个保法\n- 普通用户能读懂（不要纯法律语言）\n- 标明 last updated 日期变量\n- 给出联系方式占位符",
+    "tags": [
+      "法律",
+      "隐私",
+      "合规"
+    ]
+  },
+  {
+    "title": "App Store description 重写（按转化）",
+    "body": "原描述：\n{{original_description}}\n\n重写优化转化率：\n- 第一行必须是用户能秒懂的场景钩子\n- 「为什么这个 App 不一样」放第二段\n- bullet 列功能（≤ 6 条，每条 ≤ 12 字，开头是动词）\n- 末尾突出价格 + 隐私 + 一次性买断（如适用）\n- 总字数 ≤ 1500\n- 不要 \"is the best\"\"revolutionary\" 这种词；要具体的差异化",
+    "tags": [
+      "ASO",
+      "App Store",
+      "Marketing"
+    ]
+  },
+  {
+    "title": "AppStoreConnect 提审说明（review notes）",
+    "body": "为 {{app_name}} 写 App Review notes（提审时给 reviewer 看的）。\n\n核心信息：\n- App 类型：{{type}}\n- 是否需登录：{{login_needed}}\n- IAP 列表：{{iap_list}}\n- 隐私 posture：{{privacy_stance}}\n- 是否完全离线：{{offline}}\n\n格式：\n1. 一段 elevator pitch（reviewer 30 秒看完知道这 App 干嘛）\n2. demo credentials（如需）或 \"无需登录\"\n3. IAP 测试说明（怎么触发 paywall 验证流程）\n4. 任何可能引发审核员困惑的 design choice 提前解释\n\n语气：合作而非对抗。",
+    "tags": [
+      "ASO",
+      "App Store",
+      "提审"
+    ]
+  },
+  {
+    "title": "AI 校对（找问题不改风格）",
+    "body": "校对下面文本。只标出问题，不改风格：\n\n要求：\n1. 错别字 / 标点 / 语法（明确性问题）\n2. 事实性可疑点（标注「需核实」）\n3. 自相矛盾的地方\n4. 引用 / 数字格式不统一\n5. 不要改动作者的口吻、词汇偏好、句长选择\n\n输出格式：\n- 行号 + 原文片段 + 问题分类 + 建议（如有显然修改）\n\n文本：\n{{text}}",
+    "tags": [
+      "写作",
+      "校对"
+    ]
+  },
+  {
+    "title": "AI 改写为「读起来不累」版",
+    "body": "下面这段文字读起来很累（长句、术语多、抽象）。改写让它顺畅但保留信息密度：\n\n规则：\n- 长句拆短\n- 抽象词换具象例子\n- 主动语态优先\n- 删冗余转折词（\"然而\"\"因此\"\"事实上\"）\n- 不要简化掉关键技术术语\n- 段落保持原结构\n\n原文：\n{{text}}",
+    "tags": [
+      "写作",
+      "Editing"
+    ]
+  },
+  {
+    "title": "AI 把照片转成可发圈的文案",
+    "body": "我刚拍了 {{photo_subject}}（{{location}}, {{date}}）。生成 3 个版本朋友圈文案：\n\n1. 简洁文艺型（≤ 20 字）\n2. 自嘲幽默型（≤ 30 字）\n3. 引发共鸣型（≤ 50 字 + 一个开放性问题）\n\n避免：「岁月静好」「人间值得」这类被用烂的词。",
+    "tags": [
+      "生活",
+      "Writing",
+      "Marketing"
+    ]
+  },
+  {
+    "title": "AI 起读书笔记（带行动项）",
+    "body": "我刚读完 {{book_title}}（{{author}}）。整理读书笔记：\n\n1. 一句话核心论点\n2. 3 个最反常识的观点（带页码 if 知道）\n3. 我可以应用到 {{my_context}} 的 3 个具体动作\n4. 我不同意 / 觉得过时的 1-2 处\n5. 推荐继续读什么书（同主题深入 / 反方观点）\n\n输入笔记原文：\n{{my_notes}}",
+    "tags": [
+      "学习",
+      "读书"
+    ]
+  },
+  {
+    "title": "AI 帮我写求职信（cover letter）",
+    "body": "公司：{{company}}\n岗位：{{position}}\n岗位 JD：{{jd}}\n我的背景：{{my_background}}\n\n写求职信：\n- 第一段：为什么是这家公司（基于公开信息，不空洞）\n- 第二段：我的 1 个最相关经历 + 量化结果\n- 第三段：我能解决他们最近遇到的 X 问题（基于公开信息推测）\n- 末段：specific 接下来一步\n\n约束：\n- ≤ 250 字\n- 不写 \"hardworking\" \"team player\" 这种空话\n- 不抄 JD 原文",
+    "tags": [
+      "求职",
+      "Writing"
+    ]
+  },
+  {
+    "title": "AI 给我做选择（用启发式）",
+    "body": "我面前两条路：\nA: {{option_a}}\nB: {{option_b}}\n\n用这些启发式分析：\n1. **10/10/10 法则**：10 分钟后 / 10 个月后 / 10 年后我会怎么看？\n2. **可逆性**：哪个选错可逆 / 不可逆？\n3. **机会成本**：选 A 时 B 还能晚点选吗？反之？\n4. **后悔最小化**：哪个选错我会更后悔？\n5. **能量场**：哪个让我兴奋（不是\"应该做\"的责任感）\n\n末尾给一句话推荐 + 一句话反对该推荐的最强反驳。",
+    "tags": [
+      "决策",
+      "AI助手"
+    ]
+  },
+  {
+    "title": "AI 解读图表 / 数据",
+    "body": "下面是数据 / 图表描述：\n\n{{data}}\n\n分析：\n1. 三个最显著的 trend\n2. 三个反常 / outlier 数据点 + 可能原因\n3. 哪些断言能从数据直接推出 vs 哪些需要更多数据\n4. 一个值得继续追问的子问题\n5. 容易误读的地方（warning）",
+    "tags": [
+      "数据",
+      "调研"
+    ]
+  },
+  {
+    "title": "Excel 公式 / 函数生成",
+    "body": "数据描述：{{data_shape}}\n要做的事：{{task}}\n\n生成：\n1. 推荐函数（{{platform}}: Excel / Google Sheets / Numbers）\n2. 一个具体公式示例（用 A1 / B2 等占位）\n3. 公式逐部分解释\n4. 边界情况（空值 / 错误值 / 重复值）怎么处理\n5. 替代写法（如果有更现代的：FILTER / LET / LAMBDA）\n",
+    "tags": [
+      "Excel",
+      "数据"
+    ]
+  },
+  {
+    "title": "AI 写日语商务邮件",
+    "body": "状況：{{situation}}\n相手：{{recipient}}（取引先 / 上司 / お客様）\n達成したいこと：{{goal}}\n\n要件：\n- 適切な敬語レベル（{{level}}：丁寧/尊敬/謙譲）\n- 200 字以内\n- 件名 + 本文 + 結びの挨拶\n- 「お世話になっております」は最初の１行のみ\n\n避ける：曖昧表現が「Yes/No」を判断できない場合は質問する形に。",
+    "tags": [
+      "日语",
+      "邮件"
+    ]
+  },
+  {
+    "title": "AI 翻译保留语气（non-literal）",
+    "body": "翻译这段 {{source_lang}} → {{target_lang}}。\n\n要求：\n- 不要逐字翻译；译出原文的「感觉」\n- 习语 / 俚语用目标语言对应表达\n- 文化背景词保留原文 + 简短解释（如「年功序列 (seniority-based pay)」）\n- 语气强度匹配（讽刺仍讽刺、平静仍平静）\n- 末尾给 3 个翻译选择（保守 / 平衡 / 大胆）\n\n原文：\n{{text}}",
+    "tags": [
+      "翻译",
+      "AI助手"
+    ]
   }
 ]
