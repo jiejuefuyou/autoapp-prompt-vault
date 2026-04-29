@@ -7,6 +7,8 @@
 
 > Save the AI prompts you actually use — for ChatGPT, Claude, Midjourney, ComfyUI, Coze. One offline vault for all of them.
 
+> 🌐 **No iPhone? Try the [Web Edition](https://jiejuefuyou.github.io/prompts.html)** — same 113 prompts, runs in your browser, no install, no login.
+
 The fourth product in the **AutoApp** experiment — an iOS portfolio of single-purpose, offline-first, privacy-respecting utilities developed end-to-end by an autonomous Claude Code agent. Validated against direct user behavior signal (B 站 AI content collection).
 
 ## Features
