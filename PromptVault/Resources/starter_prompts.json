@@ -2,151 +2,510 @@
   {
     "title": "Translate to natural English",
     "body": "Translate the following text into natural, conversational English. Preserve technical terms; rewrite anything that would sound awkward to a native speaker.\n\n{{text}}",
-    "tags": ["翻译", "Translation", "ChatGPT"]
+    "tags": [
+      "翻译",
+      "Translation",
+      "ChatGPT"
+    ]
   },
   {
     "title": "翻译成简体中文",
     "body": "把下面的内容翻译成简体中文。要求：自然口语化，保留专业术语，不要逐字直译。\n\n{{text}}",
-    "tags": ["翻译", "Translation"]
+    "tags": [
+      "翻译",
+      "Translation"
+    ]
   },
   {
     "title": "Summarize a long article in 5 bullets",
     "body": "Summarize the following article in 5 bullet points, then 1 takeaway sentence at the end.\n\n{{article}}",
-    "tags": ["总结", "Summarize"]
+    "tags": [
+      "总结",
+      "Summarize"
+    ]
   },
   {
     "title": "Explain code in plain English",
     "body": "Explain what this code does, line by line, in plain English a junior engineer would understand. Then list any subtle bugs or edge cases you notice.\n\n```\n{{code}}\n```",
-    "tags": ["编程", "Coding", "Cursor"]
+    "tags": [
+      "编程",
+      "Coding",
+      "Cursor"
+    ]
   },
   {
     "title": "Refactor for readability",
     "body": "Refactor this code for readability. Keep behavior identical. Prefer named functions over comments. Output only the refactored code; explain only the non-obvious choices in 1-2 lines after.\n\n```\n{{code}}\n```",
-    "tags": ["编程", "Coding", "Cursor", "Claude Code"]
+    "tags": [
+      "编程",
+      "Coding",
+      "Cursor",
+      "Claude Code"
+    ]
   },
   {
     "title": "Write a unit test for this function",
     "body": "Write a unit test for the following function in {{language}}. Cover the happy path + 2 edge cases + 1 error case. Use the project's existing test framework.\n\n```\n{{function}}\n```",
-    "tags": ["编程", "Coding", "Testing"]
+    "tags": [
+      "编程",
+      "Coding",
+      "Testing"
+    ]
   },
   {
     "title": "Code review like a senior",
     "body": "Review the following code change as a senior {{language}} engineer would. Focus on: correctness, performance, error handling, naming, and any non-obvious concurrency / race-condition risks. Be terse — only flag what matters.\n\n```\n{{diff}}\n```",
-    "tags": ["编程", "Coding", "Code Review"]
+    "tags": [
+      "编程",
+      "Coding",
+      "Code Review"
+    ]
   },
   {
     "title": "AI 绘画提示词（中文 → SD/Midjourney）",
     "body": "把下面这段中文描述转换成英文 Stable Diffusion / Midjourney 提示词。要求：用逗号分隔、加权重 (word:1.2)、加质量词、按主体 / 场景 / 风格 / 光影 / 镜头 / 质量 顺序排列。\n\n描述：{{description}}\n风格倾向：{{style}}",
-    "tags": ["AI绘画", "Image-Gen", "Midjourney", "SD"]
+    "tags": [
+      "AI绘画",
+      "Image-Gen",
+      "Midjourney",
+      "SD"
+    ]
   },
   {
     "title": "ComfyUI workflow troubleshoot",
     "body": "I'm running this ComfyUI workflow and getting {{error}}. Walk me through diagnosing the cause: which node usually outputs that error, what input dimensions might be off, and what conditioning / sampler settings to check.",
-    "tags": ["AI绘画", "ComfyUI", "Image-Gen"]
+    "tags": [
+      "AI绘画",
+      "ComfyUI",
+      "Image-Gen"
+    ]
   },
   {
     "title": "拍摄文案 → 短视频脚本",
     "body": "根据下面的拍摄文案，输出一个 60 秒短视频脚本，含：开头钩子（3 秒）、3 个分镜（每个 ≤ 15 秒）、结尾引导互动。语气：{{tone}}\n\n文案：{{copy}}",
-    "tags": ["短视频", "Script", "AI视频"]
+    "tags": [
+      "短视频",
+      "Script",
+      "AI视频"
+    ]
   },
   {
     "title": "DeepSeek / Claude 系统提示词模板",
     "body": "你是一个 {{role}}。回答时遵循：\n1. 先给结论，再讲过程\n2. 不写废话过渡句\n3. 引用代码 / 数据 / 文献时给出可验证来源\n4. 不确定时直接说\"我不确定\"，不要编造\n\n用户问题：{{question}}",
-    "tags": ["LLM", "System Prompt", "DeepSeek", "Claude"]
+    "tags": [
+      "LLM",
+      "System Prompt",
+      "DeepSeek",
+      "Claude"
+    ]
   },
   {
     "title": "邮件起草（专业语气）",
     "body": "Draft an email to {{recipient}} about {{topic}}. Tone: professional but warm. Constraints: ≤ 150 words, single CTA, no jargon, no thank-you-in-advance.",
-    "tags": ["邮件", "Email", "Writing"]
+    "tags": [
+      "邮件",
+      "Email",
+      "Writing"
+    ]
   },
   {
     "title": "邮件起草（中文商务）",
     "body": "起草一封中文商务邮件给{{对象}}，主题{{话题}}。要求：正式但不生硬，控制在 200 字内，只有一个明确请求，不要客套话堆砌。",
-    "tags": ["邮件", "Email", "Writing"]
+    "tags": [
+      "邮件",
+      "Email",
+      "Writing"
+    ]
   },
   {
     "title": "Brainstorm 10 angles",
     "body": "Generate 10 distinct angles or hooks for the following topic, each in one sentence. Optimize for novelty — skip the obvious takes.\n\nTopic: {{topic}}\nAudience: {{audience}}",
-    "tags": ["创意", "Brainstorm", "Writing"]
+    "tags": [
+      "创意",
+      "Brainstorm",
+      "Writing"
+    ]
   },
   {
     "title": "Job description → resume bullets",
     "body": "Match my background to this job description. Output 5 resume bullets that prove fit, each starting with an action verb and ending with a quantified outcome.\n\nJob:\n{{jd}}\n\nMy background:\n{{background}}",
-    "tags": ["求职", "Resume", "Career"]
+    "tags": [
+      "求职",
+      "Resume",
+      "Career"
+    ]
   },
   {
     "title": "面试官提问准备",
     "body": "我下周面试 {{position}} 岗位。基于这份 JD（下方），列 10 道最可能问的技术 + 行为题，每题给一个简短答题骨架（不要展开）。\n\nJD：{{jd}}",
-    "tags": ["求职", "面试", "Career"]
+    "tags": [
+      "求职",
+      "面试",
+      "Career"
+    ]
   },
   {
     "title": "Daily standup helper",
     "body": "Turn my notes into a 3-line standup: yesterday / today / blockers. Trim filler. If a blocker has no owner, suggest one.\n\n{{notes}}",
-    "tags": ["效率", "Productivity", "Work"]
+    "tags": [
+      "效率",
+      "Productivity",
+      "Work"
+    ]
   },
   {
     "title": "周报生成（基于 git log）",
     "body": "下面是我这周的 git commit 记录。把它整理成 5 条人能看的中文周报项，每项形式：[做了什么] → [带来什么影响]。隐去 commit hash 和分支名。\n\n{{git_log}}",
-    "tags": ["效率", "周报", "Work"]
+    "tags": [
+      "效率",
+      "周报",
+      "Work"
+    ]
   },
   {
     "title": "OKR 拆解",
     "body": "基于这个 Objective，拆出 3-4 个有数字、有时间、可验证的 Key Results。每个 KR 用「By [date], [metric] from X to Y」格式。\n\nObjective: {{objective}}",
-    "tags": ["效率", "OKR", "Work"]
+    "tags": [
+      "效率",
+      "OKR",
+      "Work"
+    ]
   },
   {
     "title": "决策框架（Pros/Cons + 推荐）",
     "body": "我面前有这两个选择，帮我做结构化对比 + 给推荐：\n\n选择 A：{{option_a}}\n选择 B：{{option_b}}\n\n输出格式：\n1. 各 3 条最强 pro\n2. 各 2 条最强 con\n3. 一句话推荐 + 一句反对该推荐的最强反驳",
-    "tags": ["决策", "Decision", "Productivity"]
+    "tags": [
+      "决策",
+      "Decision",
+      "Productivity"
+    ]
   },
   {
     "title": "ELI5 — explain like I'm 5",
     "body": "Explain {{concept}} like I'm 5 years old. Use one analogy from everyday life. No jargon.",
-    "tags": ["学习", "Learning"]
+    "tags": [
+      "学习",
+      "Learning"
+    ]
   },
   {
     "title": "Feynman 学习法",
     "body": "我刚学了 {{topic}}。请扮演一个完全不懂这个主题的人，用质疑式提问帮我找出我哪里没真懂。每轮一个问题，等我答完再问下一个。",
-    "tags": ["学习", "Feynman"]
+    "tags": [
+      "学习",
+      "Feynman"
+    ]
   },
   {
     "title": "PDF / 长文 chunked 总结",
     "body": "下面这段文档很长。请按主题分块总结，每块给：标题 + 3-5 句要点 + 1 句 \"为什么这块重要\"。如果检测到结构性错误（比如自相矛盾、逻辑断裂），单独标记。\n\n{{document}}",
-    "tags": ["总结", "Summarize", "Reading"]
+    "tags": [
+      "总结",
+      "Summarize",
+      "Reading"
+    ]
   },
   {
     "title": "对比同类产品",
     "body": "对比 {{product_a}} 和 {{product_b}}：\n1. 各自最强差异化（一句话）\n2. 价格 / 订阅模型对比\n3. 谁更适合 {{use_case}}\n\n来源最近半年内的公开信息；不确定的地方明确标注。",
-    "tags": ["调研", "Research"]
+    "tags": [
+      "调研",
+      "Research"
+    ]
   },
   {
     "title": "App Store description 优化",
     "body": "下面是一段 App Store 描述。优化它：保留原意，但提高 conversion-readability — 第一句必须是一个具体场景钩子，bullet 不超过 6 条，每条 ≤ 12 字。\n\n{{description}}",
-    "tags": ["ASO", "App Store", "Marketing"]
+    "tags": [
+      "ASO",
+      "App Store",
+      "Marketing"
+    ]
   },
   {
     "title": "ASO keyword research",
     "body": "Suggest 10 App Store keywords for an app that does {{description}}. Each keyword should be: ≤ 12 chars, low competition, descriptive (not branded). Sort by estimated search volume desc.",
-    "tags": ["ASO", "App Store"]
+    "tags": [
+      "ASO",
+      "App Store"
+    ]
   },
   {
     "title": "Reddit Show & Tell post",
     "body": "Draft a Reddit /r/{{subreddit}} \"Show & Tell\" post for my project: {{project}}.\n\nConstraints:\n- Title ≤ 70 chars, no clickbait, no emoji\n- Body: lead with the constraint or non-obvious choice, not features\n- End with one specific question to invite comments\n- No links until paragraph 3",
-    "tags": ["Marketing", "Reddit", "Launch"]
+    "tags": [
+      "Marketing",
+      "Reddit",
+      "Launch"
+    ]
   },
   {
     "title": "Twitter/X thread builder",
     "body": "Turn this rough draft into a 6-tweet thread:\n- Tweet 1: hook in ≤ 80 chars\n- Tweets 2-5: one specific point each, all under 240 chars\n- Tweet 6: links + soft CTA\n- No emoji, no thread emojis (1/, 2/), no \"buckle up\"\n\nDraft: {{draft}}",
-    "tags": ["Marketing", "Twitter", "Writing"]
+    "tags": [
+      "Marketing",
+      "Twitter",
+      "Writing"
+    ]
   },
   {
     "title": "Product Hunt 文案",
     "body": "我准备把 {{product}} 上 Product Hunt。生成：\n1. Tagline（≤ 60 字符）\n2. 一段 Description（≤ 260 字）\n3. 第一条 Maker comment 的草稿（强调约束 / 非显性设计选择，不要列功能）",
-    "tags": ["Marketing", "Product Hunt", "Launch"]
+    "tags": [
+      "Marketing",
+      "Product Hunt",
+      "Launch"
+    ]
   },
   {
     "title": "Coze / Dify 智能体 prompt 骨架",
     "body": "我要在 {{platform}} 搭一个 {{role}} 智能体。给我一个高质量 system prompt 起手：\n- 角色定义（≤ 100 字）\n- 能力边界（明确说不做什么）\n- 输出格式约束（JSON / Markdown / 自然语言）\n- 失败/不确定时的兜底\n- 一段示例 input → output 演示",
-    "tags": ["Agent", "Coze", "Dify", "智能体"]
+    "tags": [
+      "Agent",
+      "Coze",
+      "Dify",
+      "智能体"
+    ]
+  },
+  {
+    "title": "Claude Code 项目根 system prompt",
+    "body": "You are working in this repository as a senior {{language}} engineer. Conventions:\n- Prefer editing existing files over creating new ones\n- Match the codebase's existing style; don't introduce a new framework\n- Run the project's tests after changes — the test command is `{{test_cmd}}`\n- Before each edit, read the file to understand the surrounding context\n- Don't write throwaway comments; only WHY-comments\n\nWhen given a task, plan briefly, then execute. State assumptions out loud only if non-obvious.",
+    "tags": [
+      "Claude Code",
+      "Coding-Agent",
+      "System Prompt"
+    ]
+  },
+  {
+    "title": "Claude Code 修 bug 输入模板",
+    "body": "Bug 描述: {{bug}}\n复现路径: {{repro}}\n相关文件: {{files}}\n\n请先定位 root cause（不只补症状），再 propose 修复。修复后运行测试确认；如无测试，写一个最小回归测试。",
+    "tags": [
+      "Claude Code",
+      "Coding-Agent",
+      "Debug"
+    ]
+  },
+  {
+    "title": "Cursor / Claude Code 实施新功能",
+    "body": "实施需求：{{feature}}\n\n约束：\n- 不要为这一个功能搭新 abstraction，复用现有模式\n- 改动落到尽量少的文件\n- 边界情况写 unit test，不写集成测试\n- 不删/重命名公共 API（除非必要并明确说出 breaking change）",
+    "tags": [
+      "Claude Code",
+      "Cursor",
+      "Coding-Agent"
+    ]
+  },
+  {
+    "title": "Code review (senior peer)",
+    "body": "以资深 {{language}} 工程师视角 review 这段 diff。只 flag 真的影响：\n1. 正确性 / data race / 内存安全\n2. 性能（O(n^2)+ 或不必要 IO）\n3. 名字误导 / 失效注释\n4. 测试缺口（哪些路径未覆盖）\n忽略风格 / 格式（让 linter 处理）。\n\n```diff\n{{diff}}\n```",
+    "tags": [
+      "Coding-Agent",
+      "Code Review"
+    ]
+  },
+  {
+    "title": "Claude Code skill: changelog from git log",
+    "body": "下面是 git log 的 commit titles。整理成面向用户的 changelog（一段 2-3 行）：\n- 用户能感知的功能 / 修复在前\n- 内部重构、CI、依赖升级合并到末尾「Internal」段\n- 不暴露 commit hash / 内部分支名\n\n{{commit_log}}",
+    "tags": [
+      "Claude Code",
+      "Coding-Agent",
+      "Release"
+    ]
+  },
+  {
+    "title": "Cursor 项目记忆 .cursorrules",
+    "body": "为这个项目生成 .cursorrules 文件内容。基于：\n- 项目主语言：{{language}}\n- 技术栈：{{stack}}\n- 团队偏好：{{preferences}}\n\n格式：bullet 形式，每条一句话，能直接给 Cursor 读。包括：（a）测试命令；（b）该用 / 不该用哪些库；（c）命名约定；（d）需要保持的文件结构；（e）任何「先看 X 再做 Y」的硬流程。",
+    "tags": [
+      "Cursor",
+      "Coding-Agent"
+    ]
+  },
+  {
+    "title": "Gemini Antigravity 工作流模板",
+    "body": "我用 Gemini Antigravity / Gemini Code 在 {{task}} 任务上。请按这个 8 步走：\n1. 读完 {{relevant_files}} 三遍再写代码\n2. 列出你不确定的假设（≤ 5 条）\n3. 对照已有测试找参考写法\n4. 写代码\n5. 跑 {{test_cmd}}\n6. 失败 → 读完报错再改\n7. 通过 → 自检 diff 是否还有可删的\n8. 输出 1 句话总结",
+    "tags": [
+      "Gemini",
+      "Coding-Agent"
+    ]
+  },
+  {
+    "title": "Nano Banana 人物换装",
+    "body": "Take the person in image 1. Keep their face identity, body shape, and lighting unchanged. Change only the outfit to: {{outfit}}. The setting stays at {{location}}. Output a photorealistic image, full body, natural pose.",
+    "tags": [
+      "Nano Banana",
+      "Image-Gen",
+      "Gemini"
+    ]
+  },
+  {
+    "title": "Nano Banana 多图融合（背景换人）",
+    "body": "Image 1 is the subject. Image 2 is the new background. Place the subject from image 1 into image 2's environment. Match the lighting direction, color temperature, and depth-of-field of image 2. Subject's face / clothing must stay identical.",
+    "tags": [
+      "Nano Banana",
+      "Image-Gen",
+      "Gemini"
+    ]
+  },
+  {
+    "title": "Nano Banana 产品摄影",
+    "body": "Take the product in the image. Render it in a {{scene}} scene with {{lighting}} lighting. {{angle}} angle. Photorealistic, commercial-quality, no text overlay, no watermark. Match {{brand_style}} aesthetic.",
+    "tags": [
+      "Nano Banana",
+      "Image-Gen",
+      "产品摄影"
+    ]
+  },
+  {
+    "title": "ComfyUI 工作流复用 brief",
+    "body": "我有一个 ComfyUI workflow .json (附件)。请帮我：\n1. 概括这个 workflow 做什么（一句话）\n2. 列出关键节点链路（哪几个 sampler + KSampler 组合）\n3. 标出适合我替换的输入：prompt 文本 / 模型 / LoRA / 控制图\n4. 给一个「如果想做 {{variant}} 应该改哪几个节点」的 diff 建议",
+    "tags": [
+      "ComfyUI",
+      "Image-Gen"
+    ]
+  },
+  {
+    "title": "AI 出图反推 prompt（图→词）",
+    "body": "我提供一张图。请反推出 Stable Diffusion / Midjourney 风格的英文 prompt（含权重和质量词），让我用同一 prompt 生成相似风格的新图。同时输出：\n- 主体描述\n- 镜头语言（焦距、角度）\n- 风格标签（艺术家 / 流派）\n- 光影（time of day, lighting setup）\n- 色调",
+    "tags": [
+      "Image-Gen",
+      "Prompt Engineering",
+      "SD",
+      "Midjourney"
+    ]
+  },
+  {
+    "title": "Coze 智能体 system prompt 起手",
+    "body": "你是 {{name}}，定位是 {{role}}。\n\n核心能力：\n- {{capability_1}}\n- {{capability_2}}\n- {{capability_3}}\n\n硬约束（不可违反）：\n- 不回答非本主题的问题，礼貌引回\n- 输出格式 = {{format}}（JSON / Markdown / 自然语言）\n- 不确定时说「我不确定」，不要编造\n\n失败兜底：被问到能力外的请求，回复「这个我帮不到您，建议您 {{alternative}}」。",
+    "tags": [
+      "Coze",
+      "Agent",
+      "智能体",
+      "Dify"
+    ]
+  },
+  {
+    "title": "Dify 工作流 RAG agent prompt",
+    "body": "你正在 RAG 模式下。检索结果在 {{context}} 里。\n\n规则：\n1. 答案必须直接源于检索片段；不引用 = 不知道\n2. 每条断言后用 [片段编号] 标注来源\n3. 检索结果矛盾时优先时间最新的，并明示矛盾\n4. 检索片段不足以回答时直接说「知识库中无此信息」，不要补脑\n\n用户问题：{{question}}",
+    "tags": [
+      "Dify",
+      "Agent",
+      "RAG"
+    ]
+  },
+  {
+    "title": "n8n + LLM 自动化提示词",
+    "body": "在 n8n workflow 中，我从 {{trigger}} 拿到原始数据 {{input_shape}}，需要 LLM 输出严格 JSON 形式：\n\n{{json_schema}}\n\n要求：\n- 只返回 JSON，不要 markdown 代码块包裹\n- 数值字段不要带单位字符串\n- 缺失字段返回 null 而不是空字符串\n- 任何字段不确定都返回 null + 在 \"_uncertain\" 字段列出",
+    "tags": [
+      "n8n",
+      "Agent",
+      "Automation"
+    ]
+  },
+  {
+    "title": "browser-use / Computer Use 任务模板",
+    "body": "Goal: {{goal}}\nStarting URL: {{url}}\nDone-when: {{done_condition}}\n\nConstraints:\n- Don't sign anything up; if signup wall, stop and report\n- Don't click ads even if look like content\n- After 5 failed actions, stop and dump current screenshot + DOM\n- Don't enter the user's payment info ever",
+    "tags": [
+      "browser-use",
+      "Computer Use",
+      "Agent"
+    ]
+  },
+  {
+    "title": "海螺 AI / Kling 视频脚本 prompt",
+    "body": "把这段文字转换成可输入海螺 AI / Kling 的视频生成 prompt。要求：\n1. 主体描述（人 / 物 / 场景）开头\n2. 动作（动词，具象）\n3. 镜头语言（推 / 拉 / 摇 / 移 / 跟）\n4. 时长 {{duration}} 秒，{{aspect_ratio}}\n5. 风格 {{style}}\n\n文字：{{text}}",
+    "tags": [
+      "AI视频",
+      "海螺AI",
+      "Kling",
+      "Video-Gen"
+    ]
+  },
+  {
+    "title": "Sora 2 短视频脚本（叙事型）",
+    "body": "为 Sora 2 写一个 {{duration}} 秒短视频脚本：\n\n主题：{{theme}}\n受众：{{audience}}\n\n输出格式：\n- 开场（≤ 2 秒）：一个让人停下滑动的钩子镜头\n- 主体（中段）：一个清晰动作 + 一个意外转折\n- 结尾（≤ 2 秒）：留白或反悬念\n\n避免：复杂多人交互（Sora 2 当前弱）、对话台词、文字 overlay。",
+    "tags": [
+      "Sora",
+      "AI视频",
+      "Video-Gen"
+    ]
+  },
+  {
+    "title": "LLM 面试题速答模板",
+    "body": "面试题：{{question}}\n\n答题骨架（按这个结构）：\n1. 一句话核心结论\n2. 关键概念定义（≤ 2 句话）\n3. 工程权衡 / 何时用何时不用\n4. 具体例子（如果有）\n5. 容易被追问的边界（提前 1 个）\n\n不要讲废话引言，直接进结论。",
+    "tags": [
+      "LLM",
+      "面试",
+      "学习"
+    ]
+  },
+  {
+    "title": "对比两个大模型（用户视角）",
+    "body": "对比 {{model_a}} 和 {{model_b}} 在 {{use_case}} 上：\n1. 哪个明显更强？引用最近半年公开 benchmark\n2. 价格 / 速度 / 上下文长度差异\n3. 哪些场景下 {{model_a}} 是 strict win？反之？\n4. 如果用户预算紧 / 不紧，分别推荐哪个\n\n来源不确定的明确说「我不确定」。",
+    "tags": [
+      "LLM",
+      "调研"
+    ]
+  },
+  {
+    "title": "本地部署大模型选型",
+    "body": "我有 {{gpu}} 显卡，{{vram}} GB 显存，{{ram}} GB 内存。要本地跑 {{purpose}} 任务。\n\n推荐：\n1. 模型选型（参数量 / 量化等级）\n2. 推理框架（llama.cpp / vLLM / Ollama / LM Studio 哪个适合）\n3. 量化版本（GGUF Q4_K_M? AWQ?）\n4. 上下文长度可达多少\n5. 一个具体可执行的 setup 命令链",
+    "tags": [
+      "LLM",
+      "本地部署",
+      "DeepSeek"
+    ]
+  },
+  {
+    "title": "AI 工具体验测评模板（小红书风）",
+    "body": "我刚试了 {{tool_name}}。请帮我把试用感受组织成一段适合发小红书 / 即刻的内容：\n- 开头一句钩子（让人想看下去）\n- 核心三个点：能做什么 / 哪里强 / 哪里坑\n- 结尾一句行动建议（值得 / 不值得 / 等谁修了 X 再用）\n\n粗体笔记：{{notes}}",
+    "tags": [
+      "AI工具",
+      "Marketing",
+      "小红书"
+    ]
+  },
+  {
+    "title": "AI 副业方向评估",
+    "body": "评估这个 AI 副业方向：{{direction}}\n\n维度：\n1. 工作量（每天需投入小时数）\n2. 启动成本（金钱 + 学习曲线）\n3. 6 个月内能做到的现实月收入区间\n4. 主要风险（平台规则 / AI 退步 / 同质化）\n5. 用户已具备 {{user_skill}} 时的杠杆点\n\n不要把它说得太美好；说真话。",
+    "tags": [
+      "AI副业",
+      "决策"
+    ]
+  },
+  {
+    "title": "AI 教程视频结构",
+    "body": "把这段 AI 教程内容组织成一个 5-8 分钟视频脚本：\n\n内容：{{content}}\n受众：{{audience}}\n\n结构：\n- 0-15s：钩子 + 「看完你能做到什么」一句话承诺\n- 15-60s：背景 / 为什么需要这个工具\n- 60s-3min：核心步骤 1（亲手 demo）\n- 3-5min：核心步骤 2 + 3\n- 末尾 15s：踩坑提醒 + 引导评论区互动\n\n避免冗长开场白。",
+    "tags": [
+      "AI教程",
+      "B站",
+      "小红书",
+      "Marketing"
+    ]
+  },
+  {
+    "title": "DeepSeek-R1 thinking 区块解读",
+    "body": "下面是 DeepSeek-R1 的 thinking 区块。请：\n1. 提取它真正的核心推理路径（≤ 5 步）\n2. 标出哪一步它纠正了自己（如果有）\n3. 对最终答案的置信度评估（高 / 中 / 低 + 一句理由）\n\n{{thinking_block}}",
+    "tags": [
+      "DeepSeek",
+      "LLM",
+      "推理"
+    ]
+  },
+  {
+    "title": "AI 整理碎片笔记",
+    "body": "下面是我的笔记原文（碎片散乱）。请按这个步骤整理：\n1. 先识别隐含的 2-4 个主题\n2. 把内容按主题归类\n3. 每个主题下：先要点（bullet），再补一句「为什么这块对我重要」\n4. 末尾加一节「开放问题」，列出我自己也没想清楚的 3 件事\n\n{{notes}}",
+    "tags": [
+      "效率",
+      "笔记",
+      "AI助手"
+    ]
+  },
+  {
+    "title": "AI 生成小红书爆款标题",
+    "body": "话题：{{topic}}\n受众：{{audience}}\n\n生成 10 个适合小红书的标题，要求：\n- ≤ 18 字\n- 含具体数字 / 对比 / 反常识 三选一\n- 不要带 emoji（封面已有）\n- 不要「赶紧收藏」这种过气句式\n- 末尾不要标点\n\n按预测点击率从高到低排。",
+    "tags": [
+      "小红书",
+      "Marketing",
+      "Writing"
+    ]
   }
 ]
