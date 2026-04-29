@@ -8,6 +8,11 @@ on:
       - "**/*.md"
       - "PRIVACY.md"
       - "fastlane/README.md"
+      - "fastlane/metadata/**"
+      - "fastlane/screenshots/**"
+      - ".github/ISSUE_TEMPLATE/**"
+      - ".github/PULL_REQUEST_TEMPLATE.md"
+      - "docs/**"
 
 concurrency:
   group: ci-${{ github.ref }}
