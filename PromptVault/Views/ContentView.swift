@@ -24,8 +24,6 @@ struct ContentView: View {
     }
 
     var body: some View {
-        @Bindable var bindableStore = store
-
         NavigationStack {
             Group {
                 if store.prompts.isEmpty {
@@ -37,7 +35,7 @@ struct ContentView: View {
                 } else {
                     List {
                         if !store.allTags.isEmpty {
-                            tagFilterRow(bindableStore: $bindableStore)
+                            tagFilterRow
                                 .listRowInsets(EdgeInsets())
                                 .listRowBackground(Color.clear)
                         }
@@ -103,15 +101,15 @@ struct ContentView: View {
     }
 
     @ViewBuilder
-    private func tagFilterRow(bindableStore: Binding<PromptStore>) -> some View {
+    private var tagFilterRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 pill(label: "All", selected: store.activeTagFilter == nil) {
-                    bindableStore.wrappedValue.activeTagFilter = nil
+                    store.activeTagFilter = nil
                 }
                 ForEach(store.allTags, id: \.self) { tag in
                     pill(label: tag, selected: store.activeTagFilter == tag) {
-                        bindableStore.wrappedValue.activeTagFilter =
+                        store.activeTagFilter =
                             (store.activeTagFilter == tag) ? nil : tag
                     }
                 }
