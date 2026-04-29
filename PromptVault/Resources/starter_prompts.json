@@ -507,5 +507,240 @@
       "Marketing",
       "Writing"
     ]
+  },
+  {
+    "title": "Midjourney 一致性人物模板",
+    "body": "Generate {{character_name}} consistent across multiple shots.\n\nReference: {{cref_url}} --cref --cw 100\nStyle reference: {{sref_url}} --sref\n\nScene: {{scene}}\nMood: {{mood}}\nAspect: --ar {{ar}}\nQuality: --v 6.1 --q 2 --style raw\n\nNegative: {{negative}} --no",
+    "tags": [
+      "Midjourney",
+      "Image-Gen",
+      "Character"
+    ]
+  },
+  {
+    "title": "SD WebUI / Forge 通用 prompt 结构",
+    "body": "(masterpiece:1.2), (best quality:1.2), (8k:1.1), {{subject}}, {{action}}, {{environment}}, (cinematic lighting:1.1), {{lens}}, {{color_palette}}, <lora:{{lora_name}}:0.8>\n\nNegative: lowres, bad anatomy, jpeg artifacts, watermark, text, signature, extra fingers, malformed hands, blurry",
+    "tags": [
+      "Stable Diffusion",
+      "Image-Gen",
+      "WebUI"
+    ]
+  },
+  {
+    "title": "AI 头像生成（社媒用）",
+    "body": "Generate a clean avatar for {{platform}} based on this brief:\n\nMood: {{mood}}\nStyle: {{style}}\nColor palette: {{colors}}\nSquare aspect (1:1)\nFace clearly visible\nTransparent or solid background — no busy patterns\nNo text overlay\nProfessional but personable",
+    "tags": [
+      "Image-Gen",
+      "头像",
+      "Marketing"
+    ]
+  },
+  {
+    "title": "AI 壁纸生成（手机锁屏）",
+    "body": "Mobile wallpaper, vertical 9:19.5 aspect, lock-screen safe.\n\nTheme: {{theme}}\nMood: {{mood}}\nDominant color: {{color}}\n\nAvoid:\n- Busy details in the top 1/3 (where lock-screen clock/notifications sit)\n- Extreme contrast that hurts notification readability\n- Text or logos\n- Recognizable celebrity faces (App Store rules)",
+    "tags": [
+      "Image-Gen",
+      "壁纸"
+    ]
+  },
+  {
+    "title": "ControlNet OpenPose 人物动作 prompt",
+    "body": "ControlNet OpenPose 输入：{{pose_ref}}\n\nMain prompt: {{character}} doing {{action}}, {{outfit}}, {{environment}}, photorealistic, full body, {{lighting}}\n\nControlNet weight: 0.85\nDenoising: 0.7\nGuidance: 7.5",
+    "tags": [
+      "ControlNet",
+      "Stable Diffusion",
+      "Image-Gen"
+    ]
+  },
+  {
+    "title": "可灵 Kling 1.6 视频 prompt（中文）",
+    "body": "镜头：{{shot_type}}（特写/中景/全景/俯视/航拍）\n主体：{{subject}}\n主体动作：{{action}}（具象动词，不要形容词堆砌）\n环境：{{environment}}\n光影：{{lighting}}\n时长：{{duration}}秒\n风格：{{style}}\n\n不要的：{{negative}}",
+    "tags": [
+      "可灵",
+      "Kling",
+      "AI视频",
+      "Video-Gen"
+    ]
+  },
+  {
+    "title": "即梦 4.0 视频脚本",
+    "body": "为即梦 4.0 写视频生成 prompt。\n\n场景：{{scene}}\n主体：{{subject}}\n关键动作：{{action}}\n时长：{{duration}}秒\n比例：{{aspect}}\n\n注意：\n- 即梦对中文 prompt 兼容更好，重要描述用中文\n- 多人场景容易出现穿模，避免\n- 复杂多动作分多段生成再剪",
+    "tags": [
+      "即梦",
+      "AI视频",
+      "Video-Gen"
+    ]
+  },
+  {
+    "title": "Veo 3 长 prompt（含同步音轨）",
+    "body": "VEO 3 prompt with synchronized audio cue:\n\nScene: {{scene}}\nVisual: {{visual_description}}\nMotion: {{camera_motion}}\nDialogue (single line, lip-synced): \"{{dialogue}}\"\nSFX: {{sfx_description}}\nAmbient: {{ambient}}\nDuration: 8s",
+    "tags": [
+      "Veo",
+      "AI视频",
+      "Video-Gen"
+    ]
+  },
+  {
+    "title": "MCP server 设计模板",
+    "body": "为 Claude Code / Cursor 设计 MCP server，封装 {{capability}}。\n\n需要给我输出：\n1. server 名字 + 一句话定位\n2. 暴露的 tool 列表（每个：name / description / inputSchema）\n3. 安全边界（哪些操作绝不暴露）\n4. 错误处理：API 失败时返回什么 shape\n5. 需要的环境变量 + 是否敏感（API key 类）\n6. 一个完整 example tool call 演示",
+    "tags": [
+      "MCP",
+      "Agent",
+      "Coding-Agent",
+      "Claude Code"
+    ]
+  },
+  {
+    "title": "FastGPT / MaxKB 知识库 prompt",
+    "body": "你是 {{topic}} 知识库。检索结果在下方。\n\n要求：\n1. 答案严格基于检索文档，不外推\n2. 每条断言后用 [文档名 §节号] 标注\n3. 检索为空 → 「该知识库暂无此信息」，建议用户问 {{fallback_topic}}\n4. 检索矛盾 → 列出矛盾项让用户自行判断\n5. 用户问的过于宽泛 → 反问聚焦再答\n\n检索文档：{{retrieved_chunks}}\n用户问题：{{question}}",
+    "tags": [
+      "FastGPT",
+      "MaxKB",
+      "RAG",
+      "Agent"
+    ]
+  },
+  {
+    "title": "MetaGPT 多 agent 协作 brief",
+    "body": "需求：{{requirement}}\n\n按 MetaGPT 的 SOP 流程拆解：\n1. ProductManager: 写 PRD（用户故事 + 验收标准）\n2. Architect: 出系统设计（关键模块 + 接口）\n3. ProjectManager: 拆任务（每任务 ≤ 1 人天）\n4. Engineer: 实施每任务（含测试）\n5. QA: 集成测试 + 回归\n\n每个角色输出一个 markdown 段落，不要超过 500 字。",
+    "tags": [
+      "MetaGPT",
+      "Agent",
+      "智能体",
+      "工程"
+    ]
+  },
+  {
+    "title": "Agent 失败模式诊断清单",
+    "body": "我的 {{agent_platform}} agent 在 {{task}} 上失败了：{{symptom}}\n\n按这 8 个常见失败模式排查：\n1. context window 溢出（input 太长）\n2. tool schema 错配（实际参数 vs 声明类型）\n3. 模型在 reasoning 时陷入 loop\n4. retrieval 召回错误片段\n5. system prompt 与 user prompt 矛盾\n6. token rate limit 触发但没正确 backoff\n7. 调用外部 API 时没处理 timeout\n8. JSON parsing 失败（模型输出含 markdown fence）\n\n按可能性排序给诊断思路。",
+    "tags": [
+      "Agent",
+      "Debug",
+      "智能体"
+    ]
+  },
+  {
+    "title": "Aider 单 commit 任务模板",
+    "body": "/add {{files}}\n\n任务：{{task}}\n\n约束：\n- 一个 logical change，对应一个 commit\n- commit message 用 conventional commits（feat/fix/refactor/test/docs/chore）\n- 不顺手清理无关代码（即使诱人）\n- 完成后跑 {{test_cmd}} 确认\n\n/run pytest -xvs",
+    "tags": [
+      "Aider",
+      "Coding-Agent"
+    ]
+  },
+  {
+    "title": "Continue.dev 项目 system prompt",
+    "body": "你是这个 {{language}} 项目的 pair programmer。\n\n上下文优先级（高 → 低）：\n1. .continueignore 之外的文件 + 当前打开 tab\n2. git diff（未提交改动）\n3. 同目录其他文件\n4. 项目 README\n\n回答风格：\n- 先 short summary\n- 后给完整代码块（标语言）\n- 最后一行：「需要我跑测试 / 解释这段 / 改某个细节吗？」",
+    "tags": [
+      "Continue.dev",
+      "Coding-Agent"
+    ]
+  },
+  {
+    "title": "Trae / Qoder 国产 IDE agent prompt",
+    "body": "你在 {{ide_name}} 中作为 AI 助手，主要服务中国大陆开发者。\n\n约束：\n- 默认中文回答；代码注释中文\n- 网络资源默认用国内镜像（npm 用 registry.npmmirror.com，pypi 用 pypi.tuna.tsinghua.edu.cn）\n- 涉及部署默认假设国内云（阿里云/腾讯云），除非用户明说海外\n- 不推荐已被国内屏蔽的服务（OpenAI / GitHub Codespaces 等），改推开源平替",
+    "tags": [
+      "Trae",
+      "Qoder",
+      "Coding-Agent",
+      "国产工具"
+    ]
+  },
+  {
+    "title": "AI 补全代码后的自我审查清单",
+    "body": "我刚让 AI 补完了一段 {{language}} 代码（如下）。在我合入前，按这清单 review：\n\n1. 是否引入新的依赖 / import？是否必要？\n2. 错误处理：边界情况覆盖？还是只有 happy path？\n3. 命名是否符合本项目风格？\n4. 性能：有 O(n^2)+ 或不必要 IO？\n5. 安全：用户输入是否未校验直接拼接？\n6. 测试：哪些路径还未覆盖？\n7. 注释：是否有 AI 生成的废话注释（说\"return value\"之类）？\n\n代码：\n```\n{{code}}\n```",
+    "tags": [
+      "Coding-Agent",
+      "Code Review",
+      "AI助手"
+    ]
+  },
+  {
+    "title": "AI 内容创作流水线设计",
+    "body": "我想做 {{niche}} 方向的 {{platform}} AI 内容账号。设计完整流水线：\n\n1. 选题：每周从哪取？（关键词 / 热搜 / 信息源 3 选 1）\n2. 撰稿：哪个 AI 写第一稿？{{writing_ai}}\n3. 配图：哪个 AI 出图？{{image_ai}}\n4. 校对：人工 + AI 双重\n5. 发布：每周几篇 / 哪个时间段\n6. 数据回收：3 周后总结点击率 / 涨粉 / 互动\n\n附：每个工具粗略时间成本和金钱成本。",
+    "tags": [
+      "AI副业",
+      "Marketing",
+      "内容创作"
+    ]
+  },
+  {
+    "title": "ChatGPT 销售文案写作（带场景）",
+    "body": "为 {{product}} 写销售文案：\n\n受众：{{audience_one_liner}}\n核心痛点：{{pain}}\n反差卖点（与竞品最大差异）：{{differentiator}}\n价格：{{price}}\n\n输出 3 个版本：\n1. 长版（300 字）适合官网\n2. 短版（80 字）适合朋友圈\n3. 一句话（≤ 20 字）适合标题/广告\n\n避免：「行业领先」「业内首创」「赋能」「闭环」「抓手」等管理黑话。",
+    "tags": [
+      "销售文案",
+      "Marketing",
+      "ChatGPT"
+    ]
+  },
+  {
+    "title": "AI 评测短文模板（小红书 / 即刻）",
+    "body": "评测对象：{{tool_name}}\n核心场景：{{use_case}}\n\n按这个结构写 ~300 字测评：\n1. 一句钩子：「{{tool_name}} 真的能 X 吗？我试了 {{n}} 次」\n2. 测试条件（公平起见说明：版本号 / 价格 / 提示词）\n3. 强项：1-2 个具体可复现的例子\n4. 弱点：1 个真实失败案例\n5. 结论：什么人值得用 / 什么人别浪费时间\n6. 末尾：留一个开放问题\n\n标签：#AI评测 #{{tool_name}} #小红书\n",
+    "tags": [
+      "AI评测",
+      "小红书",
+      "Marketing"
+    ]
+  },
+  {
+    "title": "AI 生成会议纪要（带 action items）",
+    "body": "下面是会议录音转写。请整理成会议纪要：\n\n1. 一行参会人和角色\n2. 决定事项（每条带决策人）\n3. **Action items**：每条 = [负责人] + [事项] + [截止日期]，截止日期没说就标 \"未定\"\n4. 悬而未决：列出会议没解决的关键问题\n5. 一句话总结这场会的产出\n\n转写：\n{{transcript}}",
+    "tags": [
+      "效率",
+      "会议纪要",
+      "AI助手"
+    ]
+  },
+  {
+    "title": "ChatGPT/Claude 写邮件回复",
+    "body": "对方邮件：\n{{their_email}}\n\n我想达成的目的：{{my_intent}}\n\n回复要求：\n- 长度 ≤ 120 字\n- 第一句直接回应他们最在意的点\n- 我的 ask 只有一个，明确\n- 语气：{{tone}}（professional / warm / firm）\n- 不写 \"hope you're doing well\" 这类 filler 开头",
+    "tags": [
+      "邮件",
+      "Email",
+      "Writing"
+    ]
+  },
+  {
+    "title": "AI 帮我吵架（理性版）",
+    "body": "我跟 {{对方}} 在 {{话题}} 上有分歧。事实如下：\n{{facts}}\n\n请：\n1. 把我的观点按事实 + 推理拆出来（不要立场化）\n2. 把对方观点同样拆出来（要客观，不要稻草人化）\n3. 找出真正的核心分歧点（一句话）\n4. 列出 2 个我可以让步的、2 个对方可以让步的\n5. 建议一句话沟通话术，让对方不爆炸",
+    "tags": [
+      "沟通",
+      "AI助手"
+    ]
+  },
+  {
+    "title": "AI 整理 PDF / 长文 → Anki 卡",
+    "body": "下面是文本 / PDF 抽取内容。生成 Anki 卡片：\n\n规则：\n- 每张卡 question/answer 对\n- question 短、聚焦一个点（≤ 25 字）\n- answer 简洁（≤ 60 字），不复述背景\n- 出 8-15 张，不要太多\n- 跳过定义性死记硬背的，挑「容易考」的关键概念\n- 可加 cloze（{{c1::xxx}} 形式）\n\n文本：\n{{text}}",
+    "tags": [
+      "学习",
+      "Anki",
+      "笔记"
+    ]
+  },
+  {
+    "title": "AI 重写 commit message（按 conventional）",
+    "body": "把这条糟糕的 commit message 改成 conventional commits 格式：\n\n原文：{{raw_message}}\n\n输出：\n- 第一行：type(scope): subject（≤ 70 字符，subject 用祈使句）\n- 空行\n- body：解释 WHY（不是 WHAT，diff 已经说了 what）\n- 如果是 breaking change，加 BREAKING CHANGE: 段\n\n如果原文不够清晰，用 [需要补充] 标记，不编造细节。",
+    "tags": [
+      "Coding-Agent",
+      "Git",
+      "效率"
+    ]
+  },
+  {
+    "title": "AI 生成 SQL（带安全检查）",
+    "body": "需求：{{question}}\n表结构：\n{{schema}}\n\n输出：\n1. SQL 查询（{{dialect}}）\n2. 解释每个 join / 子查询的意图\n3. 警告（如适用）：\n   - 这个 query 可能扫多少行？\n   - 缺哪些索引会让它慢？\n   - 是否有可能被 SQL injection（如果 user input 拼）\n   - 数据量大时哪里要分页\n",
+    "tags": [
+      "SQL",
+      "Coding-Agent",
+      "数据"
+    ]
+  },
+  {
+    "title": "AI 起 PR / MR 描述",
+    "body": "git diff 输出：\n```\n{{diff}}\n```\n\n生成 PR 描述：\n## What\n（1-2 句话讲改动）\n\n## Why\n（动机：解决什么问题/实现什么需求）\n\n## How\n（关键设计选择 / 取舍，≤ 4 条 bullet）\n\n## Test plan\n（- [ ] 列表，每条具体到「跑什么命令验证什么行为」）\n\n## Notes for reviewer\n（如有：哪个文件先看 / 哪个改动反直觉）",
+    "tags": [
+      "Git",
+      "PR",
+      "Coding-Agent"
+    ]
   }
 ]
