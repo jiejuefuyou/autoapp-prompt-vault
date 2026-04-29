@@ -5,6 +5,7 @@ struct ContentView: View {
     @Environment(IAPManager.self) private var iap
 
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
+    @AppStorage("hasCompletedTour") private var hasCompletedTour: Bool = false
 
     @State private var showSettings = false
     @State private var showPaywall = false
@@ -96,6 +97,13 @@ struct ContentView: View {
                 set: { _ in /* OnboardingView writes hasSeenOnboarding directly */ }
             )) {
                 OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
+            }
+            // Show the quick tour after onboarding finishes, only once.
+            .sheet(isPresented: Binding(
+                get: { hasSeenOnboarding && !hasCompletedTour },
+                set: { _ in /* QuickTourView writes hasCompletedTour directly */ }
+            )) {
+                QuickTourView()
             }
         }
     }

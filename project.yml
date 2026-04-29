@@ -31,6 +31,7 @@ targets:
     resources:
       - path: PromptVault/Resources/Assets.xcassets
       - path: PromptVault/Resources/PrivacyInfo.xcprivacy
+      - path: PromptVault/Resources/starter_prompts.json
       - path: PromptVault/Resources/StoreKitConfiguration.storekit
         buildPhase: none
     settings:
