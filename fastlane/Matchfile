@@ -1,4 +1,4 @@
-git_url("https://github.com/jiejuefuyou/autoapp-certs")
+git_url(ENV["MATCH_GIT_URL"] || "https://github.com/jiejuefuyou/autoapp-certs")
 storage_mode("git")
 type("appstore")
 app_identifier([ENV["APP_BUNDLE_ID"] || "com.jiejuefuyou.promptvault"])
