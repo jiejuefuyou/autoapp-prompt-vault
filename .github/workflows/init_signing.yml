@@ -50,7 +50,7 @@ jobs:
           ASC_ISSUER_ID:                  ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY_CONTENT:                ${{ secrets.ASC_KEY_CONTENT }}
           MATCH_PASSWORD:                 ${{ secrets.MATCH_PASSWORD }}
-          MATCH_GIT_BASIC_AUTHORIZATION:  ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          GH_PAT:                         ${{ secrets.GH_PAT }}
           FASTLANE_USER:                  ${{ secrets.FASTLANE_USER }}
           TEAM_ID:                        ${{ secrets.TEAM_ID }}
           MATCH_TYPE:                     ${{ inputs.type }}
@@ -66,5 +66,6 @@ jobs:
           bundle exec fastlane run match \
             type:"$MATCH_TYPE" \
             readonly:false \
+            git_url:"https://x-access-token:${GH_PAT}@github.com/jiejuefuyou/autoapp-certs" \
             app_identifier:"$APP_BUNDLE_ID" \
             $FORCE_FLAG
