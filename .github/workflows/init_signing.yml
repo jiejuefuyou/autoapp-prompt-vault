@@ -50,6 +50,8 @@ jobs:
           git config --global credential.helper "" || true
           git config --system --unset-all credential.helper || true
           git config --system credential.helper "" || true
+          git config --global --unset-all http.https://github.com/.extraheader || true
+          git config --system --unset-all http.https://github.com/.extraheader || true
 
       - name: Run fastlane match (writes encrypted certs to autoapp-certs)
         env:
