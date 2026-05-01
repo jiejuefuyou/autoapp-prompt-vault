@@ -53,6 +53,23 @@ jobs:
           git config --global --unset-all http.https://github.com/.extraheader || true
           git config --system --unset-all http.https://github.com/.extraheader || true
 
+      - name: DEBUG — verify PAT works for git clone (skip if v8+ adds proper fix)
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          set -eux
+          git config --list --show-origin 2>&1 | grep -i "extraheader\|credential" || echo "(no auth-related config)"
+          # explicit clone with token-in-URL, no fastlane involved
+          rm -rf /tmp/dbg-clone
+          if git clone "https://x-access-token:${GH_PAT}@github.com/jiejuefuyou/autoapp-certs.git" /tmp/dbg-clone 2>&1; then
+            echo "✅ explicit clone WORKED — PAT itself is fine, fastlane has its own issue"
+            ls /tmp/dbg-clone
+            rm -rf /tmp/dbg-clone
+          else
+            echo "❌ explicit clone FAILED — PAT itself is rejected by GitHub on this runner"
+            exit 0  # don't fail the job, let fastlane try anyway
+          fi
+
       - name: Run fastlane match (writes encrypted certs to autoapp-certs)
         env:
           ASC_KEY_ID:                     ${{ secrets.ASC_KEY_ID }}
