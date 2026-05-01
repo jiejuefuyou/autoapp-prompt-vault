@@ -61,7 +61,7 @@ jobs:
           git config --list --show-origin 2>&1 | grep -i "extraheader\|credential" || echo "(no auth-related config)"
           # explicit clone with token-in-URL, no fastlane involved
           rm -rf /tmp/dbg-clone
-          if git clone "https://x-access-token:${GH_PAT}@github.com/jiejuefuyou/autoapp-certs.git" /tmp/dbg-clone 2>&1; then
+          if git clone "https://jiejuefuyou:${GH_PAT}@github.com/jiejuefuyou/autoapp-certs.git" /tmp/dbg-clone 2>&1; then
             echo "✅ explicit clone WORKED — PAT itself is fine, fastlane has its own issue"
             ls /tmp/dbg-clone
             rm -rf /tmp/dbg-clone
@@ -78,7 +78,7 @@ jobs:
           MATCH_PASSWORD:                 ${{ secrets.MATCH_PASSWORD }}
           FASTLANE_USER:                  ${{ secrets.FASTLANE_USER }}
           TEAM_ID:                        ${{ secrets.TEAM_ID }}
-          MATCH_GIT_URL:                  https://x-access-token:${{ secrets.GH_PAT }}@github.com/jiejuefuyou/autoapp-certs
+          MATCH_GIT_URL:                  https://jiejuefuyou:${{ secrets.GH_PAT }}@github.com/jiejuefuyou/autoapp-certs
           MATCH_TYPE:                     ${{ inputs.type }}
           MATCH_FORCE:                    ${{ inputs.force }}
         run: |
