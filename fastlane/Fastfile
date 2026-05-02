@@ -51,7 +51,7 @@ platform :ios do
       app_identifier: [BUNDLE_ID]
     )
 
-    increment_build_number_in_xcodeproj(
+    increment_build_number(
       build_number: ENV["BUILD_NUMBER"] || Time.now.strftime("%Y%m%d%H%M"),
       xcodeproj:    PROJECT
     )
