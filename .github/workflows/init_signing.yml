@@ -44,33 +44,44 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - name: Disable git credential helpers (macOS runner has osxkeychain by default which can strip URL creds)
-        run: |
-          git config --global --unset-all credential.helper || true
-          git config --global credential.helper "" || true
-          git config --system --unset-all credential.helper || true
-          git config --system credential.helper "" || true
-          git config --global --unset-all http.https://github.com/.extraheader || true
-          git config --system --unset-all http.https://github.com/.extraheader || true
-
-      - name: DEBUG — verify PAT works for git clone (skip if v8+ adds proper fix)
+      - name: Setup SSH deploy key for autoapp-certs
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          MATCH_SSH_KEY: ${{ secrets.MATCH_SSH_KEY }}
         run: |
           set -eux
-          git config --list --show-origin 2>&1 | grep -i "extraheader\|credential" || echo "(no auth-related config)"
-          # explicit clone with token-in-URL, no fastlane involved
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$MATCH_SSH_KEY" | base64 -d > ~/.ssh/autoapp_match_deploy
+          chmod 600 ~/.ssh/autoapp_match_deploy
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          chmod 644 ~/.ssh/known_hosts
+          # Configure SSH to use this key for github.com
+          cat > ~/.ssh/config <<EOF
+          Host github.com
+            HostName github.com
+            User git
+            IdentityFile ~/.ssh/autoapp_match_deploy
+            IdentitiesOnly yes
+            StrictHostKeyChecking yes
+          EOF
+          chmod 600 ~/.ssh/config
+          # Verify SSH connection works
+          ssh -T git@github.com 2>&1 | grep -i "successfully authenticated" || echo "(SSH auth check non-fatal, continuing)"
+
+      - name: DEBUG — verify SSH clone of autoapp-certs works
+        run: |
+          set -eux
           rm -rf /tmp/dbg-clone
-          if git clone "https://jiejuefuyou:${GH_PAT}@github.com/jiejuefuyou/autoapp-certs.git" /tmp/dbg-clone 2>&1; then
-            echo "✅ explicit clone WORKED — PAT itself is fine, fastlane has its own issue"
+          if git clone git@github.com:jiejuefuyou/autoapp-certs.git /tmp/dbg-clone; then
+            echo "✅ SSH clone WORKED — deploy key is functional"
             ls /tmp/dbg-clone
             rm -rf /tmp/dbg-clone
           else
-            echo "❌ explicit clone FAILED — PAT itself is rejected by GitHub on this runner"
-            exit 0  # don't fail the job, let fastlane try anyway
+            echo "❌ SSH clone FAILED — deploy key issue"
+            exit 1
           fi
 
-      - name: Run fastlane match (writes encrypted certs to autoapp-certs)
+      - name: Run fastlane match (writes encrypted certs to autoapp-certs via SSH)
         env:
           ASC_KEY_ID:                     ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID:                  ${{ secrets.ASC_ISSUER_ID }}
@@ -78,7 +89,8 @@ jobs:
           MATCH_PASSWORD:                 ${{ secrets.MATCH_PASSWORD }}
           FASTLANE_USER:                  ${{ secrets.FASTLANE_USER }}
           TEAM_ID:                        ${{ secrets.TEAM_ID }}
-          MATCH_GIT_URL:                  https://jiejuefuyou:${{ secrets.GH_PAT }}@github.com/jiejuefuyou/autoapp-certs
+          MATCH_GIT_URL:                  git@github.com:jiejuefuyou/autoapp-certs.git
+          MATCH_GIT_BRANCH:               main
           MATCH_TYPE:                     ${{ inputs.type }}
           MATCH_FORCE:                    ${{ inputs.force }}
         run: |
