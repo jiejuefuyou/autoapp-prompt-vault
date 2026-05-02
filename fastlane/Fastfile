@@ -174,16 +174,12 @@ platform :ios do
       key_content:           ENV.fetch("ASC_KEY_CONTENT"),
       is_key_content_base64: true
     )
+    match_type = ENV.fetch("MATCH_TYPE", "appstore")
+    UI.message("init_signing: syncing match for type=#{match_type}")
     sync_code_signing(
-      type:          "appstore",
-      readonly:      false,
-      api_key:       api_key,
-      app_identifier: [BUNDLE_ID]
-    )
-    sync_code_signing(
-      type:          "development",
-      readonly:      false,
-      api_key:       api_key,
+      type:           match_type,
+      readonly:       false,
+      api_key:        api_key,
       app_identifier: [BUNDLE_ID]
     )
   end
