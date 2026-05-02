@@ -64,7 +64,7 @@ platform :ios do
       clean:          true,
       include_bitcode: false,
       include_symbols: true,
-      xcargs:         "DEVELOPMENT_TEAM=#{ENV.fetch('TEAM_ID')} CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER='match AppStore ' + BUNDLE_ID + '' CODE_SIGN_IDENTITY='Apple Distribution'",
+      xcargs:         "DEVELOPMENT_TEAM=#{ENV.fetch('TEAM_ID')} CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER='match AppStore #{BUNDLE_ID}' CODE_SIGN_IDENTITY='Apple Distribution'",
       export_options: {
         method: "app-store",
         provisioningProfiles: {
