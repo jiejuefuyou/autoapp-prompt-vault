@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var editingPrompt: Prompt?
     @State private var addingPrompt = false
     @State private var search = ""
+    @State private var showScanner = false
 
     private var visiblePrompts: [Prompt] {
         let pool = store.filteredPrompts
@@ -68,14 +69,21 @@ struct ContentView: View {
                     Button { showSettings = true } label: { Image(systemName: "gear") }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        Haptics.light()
-                        if !iap.isPremium && store.prompts.count >= PromptStore.freePromptLimit {
-                            showPaywall = true
-                        } else {
-                            addingPrompt = true
-                        }
-                    } label: { Image(systemName: "plus") }
+                    HStack(spacing: 4) {
+                        Button {
+                            Haptics.light()
+                            showScanner = true
+                        } label: { Image(systemName: "qrcode.viewfinder") }
+
+                        Button {
+                            Haptics.light()
+                            if !iap.isPremium && store.prompts.count >= PromptStore.freePromptLimit {
+                                showPaywall = true
+                            } else {
+                                addingPrompt = true
+                            }
+                        } label: { Image(systemName: "plus") }
+                    }
                 }
             }
             .sheet(isPresented: $showSettings) { SettingsView() }
@@ -85,6 +93,9 @@ struct ContentView: View {
                     store.add(newPrompt)
                     Haptics.success()
                 }
+            }
+            .sheet(isPresented: $showScanner) {
+                PromptScanView()
             }
             .sheet(item: $editingPrompt) { p in
                 PromptEditView(initial: p,

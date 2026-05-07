@@ -14,6 +14,7 @@ struct PromptEditView: View {
     @State private var tagsText: String
     @State private var variableValues: [String: String] = [:]
     @State private var showPaywall = false
+    @State private var showShare = false
 
     init(initial: Prompt?,
          onSave: @escaping (Prompt) -> Void,
@@ -120,6 +121,23 @@ struct PromptEditView: View {
                 }
             }
             .sheet(isPresented: $showPaywall) { PaywallView() }
+            .sheet(isPresented: $showShare) {
+                if let p = initial {
+                    PromptShareView(prompt: p)
+                }
+            }
+            .toolbar {
+                // Share button — only visible when editing an existing prompt
+                if initial != nil {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            showShare = true
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                        }
+                    }
+                }
+            }
         }
     }
 
