@@ -12,6 +12,23 @@ final class PromptTests: XCTestCase {
         XCTAssertEqual(decoded.tags, original.tags)
     }
 
+    func testPromptDecodesOldSchemaWithoutDefaultedFields() throws {
+        // Backward-compat guard: a v1.0.0-era JSON with no tags / useCount /
+        // createdAt should still decode and fall back to defaults. See Codable
+        // migration audit 2026-05-07 + dev.to article #72.
+        let json = #"""
+        {
+            "id":"00000000-0000-0000-0000-000000000001",
+            "title":"Old prompt",
+            "body":"Hello world"
+        }
+        """#.data(using: .utf8)!
+        let decoded = try JSONDecoder().decode(Prompt.self, from: json)
+        XCTAssertEqual(decoded.title, "Old prompt")
+        XCTAssertEqual(decoded.tags, [])
+        XCTAssertEqual(decoded.useCount, 0)
+    }
+
     func testVariableExtraction() {
         let p = Prompt(title: "x", body: "Hello {{name}}, welcome to {{place}}. Again, {{name}}.")
         XCTAssertEqual(p.variables, ["name", "place"])

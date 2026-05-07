@@ -10,6 +10,34 @@ struct Prompt: Identifiable, Codable, Hashable {
     var useCount: Int = 0
     var createdAt: Date = .now
 
+    init(id: UUID = UUID(),
+         title: String,
+         body: String,
+         tags: [String] = [],
+         useCount: Int = 0,
+         createdAt: Date = .now) {
+        self.id = id
+        self.title = title
+        self.body = body
+        self.tags = tags
+        self.useCount = useCount
+        self.createdAt = createdAt
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case id, title, body, tags, useCount, createdAt
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        self.id        = try c.decodeIfPresent(UUID.self,     forKey: .id) ?? UUID()
+        self.title     = try c.decode(String.self,            forKey: .title)
+        self.body      = try c.decode(String.self,            forKey: .body)
+        self.tags      = try c.decodeIfPresent([String].self, forKey: .tags) ?? []
+        self.useCount  = try c.decodeIfPresent(Int.self,      forKey: .useCount) ?? 0
+        self.createdAt = try c.decodeIfPresent(Date.self,     forKey: .createdAt) ?? .now
+    }
+
     /// All `{{var}}` placeholders found in the body, deduped, in order of first appearance.
     var variables: [String] {
         let pattern = #/\{\{\s*([^}]+?)\s*\}\}/#
