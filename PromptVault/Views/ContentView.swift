@@ -36,8 +36,14 @@ struct ContentView: View {
                     }
                 } else {
                     List {
-                        if !store.allTags.isEmpty {
-                            tagFilterRow
+                        if iap.isPremium {
+                            if !store.allTags.isEmpty {
+                                tagFilterRow
+                                    .listRowInsets(EdgeInsets())
+                                    .listRowBackground(Color.clear)
+                            }
+                        } else {
+                            tagUpsellRow
                                 .listRowInsets(EdgeInsets())
                                 .listRowBackground(Color.clear)
                         }
@@ -136,6 +142,27 @@ struct ContentView: View {
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
         }
+    }
+
+    /// Free-tier surface: replaces the tag filter chip row with a paywall hint.
+    @ViewBuilder
+    private var tagUpsellRow: some View {
+        Button {
+            Haptics.light()
+            showPaywall = true
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: "lock.fill")
+                    .font(.caption)
+                Text(LocalizedStringKey("Upgrade to use tags"))
+                    .font(.subheadline)
+                Spacer()
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+            .foregroundStyle(.secondary)
+        }
+        .buttonStyle(.plain)
     }
 
     private func pill(text: Text, selected: Bool, action: @escaping () -> Void) -> some View {

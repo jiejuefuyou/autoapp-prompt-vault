@@ -93,3 +93,18 @@
 "Done" = "完成";
 "Language" = "語言";
 "System default" = "跟隨系統";
+
+/* v1.0.1 — tag premium gate */
+"Upgrade to use tags" = "升級以使用標籤";
+"Tags are a Premium feature." = "標籤是會員功能。";
+
+/* v1.0.1 — iCloud sync status */
+"iCloud Sync Status" = "iCloud 同步狀態";
+"Status" = "狀態";
+"Active" = "已啟用";
+"Unavailable" = "無法使用";
+"Last sync" = "最後同步";
+"Sync count" = "同步次數";
+"Sync over cellular" = "使用行動數據同步";
+"Prompts sync across your devices via iCloud. Disable cellular to save data." = "提示詞透過 iCloud 在多裝置間同步。關閉行動數據可節省流量。";
+"Never" = "從未同步";

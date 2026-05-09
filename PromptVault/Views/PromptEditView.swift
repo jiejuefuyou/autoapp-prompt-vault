@@ -57,12 +57,22 @@ struct PromptEditView: View {
                         .font(.system(.body, design: .monospaced))
                 }
                 Section {
-                    TextField(LocalizedStringKey("comma,separated,tags"), text: $tagsText)
+                    if iap.isPremium {
+                        TextField(LocalizedStringKey("comma,separated,tags"), text: $tagsText)
+                    } else {
+                        Button {
+                            Haptics.light()
+                            showPaywall = true
+                        } label: {
+                            Label(LocalizedStringKey("Upgrade to use tags"), systemImage: "lock.fill")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
                 } header: {
                     Text(LocalizedStringKey("Tags"))
                 } footer: {
-                    if !iap.isPremium && draft.tags.count > PromptStore.freeTagLimit {
-                        Text("Free tier limited to \(PromptStore.freeTagLimit) tags per prompt — upgrade to add more.")
+                    if !iap.isPremium {
+                        Text(LocalizedStringKey("Tags are a Premium feature."))
                             .foregroundStyle(.secondary)
                     }
                 }

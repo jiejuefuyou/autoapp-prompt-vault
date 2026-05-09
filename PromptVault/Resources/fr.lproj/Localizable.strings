@@ -93,3 +93,18 @@
 "Done" = "OK";
 "Language" = "Langue";
 "System default" = "Réglage du système";
+
+/* v1.0.1 — tag premium gate */
+"Upgrade to use tags" = "Passez Premium pour utiliser les tags";
+"Tags are a Premium feature." = "Les tags sont une fonctionnalité Premium.";
+
+/* v1.0.1 — iCloud sync status */
+"iCloud Sync Status" = "État de la synchro iCloud";
+"Status" = "Statut";
+"Active" = "Actif";
+"Unavailable" = "Indisponible";
+"Last sync" = "Dernière synchro";
+"Sync count" = "Synchronisations";
+"Sync over cellular" = "Synchroniser en données mobiles";
+"Prompts sync across your devices via iCloud. Disable cellular to save data." = "Les prompts sont synchronisés entre vos appareils via iCloud. Désactivez les données mobiles pour économiser.";
+"Never" = "Jamais";

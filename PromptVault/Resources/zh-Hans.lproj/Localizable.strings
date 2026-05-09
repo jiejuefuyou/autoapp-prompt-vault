@@ -93,3 +93,18 @@
 "Done" = "完成";
 "Language" = "语言";
 "System default" = "跟随系统";
+
+/* v1.0.1 — tag premium gate */
+"Upgrade to use tags" = "升级以使用标签";
+"Tags are a Premium feature." = "标签是会员功能。";
+
+/* v1.0.1 — iCloud sync status */
+"iCloud Sync Status" = "iCloud 同步状态";
+"Status" = "状态";
+"Active" = "已启用";
+"Unavailable" = "不可用";
+"Last sync" = "最近同步";
+"Sync count" = "同步次数";
+"Sync over cellular" = "使用蜂窝数据同步";
+"Prompts sync across your devices via iCloud. Disable cellular to save data." = "提示词通过 iCloud 在多设备间同步。关闭蜂窝数据可节省流量。";
+"Never" = "从未同步";

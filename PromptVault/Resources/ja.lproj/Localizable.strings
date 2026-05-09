@@ -93,3 +93,18 @@
 "Done" = "完了";
 "Language" = "言語";
 "System default" = "システム設定に従う";
+
+/* v1.0.1 — tag premium gate */
+"Upgrade to use tags" = "アップグレードしてタグを使う";
+"Tags are a Premium feature." = "タグはプレミアム機能です。";
+
+/* v1.0.1 — iCloud sync status */
+"iCloud Sync Status" = "iCloud 同期ステータス";
+"Status" = "状態";
+"Active" = "有効";
+"Unavailable" = "利用不可";
+"Last sync" = "最終同期";
+"Sync count" = "同期回数";
+"Sync over cellular" = "モバイル通信で同期";
+"Prompts sync across your devices via iCloud. Disable cellular to save data." = "プロンプトは iCloud で端末間同期されます。データ通信量を抑えるにはモバイル通信をオフにしてください。";
+"Never" = "未同期";

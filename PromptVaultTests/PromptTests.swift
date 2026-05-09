@@ -99,4 +99,31 @@ final class PromptTests: XCTestCase {
         let pack = StarterPack.load()
         XCTAssertGreaterThanOrEqual(pack.count, 20, "starter_prompts.json should ship 20+ prompts")
     }
+
+    func testMergeFromiCloudOverwritesLocal() {
+        // v1.0.1 — iCloud merge replaces local state when the remote payload differs.
+        let store = PromptStore()
+        for p in store.prompts { store.delete(p) }
+
+        let local = Prompt(title: "Local", body: "L")
+        store.add(local)
+
+        let remote = Prompt(title: "Remote", body: "R")
+        store.mergeFromiCloud([remote])
+
+        XCTAssertEqual(store.prompts.count, 1, "remote payload should overwrite local")
+        XCTAssertEqual(store.prompts.first?.title, "Remote")
+    }
+
+    func testMergeFromiCloudNoopWhenIdentical() {
+        // v1.0.1 — guard against the bounce-back loop: merging the same array
+        // we just pushed must not retrigger save() and notifications.
+        let store = PromptStore()
+        for p in store.prompts { store.delete(p) }
+        let p = Prompt(title: "Same", body: "S")
+        store.add(p)
+        let snapshot = store.prompts
+        store.mergeFromiCloud(snapshot)
+        XCTAssertEqual(store.prompts, snapshot)
+    }
 }

@@ -69,6 +69,12 @@ final class PromptStore {
     /// User's pinned/recent tags for filtering UI.
     var activeTagFilter: String? = nil
 
+    private var icloudSync: iCloudSyncManager?
+
+    func attachiCloudSync(_ sync: iCloudSyncManager?) {
+        icloudSync = sync
+    }
+
     init() {
         load()
         if ProcessInfo.processInfo.arguments.contains("-FASTLANE_SNAPSHOT") {
@@ -108,6 +114,7 @@ final class PromptStore {
     func add(_ p: Prompt) {
         prompts.append(p)
         save()
+        pushiCloud()
         Task { @MainActor in
             ReviewService.recordSuccess()
             ReviewService.maybeRequestReview()
@@ -118,21 +125,42 @@ final class PromptStore {
         guard let idx = prompts.firstIndex(where: { $0.id == p.id }) else { return }
         prompts[idx] = p
         save()
+        pushiCloud()
     }
 
     func delete(_ p: Prompt) {
         prompts.removeAll { $0.id == p.id }
         save()
+        pushiCloud()
     }
 
     func recordUsed(_ p: Prompt) {
         guard let idx = prompts.firstIndex(where: { $0.id == p.id }) else { return }
         prompts[idx].useCount += 1
         save()
+        pushiCloud()
         Task { @MainActor in
             ReviewService.recordSuccess()
             ReviewService.maybeRequestReview()
         }
+    }
+
+    /// Hop to the main actor and push the latest snapshot to iCloud, if attached.
+    /// The closure captures `self` weakly so a deallocated store doesn't pin the manager.
+    private func pushiCloud() {
+        let snapshot = prompts
+        Task { @MainActor [weak self] in
+            self?.icloudSync?.push(snapshot)
+        }
+    }
+
+    /// Called by iCloudSyncManager when remote changes arrive.
+    /// Replaces local state with the remote payload only if it strictly differs;
+    /// otherwise no-ops so we don't churn the UI / file write loop.
+    func mergeFromiCloud(_ remote: [Prompt]) {
+        guard remote != prompts else { return }
+        prompts = remote
+        save()
     }
 
     private func seedForSnapshot() {

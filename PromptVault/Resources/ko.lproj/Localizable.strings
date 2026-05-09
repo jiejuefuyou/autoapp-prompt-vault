@@ -93,3 +93,18 @@
 "Done" = "완료";
 "Language" = "언어";
 "System default" = "시스템 설정 따르기";
+
+/* v1.0.1 — tag premium gate */
+"Upgrade to use tags" = "태그를 쓰려면 업그레이드";
+"Tags are a Premium feature." = "태그는 프리미엄 기능입니다.";
+
+/* v1.0.1 — iCloud sync status */
+"iCloud Sync Status" = "iCloud 동기화 상태";
+"Status" = "상태";
+"Active" = "활성";
+"Unavailable" = "사용 불가";
+"Last sync" = "마지막 동기화";
+"Sync count" = "동기화 횟수";
+"Sync over cellular" = "셀룰러로 동기화";
+"Prompts sync across your devices via iCloud. Disable cellular to save data." = "프롬프트는 iCloud로 기기 간 동기화됩니다. 데이터 절약을 위해 셀룰러를 끄세요.";
+"Never" = "동기화 안 됨";
