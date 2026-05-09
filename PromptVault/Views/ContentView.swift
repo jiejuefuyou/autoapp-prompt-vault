@@ -66,7 +66,7 @@ struct ContentView: View {
                     }
                     .listStyle(.insetGrouped)
                     .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always),
-                                prompt: Text("Search prompts"))
+                                prompt: Text(LocalizedStringKey("Search prompts")))
                 }
             }
             .navigationTitle(Text("PromptVault"))
@@ -129,7 +129,7 @@ struct ContentView: View {
     private var tagFilterRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                pill(text: Text("All"), selected: store.activeTagFilter == nil) {
+                pill(text: Text(LocalizedStringKey("All")), selected: store.activeTagFilter == nil) {
                     store.activeTagFilter = nil
                 }
                 ForEach(store.allTags, id: \.self) { tag in

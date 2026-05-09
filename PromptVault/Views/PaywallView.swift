@@ -22,10 +22,8 @@ struct PaywallView: View {
                         .padding(.horizontal)
 
                     VStack(alignment: .leading, spacing: 14) {
-                        // First feature interpolates the free-tier limit; SwiftUI Text
-                        // auto-localizes and substitutes %lld from the strings file.
                         feature(icon: "infinity",
-                                view: AnyView(Text("Unlimited prompts (free tier: \(PromptStore.freePromptLimit))")))
+                                view: AnyView(Text(String(format: NSLocalizedString("Unlimited prompts (free tier: %lld)", comment: "Paywall feature: how many prompts you can have on free tier"), PromptStore.freePromptLimit))))
                         feature(icon: "books.vertical",
                                 view: AnyView(Text(LocalizedStringKey("200+ curated starter prompts"))))
                         feature(icon: "tag.fill",
@@ -81,7 +79,7 @@ struct PaywallView: View {
                     if iap.purchaseInProgress {
                         Text(LocalizedStringKey("Processing…")).font(.headline)
                     } else {
-                        Text("Unlock for \(product.displayPrice)").font(.headline)
+                        Text(String(format: NSLocalizedString("Unlock for %@", comment: "Paywall purchase button: 'Unlock for $0.99'"), product.displayPrice)).font(.headline)
                     }
                 }
                 .frame(maxWidth: .infinity).padding()
