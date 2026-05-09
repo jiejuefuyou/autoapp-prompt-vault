@@ -35,7 +35,7 @@ struct PromptScanView: View {
                                 .frame(width: 240, height: 240)
                                 .background(Color.clear)
                             Spacer()
-                            Text("Point at a PromptVault QR code")
+                            Text(LocalizedStringKey("Point at a PromptVault QR code"))
                                 .font(.subheadline)
                                 .foregroundStyle(.white)
                                 .padding(.horizontal, 16)
@@ -46,11 +46,11 @@ struct PromptScanView: View {
                     }
                 }
             }
-            .navigationTitle("Scan QR Code")
+            .navigationTitle(Text("Scan QR Code"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel") { dismiss() }
+                    Button(LocalizedStringKey("Cancel")) { dismiss() }
                         .foregroundStyle(.white)
                 }
             }
@@ -80,13 +80,13 @@ struct PromptScanView: View {
             Image(systemName: "camera.slash")
                 .font(.system(size: 56))
                 .foregroundStyle(.secondary)
-            Text("Camera Access Required")
+            Text(LocalizedStringKey("Camera Access Required"))
                 .font(.title2.bold())
-            Text("PromptVault needs camera access to scan QR codes. Enable it in Settings > Privacy > Camera.")
+            Text(LocalizedStringKey("PromptVault needs camera access to scan QR codes. Enable it in Settings > Privacy > Camera."))
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
                 .padding(.horizontal, 32)
-            Button("Open Settings") {
+            Button(LocalizedStringKey("Open Settings")) {
                 if let url = URL(string: UIApplication.openSettingsURLString) {
                     UIApplication.shared.open(url)
                 }
@@ -138,7 +138,7 @@ private struct ImportConfirmView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Prompt to import") {
+                Section(LocalizedStringKey("Prompt to import")) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(prompt.title)
                             .font(.headline)
@@ -151,7 +151,7 @@ private struct ImportConfirmView: View {
                 }
 
                 if !prompt.tags.isEmpty {
-                    Section("Tags") {
+                    Section(LocalizedStringKey("Tags")) {
                         Text(prompt.tags.joined(separator: ", "))
                             .foregroundStyle(.secondary)
                     }
@@ -161,7 +161,7 @@ private struct ImportConfirmView: View {
                     Button {
                         onDecision(true)
                     } label: {
-                        Label("Save to PromptVault", systemImage: "tray.and.arrow.down")
+                        Label(LocalizedStringKey("Save to PromptVault"), systemImage: "tray.and.arrow.down")
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
@@ -169,12 +169,12 @@ private struct ImportConfirmView: View {
                     Button(role: .cancel) {
                         onDecision(false)
                     } label: {
-                        Text("Cancel")
+                        Text(LocalizedStringKey("Cancel"))
                             .frame(maxWidth: .infinity)
                     }
                 }
             }
-            .navigationTitle("Import Prompt?")
+            .navigationTitle(Text("Import Prompt?"))
             .navigationBarTitleDisplayMode(.inline)
         }
         .presentationDetents([.medium])

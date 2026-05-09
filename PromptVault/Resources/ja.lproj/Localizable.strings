@@ -1,0 +1,95 @@
+/* PromptVault — 日本語 (ja) */
+/* Main screen */
+"PromptVault" = "PromptVault";
+"No prompts yet" = "プロンプトはまだありません";
+"Tap + to save your first prompt." = "「+」をタップして最初のプロンプトを保存しましょう。";
+"Search prompts" = "プロンプトを検索";
+"Copy" = "コピー";
+"All" = "すべて";
+
+/* Prompt editor */
+"Title" = "タイトル";
+"e.g. Translate to natural English" = "例:自然な英語に翻訳して";
+"Prompt body" = "プロンプト本文";
+"Tags" = "タグ";
+"comma,separated,tags" = "カンマ,区切り,タグ";
+"Free tier limited to %lld tags per prompt — upgrade to add more." = "無料版は 1 件あたり %lld タグまでです。さらに追加するにはアップグレードしてください。";
+"Variables" = "変数";
+"Preview" = "プレビュー";
+"Copy & close" = "コピーして閉じる";
+"Delete prompt" = "プロンプトを削除";
+"New prompt" = "新規プロンプト";
+"Edit prompt" = "プロンプトを編集";
+"Cancel" = "キャンセル";
+"Save" = "保存";
+
+/* Onboarding */
+"Save the prompts you actually use" = "本当に使うプロンプトを保存";
+"ChatGPT · Claude · Midjourney · ComfyUI · Coze. One vault for all of them." = "ChatGPT・Claude・Midjourney・ComfyUI・Coze。すべて 1 つの保管庫で。";
+"Fill in the blanks" = "空欄を埋めるだけ";
+"Use {{variables}} to template your prompts. Tap a row, fill the blanks, copy." = "{{変数}}でテンプレ化。行をタップして空欄を埋めれば、コピーできます。";
+"Stays on your phone" = "あなたの iPhone の中だけで完結";
+"No account, no network, no data collection. Your prompts never leave your device." = "アカウント不要、通信なし、データ収集なし。プロンプトは端末から出ません。";
+"Get started" = "はじめる";
+"Next" = "次へ";
+
+/* Quick tour */
+"Pick a saved prompt" = "保存済みプロンプトを選ぶ";
+"Fill in the {{variable}}" = "{{変数}}を埋める";
+"One tap to copy" = "ワンタップでコピー";
+"Your library comes with 100+ ready-to-use prompts for ChatGPT / Claude / Midjourney / Coze. Tap any of them to use." = "ChatGPT・Claude・Midjourney・Coze 用の即戦力プロンプトを 100 種類以上収録。タップしてすぐに使えます。";
+"This prompt has a `{{text}}` placeholder. Type or paste anything and watch the prompt fill in." = "このプロンプトには `{{text}}` プレースホルダがあります。何か入力か貼り付けると、プロンプトが自動で埋まります。";
+"e.g. 这家餐厅味道不错但服务很慢" = "例:このレストランは味は良いがサービスが遅い";
+"Live preview" = "ライブプレビュー";
+"In the real app, swipe right on any row to copy. Try it now." = "実際のアプリでは行を右にスワイプするとコピーできます。試してみましょう。";
+"Tap to copy" = "タップしてコピー";
+"Copied to clipboard" = "クリップボードにコピーしました";
+"Now paste it into ChatGPT / Claude / your tool of choice. That's the whole loop." = "あとは ChatGPT・Claude などお好みのツールに貼り付けるだけ。これで完結です。";
+"Skip" = "スキップ";
+
+/* QR scan / share */
+"Scan QR Code" = "QR コードをスキャン";
+"Point at a PromptVault QR code" = "PromptVault の QR コードを写してください";
+"Camera Access Required" = "カメラへのアクセスが必要です";
+"PromptVault needs camera access to scan QR codes. Enable it in Settings > Privacy > Camera." = "QR コードを読み取るにはカメラへのアクセス許可が必要です。設定 > プライバシー > カメラ で許可してください。";
+"Open Settings" = "設定を開く";
+"Import Prompt?" = "プロンプトを取り込みますか?";
+"Prompt to import" = "取り込むプロンプト";
+"Save to PromptVault" = "PromptVault に保存";
+"Share Prompt" = "プロンプトを共有";
+"Scan this QR code on another device\nrunning PromptVault to import the prompt." = "別の端末の PromptVault でこの QR コードを読み取ると\nプロンプトを取り込めます。";
+"Premium Feature" = "プレミアム機能";
+"QR code sharing is a Premium feature. Upgrade once to share and import prompts between devices, or copy the prompt text below for free." = "QR コードでの共有はプレミアム機能です。一度のアップグレードで端末間の共有と取り込みが可能になります。テキストのコピーは無料でご利用いただけます。";
+"Upgrade to Premium" = "プレミアムにアップグレード";
+"Copy text to clipboard" = "テキストをクリップボードにコピー";
+"Copied!" = "コピーしました!";
+
+/* Paywall */
+"PromptVault Premium" = "PromptVault プレミアム";
+"One-time purchase. No subscription. Unlock everything forever." = "買い切り型。サブスクなし。すべての機能を永久に解放します。";
+"Unlimited prompts (free tier: %lld)" = "プロンプト数無制限(無料版は %lld 件まで)";
+"200+ curated starter prompts" = "厳選スタータープロンプト 200 種類以上";
+"Unlimited tags per prompt" = "1 件あたりのタグ数無制限";
+"{{variable}} substitution preview" = "{{変数}}置換プレビュー";
+"One-tap copy with usage stats" = "ワンタップコピー+使用回数記録";
+"Restore Purchase" = "購入を復元";
+"No subscription. No data collected. Ever." = "サブスクなし、データ収集なし。";
+"Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID." = "代金はお客様の Apple ID に請求されます。買い切りのため、お客様の Apple ID で永続的にすべてのプレミアム機能をご利用いただけます。";
+"Close" = "閉じる";
+"Premium unlocked" = "プレミアム解放済み";
+"Processing…" = "処理中…";
+"Unlock for %@" = "%@ で解除";
+
+/* Settings */
+"Settings" = "設定";
+"Premium" = "プレミアム";
+"Free tier" = "無料版";
+"%lld / %lld prompts used" = "プロンプト %lld / %lld 使用中";
+"Unlock Premium" = "プレミアムを解除";
+"About" = "このアプリについて";
+"Version" = "バージョン";
+"Build" = "ビルド";
+"Privacy Policy" = "プライバシーポリシー";
+"Done" = "完了";
+"Language" = "言語";
+"System default" = "システム設定に従う";

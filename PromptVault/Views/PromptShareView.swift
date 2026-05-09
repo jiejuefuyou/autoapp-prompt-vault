@@ -24,11 +24,11 @@ struct PromptShareView: View {
                     freeContent
                 }
             }
-            .navigationTitle("Share Prompt")
+            .navigationTitle(Text("Share Prompt"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { dismiss() }
+                    Button(LocalizedStringKey("Done")) { dismiss() }
                 }
             }
             .sheet(isPresented: $showPaywall) { PaywallView() }
@@ -42,7 +42,7 @@ struct PromptShareView: View {
     private var premiumContent: some View {
         ScrollView {
             VStack(spacing: 24) {
-                Text("Scan this QR code on another device\nrunning PromptVault to import the prompt.")
+                Text(LocalizedStringKey("Scan this QR code on another device\nrunning PromptVault to import the prompt."))
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.secondary)
                     .font(.subheadline)
@@ -104,10 +104,10 @@ struct PromptShareView: View {
                 .font(.system(size: 72))
                 .foregroundStyle(.secondary)
 
-            Text("Premium Feature")
+            Text(LocalizedStringKey("Premium Feature"))
                 .font(.title2.bold())
 
-            Text("QR code sharing is a Premium feature. Upgrade once to share and import prompts between devices, or copy the prompt text below for free.")
+            Text(LocalizedStringKey("QR code sharing is a Premium feature. Upgrade once to share and import prompts between devices, or copy the prompt text below for free."))
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
                 .padding(.horizontal, 32)
@@ -118,7 +118,7 @@ struct PromptShareView: View {
             Button {
                 showPaywall = true
             } label: {
-                Label("Upgrade to Premium", systemImage: "sparkles")
+                Label(LocalizedStringKey("Upgrade to Premium"), systemImage: "sparkles")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -144,7 +144,7 @@ struct PromptShareView: View {
                 copied = false
             }
         } label: {
-            Label(copied ? "Copied!" : "Copy text to clipboard",
+            Label(copied ? LocalizedStringKey("Copied!") : LocalizedStringKey("Copy text to clipboard"),
                   systemImage: copied ? "checkmark" : "doc.on.doc")
                 .font(.subheadline.weight(.medium))
                 .frame(maxWidth: .infinity)

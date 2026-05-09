@@ -6,9 +6,9 @@ struct OnboardingView: View {
     @State private var page = 0
 
     private let pages: [Page] = [
-        Page(icon: "sparkles", title: "Save the prompts you actually use", subtitle: "ChatGPT · Claude · Midjourney · ComfyUI · Coze. One vault for all of them."),
-        Page(icon: "textformat.abc", title: "Fill in the blanks", subtitle: "Use {{variables}} to template your prompts. Tap a row, fill the blanks, copy."),
-        Page(icon: "lock.shield", title: "Stays on your phone", subtitle: "No account, no network, no data collection. Your prompts never leave your device.")
+        Page(icon: "sparkles", titleKey: "Save the prompts you actually use", subtitleKey: "ChatGPT · Claude · Midjourney · ComfyUI · Coze. One vault for all of them."),
+        Page(icon: "textformat.abc", titleKey: "Fill in the blanks", subtitleKey: "Use {{variables}} to template your prompts. Tap a row, fill the blanks, copy."),
+        Page(icon: "lock.shield", titleKey: "Stays on your phone", subtitleKey: "No account, no network, no data collection. Your prompts never leave your device.")
     ]
 
     var body: some View {
@@ -21,7 +21,7 @@ struct OnboardingView: View {
             .tabViewStyle(.page)
             .indexViewStyle(.page(backgroundDisplayMode: .always))
 
-            Button(page == pages.count - 1 ? "Get started" : "Next") {
+            Button(page == pages.count - 1 ? LocalizedStringKey("Get started") : LocalizedStringKey("Next")) {
                 if page == pages.count - 1 {
                     hasSeenOnboarding = true
                     dismiss()
@@ -42,15 +42,15 @@ struct OnboardingView: View {
         VStack(spacing: 24) {
             Spacer()
             Image(systemName: p.icon).font(.system(size: 88)).foregroundStyle(.tint)
-            Text(p.title).font(.largeTitle.bold()).multilineTextAlignment(.center)
-            Text(p.subtitle).foregroundStyle(.secondary).multilineTextAlignment(.center).padding(.horizontal, 32)
+            Text(p.titleKey).font(.largeTitle.bold()).multilineTextAlignment(.center)
+            Text(p.subtitleKey).foregroundStyle(.secondary).multilineTextAlignment(.center).padding(.horizontal, 32)
             Spacer()
         }
     }
 
     struct Page {
         let icon: String
-        let title: String
-        let subtitle: String
+        let titleKey: LocalizedStringKey
+        let subtitleKey: LocalizedStringKey
     }
 }

@@ -1,0 +1,95 @@
+/* PromptVault — 한국어 (ko) */
+/* Main screen */
+"PromptVault" = "PromptVault";
+"No prompts yet" = "아직 프롬프트가 없어요";
+"Tap + to save your first prompt." = "+ 버튼을 눌러 첫 프롬프트를 저장하세요.";
+"Search prompts" = "프롬프트 검색";
+"Copy" = "복사";
+"All" = "전체";
+
+/* Prompt editor */
+"Title" = "제목";
+"e.g. Translate to natural English" = "예: 자연스러운 영어로 번역해줘";
+"Prompt body" = "프롬프트 본문";
+"Tags" = "태그";
+"comma,separated,tags" = "쉼표,로,구분";
+"Free tier limited to %lld tags per prompt — upgrade to add more." = "무료 버전은 프롬프트당 태그 %lld개까지 — 더 추가하려면 업그레이드하세요.";
+"Variables" = "변수";
+"Preview" = "미리보기";
+"Copy & close" = "복사 후 닫기";
+"Delete prompt" = "프롬프트 삭제";
+"New prompt" = "새 프롬프트";
+"Edit prompt" = "프롬프트 편집";
+"Cancel" = "취소";
+"Save" = "저장";
+
+/* Onboarding */
+"Save the prompts you actually use" = "실제로 쓰는 프롬프트만 저장";
+"ChatGPT · Claude · Midjourney · ComfyUI · Coze. One vault for all of them." = "ChatGPT·Claude·Midjourney·ComfyUI·Coze. 하나의 보관함으로 끝.";
+"Fill in the blanks" = "빈칸만 채우면 끝";
+"Use {{variables}} to template your prompts. Tap a row, fill the blanks, copy." = "{{변수}}로 템플릿화. 행을 누르고 빈칸을 채운 뒤 복사하세요.";
+"Stays on your phone" = "iPhone 안에서만 보관";
+"No account, no network, no data collection. Your prompts never leave your device." = "계정 없음, 네트워크 없음, 데이터 수집 없음. 프롬프트는 기기를 떠나지 않아요.";
+"Get started" = "시작하기";
+"Next" = "다음";
+
+/* Quick tour */
+"Pick a saved prompt" = "저장한 프롬프트 고르기";
+"Fill in the {{variable}}" = "{{변수}} 채우기";
+"One tap to copy" = "한 번에 복사";
+"Your library comes with 100+ ready-to-use prompts for ChatGPT / Claude / Midjourney / Coze. Tap any of them to use." = "ChatGPT / Claude / Midjourney / Coze에서 바로 쓰는 프롬프트가 100개 이상. 아무거나 눌러 사용하세요.";
+"This prompt has a `{{text}}` placeholder. Type or paste anything and watch the prompt fill in." = "이 프롬프트에는 `{{text}}` 자리표시자가 있어요. 무엇이든 입력하거나 붙여넣으면 자동으로 채워집니다.";
+"e.g. 这家餐厅味道不错但服务很慢" = "예: 이 식당은 맛은 좋지만 서비스가 느려요";
+"Live preview" = "실시간 미리보기";
+"In the real app, swipe right on any row to copy. Try it now." = "실제 화면에서는 행을 오른쪽으로 밀면 복사돼요. 지금 한번 해보세요.";
+"Tap to copy" = "탭하여 복사";
+"Copied to clipboard" = "클립보드에 복사됨";
+"Now paste it into ChatGPT / Claude / your tool of choice. That's the whole loop." = "이제 ChatGPT / Claude / 원하는 도구에 붙여넣으면 끝. 흐름은 이게 전부예요.";
+"Skip" = "건너뛰기";
+
+/* QR scan / share */
+"Scan QR Code" = "QR 코드 스캔";
+"Point at a PromptVault QR code" = "PromptVault QR 코드를 비추세요";
+"Camera Access Required" = "카메라 접근 권한 필요";
+"PromptVault needs camera access to scan QR codes. Enable it in Settings > Privacy > Camera." = "PromptVault가 QR 코드를 스캔하려면 카메라 권한이 필요합니다. 설정 > 개인정보 보호 > 카메라에서 켜주세요.";
+"Open Settings" = "설정 열기";
+"Import Prompt?" = "프롬프트를 가져올까요?";
+"Prompt to import" = "가져올 프롬프트";
+"Save to PromptVault" = "PromptVault에 저장";
+"Share Prompt" = "프롬프트 공유";
+"Scan this QR code on another device\nrunning PromptVault to import the prompt." = "다른 기기에서 PromptVault를 실행한 뒤\n이 QR 코드를 스캔하면 프롬프트를 가져옵니다.";
+"Premium Feature" = "프리미엄 기능";
+"QR code sharing is a Premium feature. Upgrade once to share and import prompts between devices, or copy the prompt text below for free." = "QR 코드 공유는 프리미엄 기능입니다. 한 번 업그레이드하면 기기 간에 프롬프트를 공유·가져올 수 있어요. 텍스트 복사는 무료입니다.";
+"Upgrade to Premium" = "프리미엄으로 업그레이드";
+"Copy text to clipboard" = "텍스트를 클립보드에 복사";
+"Copied!" = "복사됨!";
+
+/* Paywall */
+"PromptVault Premium" = "PromptVault 프리미엄";
+"One-time purchase. No subscription. Unlock everything forever." = "한 번 결제로 끝. 구독 없음. 모든 기능을 영원히 해제.";
+"Unlimited prompts (free tier: %lld)" = "프롬프트 무제한 (무료: %lld개)";
+"200+ curated starter prompts" = "엄선된 200개 이상의 시작 프롬프트";
+"Unlimited tags per prompt" = "프롬프트당 태그 무제한";
+"{{variable}} substitution preview" = "{{변수}} 치환 미리보기";
+"One-tap copy with usage stats" = "원탭 복사 + 사용 통계";
+"Restore Purchase" = "구입 복원";
+"No subscription. No data collected. Ever." = "구독 없음, 데이터 수집 없음.";
+"Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID." = "결제는 Apple ID로 청구됩니다. 일회성 구매이며 해당 Apple ID로 평생 모든 프리미엄 기능을 사용할 수 있습니다.";
+"Close" = "닫기";
+"Premium unlocked" = "프리미엄 잠금 해제됨";
+"Processing…" = "처리 중…";
+"Unlock for %@" = "%@에 잠금 해제";
+
+/* Settings */
+"Settings" = "설정";
+"Premium" = "프리미엄";
+"Free tier" = "무료 버전";
+"%lld / %lld prompts used" = "프롬프트 사용 %lld / %lld";
+"Unlock Premium" = "프리미엄 잠금 해제";
+"About" = "정보";
+"Version" = "버전";
+"Build" = "빌드";
+"Privacy Policy" = "개인정보 처리방침";
+"Done" = "완료";
+"Language" = "언어";
+"System default" = "시스템 설정 따르기";

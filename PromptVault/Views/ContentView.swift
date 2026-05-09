@@ -30,9 +30,9 @@ struct ContentView: View {
             Group {
                 if store.prompts.isEmpty {
                     ContentUnavailableView {
-                        Label("No prompts yet", systemImage: "sparkles")
+                        Label(LocalizedStringKey("No prompts yet"), systemImage: "sparkles")
                     } description: {
-                        Text("Tap + to save your first prompt.")
+                        Text(LocalizedStringKey("Tap + to save your first prompt."))
                     }
                 } else {
                     List {
@@ -52,7 +52,7 @@ struct ContentView: View {
                                     Button {
                                         copy(p)
                                     } label: {
-                                        Label("Copy", systemImage: "doc.on.doc")
+                                        Label(LocalizedStringKey("Copy"), systemImage: "doc.on.doc")
                                     }.tint(.accentColor)
                                 }
                         }
@@ -60,10 +60,10 @@ struct ContentView: View {
                     }
                     .listStyle(.insetGrouped)
                     .searchable(text: $search, placement: .navigationBarDrawer(displayMode: .always),
-                                prompt: "Search prompts")
+                                prompt: Text("Search prompts"))
                 }
             }
-            .navigationTitle("PromptVault")
+            .navigationTitle(Text("PromptVault"))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button { showSettings = true } label: { Image(systemName: "gear") }
@@ -123,11 +123,11 @@ struct ContentView: View {
     private var tagFilterRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                pill(label: "All", selected: store.activeTagFilter == nil) {
+                pill(text: Text("All"), selected: store.activeTagFilter == nil) {
                     store.activeTagFilter = nil
                 }
                 ForEach(store.allTags, id: \.self) { tag in
-                    pill(label: tag, selected: store.activeTagFilter == tag) {
+                    pill(text: Text(tag), selected: store.activeTagFilter == tag) {
                         store.activeTagFilter =
                             (store.activeTagFilter == tag) ? nil : tag
                     }
@@ -138,9 +138,9 @@ struct ContentView: View {
         }
     }
 
-    private func pill(label: String, selected: Bool, action: @escaping () -> Void) -> some View {
+    private func pill(text: Text, selected: Bool, action: @escaping () -> Void) -> some View {
         Button(action: { Haptics.light(); action() }) {
-            Text(label)
+            text
                 .font(.subheadline)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)

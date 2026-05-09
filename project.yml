@@ -28,10 +28,26 @@ targets:
       - path: PromptVault
         excludes:
           - "Resources/StoreKitConfiguration.storekit"
+          - "Resources/en.lproj"
+          - "Resources/ja.lproj"
+          - "Resources/zh-Hans.lproj"
+          - "Resources/zh-Hant.lproj"
+          - "Resources/ko.lproj"
+          - "Resources/es.lproj"
+          - "Resources/fr.lproj"
+          - "Resources/de.lproj"
     resources:
       - path: PromptVault/Resources/Assets.xcassets
       - path: PromptVault/Resources/PrivacyInfo.xcprivacy
       - path: PromptVault/Resources/starter_prompts.json
+      - path: PromptVault/Resources/en.lproj
+      - path: PromptVault/Resources/ja.lproj
+      - path: PromptVault/Resources/zh-Hans.lproj
+      - path: PromptVault/Resources/zh-Hant.lproj
+      - path: PromptVault/Resources/ko.lproj
+      - path: PromptVault/Resources/es.lproj
+      - path: PromptVault/Resources/fr.lproj
+      - path: PromptVault/Resources/de.lproj
       - path: PromptVault/Resources/StoreKitConfiguration.storekit
         buildPhase: none
     settings:
@@ -39,6 +55,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.jiejuefuyou.promptvault
         PRODUCT_NAME: PromptVault
         INFOPLIST_KEY_CFBundleDisplayName: PromptVault
+        INFOPLIST_KEY_CFBundleLocalizations: "en ja zh-Hans zh-Hant ko es fr de"
         INFOPLIST_KEY_NSCameraUsageDescription: "Scan QR codes to import prompts shared from another device."
         INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: "YES"

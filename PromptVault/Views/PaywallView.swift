@@ -14,19 +14,26 @@ struct PaywallView: View {
                         .foregroundStyle(.tint)
                         .padding(.top, 24)
 
-                    Text("PromptVault Premium").font(.largeTitle.bold())
+                    Text(LocalizedStringKey("PromptVault Premium")).font(.largeTitle.bold())
 
-                    Text("One-time purchase. No subscription. Unlock everything forever.")
+                    Text(LocalizedStringKey("One-time purchase. No subscription. Unlock everything forever."))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.secondary)
                         .padding(.horizontal)
 
                     VStack(alignment: .leading, spacing: 14) {
-                        feature("infinity",          "Unlimited prompts (free tier: \(PromptStore.freePromptLimit))")
-                        feature("books.vertical",    "200+ curated starter prompts")
-                        feature("tag.fill",          "Unlimited tags per prompt")
-                        feature("textformat.abc",    "{{variable}} substitution preview")
-                        feature("doc.on.clipboard",  "One-tap copy with usage stats")
+                        // First feature interpolates the free-tier limit; SwiftUI Text
+                        // auto-localizes and substitutes %lld from the strings file.
+                        feature(icon: "infinity",
+                                view: AnyView(Text("Unlimited prompts (free tier: \(PromptStore.freePromptLimit))")))
+                        feature(icon: "books.vertical",
+                                view: AnyView(Text(LocalizedStringKey("200+ curated starter prompts"))))
+                        feature(icon: "tag.fill",
+                                view: AnyView(Text(LocalizedStringKey("Unlimited tags per prompt"))))
+                        feature(icon: "textformat.abc",
+                                view: AnyView(Text(LocalizedStringKey("{{variable}} substitution preview"))))
+                        feature(icon: "doc.on.clipboard",
+                                view: AnyView(Text(LocalizedStringKey("One-tap copy with usage stats"))))
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -35,17 +42,17 @@ struct PaywallView: View {
 
                     purchaseButton.padding(.horizontal)
 
-                    Button("Restore Purchase") { Task { await iap.restore() } }.font(.footnote)
+                    Button(LocalizedStringKey("Restore Purchase")) { Task { await iap.restore() } }.font(.footnote)
 
                     if let err = iap.lastError {
                         Text(err).font(.caption).foregroundStyle(.red).padding(.horizontal)
                     }
 
                     VStack(spacing: 4) {
-                        Label("No subscription. No data collected. Ever.", systemImage: "lock.shield.fill")
+                        Label(LocalizedStringKey("No subscription. No data collected. Ever."), systemImage: "lock.shield.fill")
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(.secondary)
-                        Text(legalese)
+                        Text(LocalizedStringKey("Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID."))
                             .font(.caption2).foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
                     }
@@ -53,7 +60,7 @@ struct PaywallView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) { Button("Close") { dismiss() } }
+                ToolbarItem(placement: .topBarTrailing) { Button(LocalizedStringKey("Close")) { dismiss() } }
             }
             .onChange(of: iap.isPremium) { _, v in if v { dismiss() } }
             .task { await iap.loadProducts() }
@@ -63,7 +70,7 @@ struct PaywallView: View {
     @ViewBuilder
     private var purchaseButton: some View {
         if iap.isPremium {
-            Label("Premium unlocked", systemImage: "checkmark.seal.fill")
+            Label(LocalizedStringKey("Premium unlocked"), systemImage: "checkmark.seal.fill")
                 .font(.headline).frame(maxWidth: .infinity).padding()
                 .background(Color.green.opacity(0.2), in: RoundedRectangle(cornerRadius: 16))
                 .foregroundStyle(.green)
@@ -71,7 +78,11 @@ struct PaywallView: View {
             Button { Task { await iap.purchase() } } label: {
                 HStack {
                     if iap.purchaseInProgress { ProgressView().tint(.white) }
-                    Text(iap.purchaseInProgress ? "Processing…" : "Unlock for \(product.displayPrice)").font(.headline)
+                    if iap.purchaseInProgress {
+                        Text(LocalizedStringKey("Processing…")).font(.headline)
+                    } else {
+                        Text("Unlock for \(product.displayPrice)").font(.headline)
+                    }
                 }
                 .frame(maxWidth: .infinity).padding()
                 .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 16))
@@ -83,15 +94,12 @@ struct PaywallView: View {
         }
     }
 
-    private func feature(_ icon: String, _ text: String) -> some View {
+    private func feature(icon: String, view: AnyView) -> some View {
         HStack(spacing: 12) {
             Image(systemName: icon).foregroundStyle(.tint).frame(width: 28)
-            Text(text); Spacer()
+            view
+            Spacer()
         }
-    }
-
-    private var legalese: String {
-        "Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID."
     }
 }
 

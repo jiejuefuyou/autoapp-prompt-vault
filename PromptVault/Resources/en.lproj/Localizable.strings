@@ -1,0 +1,95 @@
+/* PromptVault — English (en) */
+/* Main screen */
+"PromptVault" = "PromptVault";
+"No prompts yet" = "No prompts yet";
+"Tap + to save your first prompt." = "Tap + to save your first prompt.";
+"Search prompts" = "Search prompts";
+"Copy" = "Copy";
+"All" = "All";
+
+/* Prompt editor */
+"Title" = "Title";
+"e.g. Translate to natural English" = "e.g. Translate to natural English";
+"Prompt body" = "Prompt body";
+"Tags" = "Tags";
+"comma,separated,tags" = "comma,separated,tags";
+"Free tier limited to %lld tags per prompt — upgrade to add more." = "Free tier limited to %lld tags per prompt — upgrade to add more.";
+"Variables" = "Variables";
+"Preview" = "Preview";
+"Copy & close" = "Copy & close";
+"Delete prompt" = "Delete prompt";
+"New prompt" = "New prompt";
+"Edit prompt" = "Edit prompt";
+"Cancel" = "Cancel";
+"Save" = "Save";
+
+/* Onboarding */
+"Save the prompts you actually use" = "Save the prompts you actually use";
+"ChatGPT · Claude · Midjourney · ComfyUI · Coze. One vault for all of them." = "ChatGPT · Claude · Midjourney · ComfyUI · Coze. One vault for all of them.";
+"Fill in the blanks" = "Fill in the blanks";
+"Use {{variables}} to template your prompts. Tap a row, fill the blanks, copy." = "Use {{variables}} to template your prompts. Tap a row, fill the blanks, copy.";
+"Stays on your phone" = "Stays on your phone";
+"No account, no network, no data collection. Your prompts never leave your device." = "No account, no network, no data collection. Your prompts never leave your device.";
+"Get started" = "Get started";
+"Next" = "Next";
+
+/* Quick tour */
+"Pick a saved prompt" = "Pick a saved prompt";
+"Fill in the {{variable}}" = "Fill in the {{variable}}";
+"One tap to copy" = "One tap to copy";
+"Your library comes with 100+ ready-to-use prompts for ChatGPT / Claude / Midjourney / Coze. Tap any of them to use." = "Your library comes with 100+ ready-to-use prompts for ChatGPT / Claude / Midjourney / Coze. Tap any of them to use.";
+"This prompt has a `{{text}}` placeholder. Type or paste anything and watch the prompt fill in." = "This prompt has a `{{text}}` placeholder. Type or paste anything and watch the prompt fill in.";
+"e.g. 这家餐厅味道不错但服务很慢" = "e.g. The food was great but the service was slow";
+"Live preview" = "Live preview";
+"In the real app, swipe right on any row to copy. Try it now." = "In the real app, swipe right on any row to copy. Try it now.";
+"Tap to copy" = "Tap to copy";
+"Copied to clipboard" = "Copied to clipboard";
+"Now paste it into ChatGPT / Claude / your tool of choice. That's the whole loop." = "Now paste it into ChatGPT / Claude / your tool of choice. That's the whole loop.";
+"Skip" = "Skip";
+
+/* QR scan / share */
+"Scan QR Code" = "Scan QR Code";
+"Point at a PromptVault QR code" = "Point at a PromptVault QR code";
+"Camera Access Required" = "Camera Access Required";
+"PromptVault needs camera access to scan QR codes. Enable it in Settings > Privacy > Camera." = "PromptVault needs camera access to scan QR codes. Enable it in Settings > Privacy > Camera.";
+"Open Settings" = "Open Settings";
+"Import Prompt?" = "Import Prompt?";
+"Prompt to import" = "Prompt to import";
+"Save to PromptVault" = "Save to PromptVault";
+"Share Prompt" = "Share Prompt";
+"Scan this QR code on another device\nrunning PromptVault to import the prompt." = "Scan this QR code on another device\nrunning PromptVault to import the prompt.";
+"Premium Feature" = "Premium Feature";
+"QR code sharing is a Premium feature. Upgrade once to share and import prompts between devices, or copy the prompt text below for free." = "QR code sharing is a Premium feature. Upgrade once to share and import prompts between devices, or copy the prompt text below for free.";
+"Upgrade to Premium" = "Upgrade to Premium";
+"Copy text to clipboard" = "Copy text to clipboard";
+"Copied!" = "Copied!";
+
+/* Paywall */
+"PromptVault Premium" = "PromptVault Premium";
+"One-time purchase. No subscription. Unlock everything forever." = "One-time purchase. No subscription. Unlock everything forever.";
+"Unlimited prompts (free tier: %lld)" = "Unlimited prompts (free tier: %lld)";
+"200+ curated starter prompts" = "200+ curated starter prompts";
+"Unlimited tags per prompt" = "Unlimited tags per prompt";
+"{{variable}} substitution preview" = "{{variable}} substitution preview";
+"One-tap copy with usage stats" = "One-tap copy with usage stats";
+"Restore Purchase" = "Restore Purchase";
+"No subscription. No data collected. Ever." = "No subscription. No data collected. Ever.";
+"Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID." = "Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID.";
+"Close" = "Close";
+"Premium unlocked" = "Premium unlocked";
+"Processing…" = "Processing…";
+"Unlock for %@" = "Unlock for %@";
+
+/* Settings */
+"Settings" = "Settings";
+"Premium" = "Premium";
+"Free tier" = "Free tier";
+"%lld / %lld prompts used" = "%lld / %lld prompts used";
+"Unlock Premium" = "Unlock Premium";
+"About" = "About";
+"Version" = "Version";
+"Build" = "Build";
+"Privacy Policy" = "Privacy Policy";
+"Done" = "Done";
+"Language" = "Language";
+"System default" = "System default";

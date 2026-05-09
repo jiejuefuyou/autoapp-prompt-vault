@@ -47,19 +47,19 @@ struct PromptEditView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Title") {
-                    TextField("e.g. Translate to natural English", text: $title)
+                Section(LocalizedStringKey("Title")) {
+                    TextField(LocalizedStringKey("e.g. Translate to natural English"), text: $title)
                         .submitLabel(.done)
                 }
-                Section("Prompt body") {
+                Section(LocalizedStringKey("Prompt body")) {
                     TextEditor(text: $promptBody)
                         .frame(minHeight: 140)
                         .font(.system(.body, design: .monospaced))
                 }
                 Section {
-                    TextField("comma,separated,tags", text: $tagsText)
+                    TextField(LocalizedStringKey("comma,separated,tags"), text: $tagsText)
                 } header: {
-                    Text("Tags")
+                    Text(LocalizedStringKey("Tags"))
                 } footer: {
                     if !iap.isPremium && draft.tags.count > PromptStore.freeTagLimit {
                         Text("Free tier limited to \(PromptStore.freeTagLimit) tags per prompt — upgrade to add more.")
@@ -68,7 +68,7 @@ struct PromptEditView: View {
                 }
 
                 if !draft.variables.isEmpty {
-                    Section("Variables") {
+                    Section(LocalizedStringKey("Variables")) {
                         ForEach(draft.variables, id: \.self) { v in
                             TextField("{{\(v)}}", text: Binding(
                                 get: { variableValues[v] ?? "" },
@@ -77,7 +77,7 @@ struct PromptEditView: View {
                             .autocorrectionDisabled()
                         }
                     }
-                    Section("Preview") {
+                    Section(LocalizedStringKey("Preview")) {
                         Text(rendered)
                             .font(.system(.footnote, design: .monospaced))
                             .foregroundStyle(.secondary)
@@ -92,7 +92,7 @@ struct PromptEditView: View {
                             Haptics.success()
                             dismiss()
                         } label: {
-                            Label("Copy & close", systemImage: "doc.on.doc")
+                            Label(LocalizedStringKey("Copy & close"), systemImage: "doc.on.doc")
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
@@ -101,21 +101,21 @@ struct PromptEditView: View {
 
                 if onDelete != nil {
                     Section {
-                        Button("Delete prompt", role: .destructive) {
+                        Button(LocalizedStringKey("Delete prompt"), role: .destructive) {
                             onDelete?()
                             dismiss()
                         }
                     }
                 }
             }
-            .navigationTitle(initial == nil ? "New prompt" : "Edit prompt")
+            .navigationTitle(initial == nil ? Text("New prompt") : Text("Edit prompt"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel") { dismiss() }
+                    Button(LocalizedStringKey("Cancel")) { dismiss() }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Save", action: save)
+                    Button(LocalizedStringKey("Save"), action: save)
                         .disabled(title.trimmingCharacters(in: .whitespaces).isEmpty
                                   || promptBody.trimmingCharacters(in: .whitespaces).isEmpty)
                 }

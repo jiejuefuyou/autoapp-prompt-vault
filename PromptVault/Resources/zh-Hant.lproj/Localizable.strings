@@ -1,0 +1,95 @@
+/* PromptVault — 繁體中文 (zh-Hant) */
+/* Main screen */
+"PromptVault" = "PromptVault";
+"No prompts yet" = "還沒有提示詞";
+"Tap + to save your first prompt." = "點一下「+」儲存第一條提示詞。";
+"Search prompts" = "搜尋提示詞";
+"Copy" = "複製";
+"All" = "全部";
+
+/* Prompt editor */
+"Title" = "標題";
+"e.g. Translate to natural English" = "例如:翻譯成道地英文";
+"Prompt body" = "提示詞內容";
+"Tags" = "標籤";
+"comma,separated,tags" = "用,逗號,分隔";
+"Free tier limited to %lld tags per prompt — upgrade to add more." = "免費版每條提示詞最多 %lld 個標籤,升級會員可增加。";
+"Variables" = "變數";
+"Preview" = "預覽";
+"Copy & close" = "複製並關閉";
+"Delete prompt" = "刪除提示詞";
+"New prompt" = "新增提示詞";
+"Edit prompt" = "編輯提示詞";
+"Cancel" = "取消";
+"Save" = "儲存";
+
+/* Onboarding */
+"Save the prompts you actually use" = "把您真正會用的提示詞收起來";
+"ChatGPT · Claude · Midjourney · ComfyUI · Coze. One vault for all of them." = "ChatGPT·Claude·Midjourney·ComfyUI·Coze,一個保管庫通通搞定。";
+"Fill in the blanks" = "填空式提示";
+"Use {{variables}} to template your prompts. Tap a row, fill the blanks, copy." = "使用 {{變數}} 把提示詞做成範本。點一列、填空、複製。";
+"Stays on your phone" = "資料只留在您的 iPhone";
+"No account, no network, no data collection. Your prompts never leave your device." = "免註冊、不上網、永不蒐集資料。提示詞不會離開您的裝置。";
+"Get started" = "立即開始";
+"Next" = "下一步";
+
+/* Quick tour */
+"Pick a saved prompt" = "挑一條已儲存的提示詞";
+"Fill in the {{variable}}" = "把 {{變數}} 填好";
+"One tap to copy" = "一鍵複製";
+"Your library comes with 100+ ready-to-use prompts for ChatGPT / Claude / Midjourney / Coze. Tap any of them to use." = "內建 100+ 條 ChatGPT / Claude / Midjourney / Coze 即用提示詞,點任一條就能使用。";
+"This prompt has a `{{text}}` placeholder. Type or paste anything and watch the prompt fill in." = "這條提示詞帶有 `{{text}}` 佔位符。隨意輸入或貼上文字,提示詞會自動填好。";
+"e.g. 这家餐厅味道不错但服务很慢" = "例如:這家餐廳味道不錯但服務很慢";
+"Live preview" = "即時預覽";
+"In the real app, swipe right on any row to copy. Try it now." = "在實際畫面中,任意一列向右滑就能複製。現在就試試。";
+"Tap to copy" = "點一下複製";
+"Copied to clipboard" = "已複製到剪貼板";
+"Now paste it into ChatGPT / Claude / your tool of choice. That's the whole loop." = "現在把它貼到 ChatGPT / Claude / 您常用的工具中。整個流程就是這樣。";
+"Skip" = "略過";
+
+/* QR scan / share */
+"Scan QR Code" = "掃描 QR 條碼";
+"Point at a PromptVault QR code" = "對準 PromptVault QR 條碼";
+"Camera Access Required" = "需要相機權限";
+"PromptVault needs camera access to scan QR codes. Enable it in Settings > Privacy > Camera." = "PromptVault 需要相機權限以掃描 QR 條碼。請至「設定 > 隱私權 > 相機」啟用。";
+"Open Settings" = "前往設定";
+"Import Prompt?" = "要匯入提示詞嗎?";
+"Prompt to import" = "待匯入的提示詞";
+"Save to PromptVault" = "儲存至 PromptVault";
+"Share Prompt" = "分享提示詞";
+"Scan this QR code on another device\nrunning PromptVault to import the prompt." = "在另一台執行 PromptVault 的裝置上\n掃描此 QR 條碼即可匯入。";
+"Premium Feature" = "會員功能";
+"QR code sharing is a Premium feature. Upgrade once to share and import prompts between devices, or copy the prompt text below for free." = "QR 條碼分享為會員功能。一次升級即可在多裝置間分享和匯入;免費用戶也可直接複製下方文字。";
+"Upgrade to Premium" = "升級會員";
+"Copy text to clipboard" = "複製文字到剪貼板";
+"Copied!" = "已複製!";
+
+/* Paywall */
+"PromptVault Premium" = "PromptVault 會員";
+"One-time purchase. No subscription. Unlock everything forever." = "一次買斷,無需訂閱,永久解鎖全部功能。";
+"Unlimited prompts (free tier: %lld)" = "提示詞數量無上限(免費版上限 %lld)";
+"200+ curated starter prompts" = "200+ 條精選起步提示詞";
+"Unlimited tags per prompt" = "每條提示詞標籤數無上限";
+"{{variable}} substitution preview" = "{{變數}}置換預覽";
+"One-tap copy with usage stats" = "一鍵複製並記錄使用次數";
+"Restore Purchase" = "回復購買";
+"No subscription. No data collected. Ever." = "無訂閱、永不蒐集資料。";
+"Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID." = "費用將透過您的 Apple ID 進行扣款。本次為一次性買斷,您的 Apple ID 將永久享有全部會員功能。";
+"Close" = "關閉";
+"Premium unlocked" = "已解鎖會員";
+"Processing…" = "處理中…";
+"Unlock for %@" = "%@ 解鎖";
+
+/* Settings */
+"Settings" = "設定";
+"Premium" = "會員";
+"Free tier" = "免費版";
+"%lld / %lld prompts used" = "已使用提示詞 %lld / %lld";
+"Unlock Premium" = "解鎖會員";
+"About" = "關於";
+"Version" = "版本";
+"Build" = "建置版本";
+"Privacy Policy" = "隱私權政策";
+"Done" = "完成";
+"Language" = "語言";
+"System default" = "跟隨系統";

@@ -1,0 +1,95 @@
+/* PromptVault — Deutsch (de) */
+/* Main screen */
+"PromptVault" = "PromptVault";
+"No prompts yet" = "Noch keine Prompts";
+"Tap + to save your first prompt." = "Tippe auf +, um deinen ersten Prompt zu speichern.";
+"Search prompts" = "Prompts suchen";
+"Copy" = "Kopieren";
+"All" = "Alle";
+
+/* Prompt editor */
+"Title" = "Titel";
+"e.g. Translate to natural English" = "z. B. Ins natürliche Englisch übersetzen";
+"Prompt body" = "Prompt-Text";
+"Tags" = "Tags";
+"comma,separated,tags" = "Tags,kommagetrennt,eingeben";
+"Free tier limited to %lld tags per prompt — upgrade to add more." = "Gratis-Version: max. %lld Tags pro Prompt — Upgrade für mehr.";
+"Variables" = "Variablen";
+"Preview" = "Vorschau";
+"Copy & close" = "Kopieren und schließen";
+"Delete prompt" = "Prompt löschen";
+"New prompt" = "Neuer Prompt";
+"Edit prompt" = "Prompt bearbeiten";
+"Cancel" = "Abbrechen";
+"Save" = "Sichern";
+
+/* Onboarding */
+"Save the prompts you actually use" = "Speichere die Prompts, die du wirklich nutzt";
+"ChatGPT · Claude · Midjourney · ComfyUI · Coze. One vault for all of them." = "ChatGPT · Claude · Midjourney · ComfyUI · Coze. Ein Tresor für alle.";
+"Fill in the blanks" = "Lücken füllen";
+"Use {{variables}} to template your prompts. Tap a row, fill the blanks, copy." = "Mit {{Variablen}} machst du aus Prompts Vorlagen. Zeile antippen, Lücken füllen, kopieren.";
+"Stays on your phone" = "Bleibt auf deinem iPhone";
+"No account, no network, no data collection. Your prompts never leave your device." = "Kein Konto, kein Netzwerk, keine Datensammlung. Deine Prompts verlassen das Gerät nicht.";
+"Get started" = "Los geht's";
+"Next" = "Weiter";
+
+/* Quick tour */
+"Pick a saved prompt" = "Wähle einen gespeicherten Prompt";
+"Fill in the {{variable}}" = "Fülle die {{Variable}} aus";
+"One tap to copy" = "Ein Tipp zum Kopieren";
+"Your library comes with 100+ ready-to-use prompts for ChatGPT / Claude / Midjourney / Coze. Tap any of them to use." = "Deine Bibliothek enthält über 100 sofort einsatzbereite Prompts für ChatGPT / Claude / Midjourney / Coze. Tippe einen an, um ihn zu nutzen.";
+"This prompt has a `{{text}}` placeholder. Type or paste anything and watch the prompt fill in." = "Dieser Prompt enthält einen `{{text}}`-Platzhalter. Tippe oder füge etwas ein – der Prompt füllt sich automatisch.";
+"e.g. 这家餐厅味道不错但服务很慢" = "z. B. Das Essen war gut, aber der Service langsam";
+"Live preview" = "Live-Vorschau";
+"In the real app, swipe right on any row to copy. Try it now." = "In der App wischst du eine Zeile nach rechts, um sie zu kopieren. Probier's jetzt.";
+"Tap to copy" = "Tippen zum Kopieren";
+"Copied to clipboard" = "In die Zwischenablage kopiert";
+"Now paste it into ChatGPT / Claude / your tool of choice. That's the whole loop." = "Füge ihn jetzt in ChatGPT / Claude / dein Lieblingstool ein. Das ist der ganze Ablauf.";
+"Skip" = "Überspringen";
+
+/* QR scan / share */
+"Scan QR Code" = "QR-Code scannen";
+"Point at a PromptVault QR code" = "Auf einen PromptVault-QR-Code zielen";
+"Camera Access Required" = "Kamerazugriff erforderlich";
+"PromptVault needs camera access to scan QR codes. Enable it in Settings > Privacy > Camera." = "PromptVault benötigt Kamerazugriff zum Scannen von QR-Codes. Aktiviere ihn unter Einstellungen > Datenschutz > Kamera.";
+"Open Settings" = "Einstellungen öffnen";
+"Import Prompt?" = "Prompt importieren?";
+"Prompt to import" = "Zu importierender Prompt";
+"Save to PromptVault" = "In PromptVault speichern";
+"Share Prompt" = "Prompt teilen";
+"Scan this QR code on another device\nrunning PromptVault to import the prompt." = "Scanne diesen QR-Code auf einem anderen Gerät\nmit PromptVault, um den Prompt zu importieren.";
+"Premium Feature" = "Premium-Funktion";
+"QR code sharing is a Premium feature. Upgrade once to share and import prompts between devices, or copy the prompt text below for free." = "QR-Code-Teilen ist eine Premium-Funktion. Mit einem einmaligen Upgrade kannst du Prompts zwischen Geräten teilen und importieren. Den Text kopieren bleibt kostenlos.";
+"Upgrade to Premium" = "Auf Premium upgraden";
+"Copy text to clipboard" = "Text in die Zwischenablage kopieren";
+"Copied!" = "Kopiert!";
+
+/* Paywall */
+"PromptVault Premium" = "PromptVault Premium";
+"One-time purchase. No subscription. Unlock everything forever." = "Einmalkauf. Kein Abo. Alles dauerhaft freischalten.";
+"Unlimited prompts (free tier: %lld)" = "Unbegrenzte Prompts (gratis: %lld)";
+"200+ curated starter prompts" = "Über 200 kuratierte Starter-Prompts";
+"Unlimited tags per prompt" = "Unbegrenzt Tags pro Prompt";
+"{{variable}} substitution preview" = "{{variable}}-Ersatz-Vorschau";
+"One-tap copy with usage stats" = "Ein-Tipp-Kopieren mit Nutzungsstatistik";
+"Restore Purchase" = "Kauf wiederherstellen";
+"No subscription. No data collected. Ever." = "Kein Abo. Keine Datenerhebung.";
+"Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID." = "Die Zahlung wird über deine Apple-ID abgebucht. Dies ist ein Einmalkauf, der alle Premium-Funktionen für die Lebensdauer deiner Apple-ID freischaltet.";
+"Close" = "Schließen";
+"Premium unlocked" = "Premium freigeschaltet";
+"Processing…" = "Wird verarbeitet…";
+"Unlock for %@" = "Für %@ freischalten";
+
+/* Settings */
+"Settings" = "Einstellungen";
+"Premium" = "Premium";
+"Free tier" = "Gratis-Version";
+"%lld / %lld prompts used" = "Prompts genutzt: %lld / %lld";
+"Unlock Premium" = "Premium freischalten";
+"About" = "Über die App";
+"Version" = "Version";
+"Build" = "Build";
+"Privacy Policy" = "Datenschutzerklärung";
+"Done" = "Fertig";
+"Language" = "Sprache";
+"System default" = "Systemeinstellung";
