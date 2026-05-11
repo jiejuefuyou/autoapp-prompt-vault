@@ -168,6 +168,7 @@ struct QuickTourView: View {
                     .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 14))
                     .foregroundStyle(.white)
             }
+            .buttonStyle(ScaleButtonStyle())
         } else {
             Button {
                 hasCompletedTour = true
@@ -181,6 +182,7 @@ struct QuickTourView: View {
                                 in: RoundedRectangle(cornerRadius: 14))
                     .foregroundStyle(didCopy ? .white : .primary)
             }
+            .buttonStyle(ScaleButtonStyle())
         }
     }
 }

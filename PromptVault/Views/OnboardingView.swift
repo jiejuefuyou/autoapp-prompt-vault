@@ -12,7 +12,23 @@ struct OnboardingView: View {
     ]
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            // Always-visible Skip in top-right so users can exit onboarding from any page.
+            HStack {
+                Spacer()
+                Button(action: dismissOnboarding) {
+                    Text(LocalizedStringKey("Skip"))
+                        .font(.system(size: 16, weight: .medium))
+                        .foregroundStyle(Color.accentColor)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .contentShape(Rectangle())
+                }
+                .accessibilityLabel(Text("Skip"))
+            }
+            .padding(.top, 8)
+            .padding(.horizontal, 8)
+
             TabView(selection: $page) {
                 ForEach(Array(pages.enumerated()), id: \.offset) { idx, p in
                     pageView(p).tag(idx)
@@ -23,8 +39,7 @@ struct OnboardingView: View {
 
             Button(page == pages.count - 1 ? LocalizedStringKey("Get started") : LocalizedStringKey("Next")) {
                 if page == pages.count - 1 {
-                    hasSeenOnboarding = true
-                    dismiss()
+                    dismissOnboarding()
                 } else {
                     withAnimation { page += 1 }
                 }
@@ -46,6 +61,12 @@ struct OnboardingView: View {
             Text(p.subtitleKey).foregroundStyle(.secondary).multilineTextAlignment(.center).padding(.horizontal, 32)
             Spacer()
         }
+    }
+
+    private func dismissOnboarding() {
+        hasSeenOnboarding = true
+        Haptics.light()
+        dismiss()
     }
 
     struct Page {

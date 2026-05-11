@@ -56,13 +56,33 @@ final class LocalizationManager {
         }
     }
 
+    /// Hardcoded native-script display names for each supported language.
+    ///
+    /// `Locale.localizedString(forLanguageCode:)` returns the *language* component only
+    /// and ignores the script — both `zh-Hans` and `zh-Hant` would render as "Chinese",
+    /// leaving the picker with two identical entries. This dictionary keeps the picker
+    /// readable in every locale.
+    static let displayNames: [String: String] = [
+        "en":      "English",
+        "ja":      "日本語",
+        "ko":      "한국어",
+        "zh-Hans": "简体中文",
+        "zh-Hant": "繁體中文",
+        "es":      "Español",
+        "fr":      "Français",
+        "de":      "Deutsch",
+    ]
+
     static func displayName(for code: String) -> String {
         if code.isEmpty {
             return String(localized: "System default")
         }
+        if let native = displayNames[code] {
+            return native
+        }
         let locale = Locale(identifier: code)
-        return locale.localizedString(forLanguageCode: code)?.capitalized
-            ?? Locale.current.localizedString(forLanguageCode: code)
+        return locale.localizedString(forIdentifier: code)
+            ?? Locale.current.localizedString(forIdentifier: code)
             ?? code
     }
 }

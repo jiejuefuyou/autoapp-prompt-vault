@@ -162,7 +162,7 @@ struct ContentView: View {
             .padding(.vertical, 10)
             .foregroundStyle(.secondary)
         }
-        .buttonStyle(.plain)
+        .buttonStyle(ScaleButtonStyle())
     }
 
     private func pill(text: Text, selected: Bool, action: @escaping () -> Void) -> some View {

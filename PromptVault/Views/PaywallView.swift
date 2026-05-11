@@ -86,6 +86,7 @@ struct PaywallView: View {
                 .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 16))
                 .foregroundStyle(.white)
             }
+            .buttonStyle(ScaleButtonStyle())
             .disabled(iap.purchaseInProgress)
         } else {
             ProgressView().frame(maxWidth: .infinity).padding()
