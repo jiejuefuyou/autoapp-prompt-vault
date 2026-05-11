@@ -108,3 +108,14 @@
 "Sync over cellular" = "使用蜂窝数据同步";
 "Prompts sync across your devices via iCloud. Disable cellular to save data." = "提示词通过 iCloud 在多设备间同步。关闭蜂窝数据可节省流量。";
 "Never" = "从未同步";
+
+/* v1.0.3 — purchase result surface (Apple round-4 2.1(b) preempt port from AutoChoice) */
+"OK" = "好的";
+"Try again" = "重试";
+"Purchase failed" = "购买失败";
+"Purchase canceled." = "已取消购买。";
+"Purchase pending" = "购买待处理";
+"Purchase pending. We'll complete it shortly." = "购买待处理,稍后会自动完成。";
+"Product unavailable. Please try again later." = "商品暂时不可用,请稍后再试。";
+"Purchase verification failed. Please contact support." = "购买验证失败,请联系技术支持。";
+"Unknown purchase result. Please try again." = "购买结果未知,请重试。";

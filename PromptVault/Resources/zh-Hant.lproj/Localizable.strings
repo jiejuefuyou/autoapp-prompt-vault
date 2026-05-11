@@ -108,3 +108,14 @@
 "Sync over cellular" = "使用行動數據同步";
 "Prompts sync across your devices via iCloud. Disable cellular to save data." = "提示詞透過 iCloud 在多裝置間同步。關閉行動數據可節省流量。";
 "Never" = "從未同步";
+
+/* v1.0.3 — purchase result surface (Apple round-4 2.1(b) preempt port from AutoChoice) */
+"OK" = "好";
+"Try again" = "重試";
+"Purchase failed" = "購買失敗";
+"Purchase canceled." = "已取消購買。";
+"Purchase pending" = "購買待處理";
+"Purchase pending. We'll complete it shortly." = "購買待處理,稍後將自動完成。";
+"Product unavailable. Please try again later." = "產品暫時無法使用,請稍後再試。";
+"Purchase verification failed. Please contact support." = "購買驗證失敗,請聯絡技術支援。";
+"Unknown purchase result. Please try again." = "購買結果未知,請再試一次。";

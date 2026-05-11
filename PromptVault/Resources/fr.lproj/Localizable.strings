@@ -108,3 +108,14 @@
 "Sync over cellular" = "Synchroniser en données mobiles";
 "Prompts sync across your devices via iCloud. Disable cellular to save data." = "Les prompts sont synchronisés entre vos appareils via iCloud. Désactivez les données mobiles pour économiser.";
 "Never" = "Jamais";
+
+/* v1.0.3 — purchase result surface (Apple round-4 2.1(b) preempt port from AutoChoice) */
+"OK" = "OK";
+"Try again" = "Réessayer";
+"Purchase failed" = "Échec de l'achat";
+"Purchase canceled." = "Achat annulé.";
+"Purchase pending" = "Achat en attente";
+"Purchase pending. We'll complete it shortly." = "Achat en attente. Nous le finaliserons sous peu.";
+"Product unavailable. Please try again later." = "Produit indisponible. Veuillez réessayer plus tard.";
+"Purchase verification failed. Please contact support." = "La vérification de l'achat a échoué. Veuillez contacter l'assistance.";
+"Unknown purchase result. Please try again." = "Résultat d'achat inconnu. Veuillez réessayer.";

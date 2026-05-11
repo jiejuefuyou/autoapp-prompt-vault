@@ -108,3 +108,14 @@
 "Sync over cellular" = "モバイル通信で同期";
 "Prompts sync across your devices via iCloud. Disable cellular to save data." = "プロンプトは iCloud で端末間同期されます。データ通信量を抑えるにはモバイル通信をオフにしてください。";
 "Never" = "未同期";
+
+/* v1.0.3 — purchase result surface (Apple round-4 2.1(b) preempt port from AutoChoice) */
+"OK" = "OK";
+"Try again" = "もう一度試す";
+"Purchase failed" = "購入に失敗しました";
+"Purchase canceled." = "購入をキャンセルしました。";
+"Purchase pending" = "購入処理中";
+"Purchase pending. We'll complete it shortly." = "購入処理中です。まもなく完了します。";
+"Product unavailable. Please try again later." = "商品をご利用いただけません。しばらくしてからもう一度お試しください。";
+"Purchase verification failed. Please contact support." = "購入の確認に失敗しました。サポートまでお問い合わせください。";
+"Unknown purchase result. Please try again." = "購入処理の結果が不明です。もう一度お試しください。";

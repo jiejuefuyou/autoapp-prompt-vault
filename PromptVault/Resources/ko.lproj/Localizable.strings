@@ -108,3 +108,14 @@
 "Sync over cellular" = "셀룰러로 동기화";
 "Prompts sync across your devices via iCloud. Disable cellular to save data." = "프롬프트는 iCloud로 기기 간 동기화됩니다. 데이터 절약을 위해 셀룰러를 끄세요.";
 "Never" = "동기화 안 됨";
+
+/* v1.0.3 — purchase result surface (Apple round-4 2.1(b) preempt port from AutoChoice) */
+"OK" = "확인";
+"Try again" = "다시 시도";
+"Purchase failed" = "구매에 실패했습니다";
+"Purchase canceled." = "구매가 취소되었습니다.";
+"Purchase pending" = "구매 대기 중";
+"Purchase pending. We'll complete it shortly." = "구매가 대기 중입니다. 곧 완료됩니다.";
+"Product unavailable. Please try again later." = "상품을 이용할 수 없습니다. 잠시 후 다시 시도해 주세요.";
+"Purchase verification failed. Please contact support." = "구매 확인에 실패했습니다. 고객지원에 문의해 주세요.";
+"Unknown purchase result. Please try again." = "구매 결과를 확인할 수 없습니다. 다시 시도해 주세요.";
