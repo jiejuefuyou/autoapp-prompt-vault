@@ -66,7 +66,7 @@
 
 /* Paywall */
 "PromptVault Premium" = "PromptVault 会员";
-"One-time purchase. No subscription. Unlock everything forever." = "一次买断,无需订阅,永久解锁全部功能。";
+"One-time purchase. Unlock everything forever." = "一次买断,永久解锁全部功能。";
 "Unlimited prompts (free tier: %lld)" = "提示词数量无限(免费版上限 %lld)";
 "200+ curated starter prompts" = "200+ 条精选起步提示词";
 "Unlimited tags per prompt" = "每条提示词的标签数无限";
@@ -74,6 +74,8 @@
 "One-tap copy with usage stats" = "一键复制并统计使用次数";
 "Restore Purchase" = "恢复购买";
 "No subscription. No data collected. Ever." = "无订阅、永不采集数据。";
+"One-time purchase. Lifetime access." = "一次性购买,终身使用。";
+"Variable templates included. No data collected." = "包含变量模板,不收集数据。";
 "Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID." = "费用将通过您的 Apple ID 进行扣款。本次为一次性买断,您的 Apple ID 将永久享有全部会员功能。";
 "Close" = "关闭";
 "Premium unlocked" = "已解锁会员";
@@ -120,3 +122,6 @@
 "Purchase verification failed. Please contact support." = "购买验证失败,请联系技术支持。";
 "Unknown purchase result. Please try again." = "购买结果未知,请重试。";
 "Skip onboarding" = "跳过引导";
+
+/* v1.0.4 — variable UI + paywall reposition */
+"default" = "默认值";

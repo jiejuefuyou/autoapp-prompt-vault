@@ -20,7 +20,7 @@ struct PaywallView: View {
 
                     Text(LocalizedStringKey("PromptVault Premium")).font(.largeTitle.bold())
 
-                    Text(LocalizedStringKey("One-time purchase. No subscription. Unlock everything forever."))
+                    Text(LocalizedStringKey("One-time purchase. Unlock everything forever."))
                         .multilineTextAlignment(.center)
                         .foregroundStyle(.secondary)
                         .padding(.horizontal)
@@ -50,9 +50,13 @@ struct PaywallView: View {
                     Button(LocalizedStringKey("Restore Purchase")) { Task { await iap.restore() } }.font(.footnote)
 
                     VStack(spacing: 4) {
-                        Label(LocalizedStringKey("No subscription. No data collected. Ever."), systemImage: "lock.shield.fill")
+                        Label(LocalizedStringKey("One-time purchase. Lifetime access."), systemImage: "lock.shield.fill")
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(.secondary)
+                        Text(LocalizedStringKey("Variable templates included. No data collected."))
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
                         Text(LocalizedStringKey("Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID."))
                             .font(.caption2).foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)

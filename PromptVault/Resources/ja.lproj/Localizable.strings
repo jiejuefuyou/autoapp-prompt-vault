@@ -66,7 +66,7 @@
 
 /* Paywall */
 "PromptVault Premium" = "PromptVault プレミアム";
-"One-time purchase. No subscription. Unlock everything forever." = "買い切り型。サブスクなし。すべての機能を永久に解放します。";
+"One-time purchase. Unlock everything forever." = "買い切り型。すべての機能を永久に解放します。";
 "Unlimited prompts (free tier: %lld)" = "プロンプト数無制限(無料版は %lld 件まで)";
 "200+ curated starter prompts" = "厳選スタータープロンプト 200 種類以上";
 "Unlimited tags per prompt" = "1 件あたりのタグ数無制限";
@@ -74,6 +74,8 @@
 "One-tap copy with usage stats" = "ワンタップコピー+使用回数記録";
 "Restore Purchase" = "購入を復元";
 "No subscription. No data collected. Ever." = "サブスクなし、データ収集なし。";
+"One-time purchase. Lifetime access." = "買い切り。一生使えます。";
+"Variable templates included. No data collected." = "変数テンプレート搭載。データ収集なし。";
 "Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID." = "代金はお客様の Apple ID に請求されます。買い切りのため、お客様の Apple ID で永続的にすべてのプレミアム機能をご利用いただけます。";
 "Close" = "閉じる";
 "Premium unlocked" = "プレミアム解放済み";
@@ -120,3 +122,6 @@
 "Purchase verification failed. Please contact support." = "購入の確認に失敗しました。サポートまでお問い合わせください。";
 "Unknown purchase result. Please try again." = "購入処理の結果が不明です。もう一度お試しください。";
 "Skip onboarding" = "オンボーディングをスキップ";
+
+/* v1.0.4 — variable UI + paywall reposition */
+"default" = "既定値";

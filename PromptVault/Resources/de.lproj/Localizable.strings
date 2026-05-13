@@ -66,7 +66,7 @@
 
 /* Paywall */
 "PromptVault Premium" = "PromptVault Premium";
-"One-time purchase. No subscription. Unlock everything forever." = "Einmalkauf. Kein Abo. Alles dauerhaft freischalten.";
+"One-time purchase. Unlock everything forever." = "Einmalkauf. Alles dauerhaft freischalten.";
 "Unlimited prompts (free tier: %lld)" = "Unbegrenzte Prompts (gratis: %lld)";
 "200+ curated starter prompts" = "Über 200 kuratierte Starter-Prompts";
 "Unlimited tags per prompt" = "Unbegrenzt Tags pro Prompt";
@@ -74,6 +74,8 @@
 "One-tap copy with usage stats" = "Ein-Tipp-Kopieren mit Nutzungsstatistik";
 "Restore Purchase" = "Kauf wiederherstellen";
 "No subscription. No data collected. Ever." = "Kein Abo. Keine Datenerhebung.";
+"One-time purchase. Lifetime access." = "Einmalkauf. Lebenslanger Zugriff.";
+"Variable templates included. No data collected." = "Variable Vorlagen enthalten. Keine Datenerfassung.";
 "Payment will be charged to your Apple ID. This is a one-time purchase that unlocks all premium features for the lifetime of your Apple ID." = "Die Zahlung wird über deine Apple-ID abgebucht. Dies ist ein Einmalkauf, der alle Premium-Funktionen für die Lebensdauer deiner Apple-ID freischaltet.";
 "Close" = "Schließen";
 "Premium unlocked" = "Premium freigeschaltet";
@@ -120,3 +122,6 @@
 "Purchase verification failed. Please contact support." = "Kaufüberprüfung fehlgeschlagen. Bitte wende dich an den Support.";
 "Unknown purchase result. Please try again." = "Unbekanntes Kaufergebnis. Bitte versuche es erneut.";
 "Skip onboarding" = "Einführung überspringen";
+
+/* v1.0.4 — variable UI + paywall reposition */
+"default" = "Standard";

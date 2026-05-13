@@ -77,14 +77,34 @@ struct PromptEditView: View {
                     }
                 }
 
-                if !draft.variables.isEmpty {
+                if !draft.parseVariables().isEmpty {
                     Section(LocalizedStringKey("Variables")) {
-                        ForEach(draft.variables, id: \.self) { v in
-                            TextField("{{\(v)}}", text: Binding(
-                                get: { variableValues[v] ?? "" },
-                                set: { variableValues[v] = $0 }
-                            ))
-                            .autocorrectionDisabled()
+                        ForEach(draft.parseVariables(), id: \.name) { pv in
+                            VStack(alignment: .leading, spacing: 4) {
+                                HStack {
+                                    Text(pv.name).font(.caption).foregroundStyle(.secondary)
+                                    if pv.defaultValue != nil {
+                                        Spacer()
+                                        Text(LocalizedStringKey("default")).font(.caption2).foregroundStyle(.tertiary)
+                                    }
+                                }
+                                switch pv.type {
+                                case .multiline:
+                                    TextEditor(text: variableBinding(for: pv))
+                                        .frame(minHeight: 80)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 6)
+                                                .stroke(Color.secondary.opacity(0.3), lineWidth: 0.5)
+                                        )
+                                case .int:
+                                    TextField(pv.defaultValue ?? "", text: variableBinding(for: pv))
+                                        .keyboardType(.numberPad)
+                                        .autocorrectionDisabled()
+                                case .string:
+                                    TextField(pv.defaultValue ?? "", text: variableBinding(for: pv))
+                                        .autocorrectionDisabled()
+                                }
+                            }
                         }
                     }
                     Section(LocalizedStringKey("Preview")) {
@@ -149,6 +169,13 @@ struct PromptEditView: View {
                 }
             }
         }
+    }
+
+    private func variableBinding(for pv: PromptVariable) -> Binding<String> {
+        Binding(
+            get: { variableValues[pv.name] ?? pv.defaultValue ?? "" },
+            set: { variableValues[pv.name] = $0 }
+        )
     }
 
     private func save() {
