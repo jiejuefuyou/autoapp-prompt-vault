@@ -2,6 +2,27 @@ import Foundation
 import SwiftUI
 import Observation
 
+// MARK: - Variable System
+
+/// Supported variable types in the `{{name:type=default}}` syntax.
+enum VariableType: String, Codable, Hashable, CaseIterable {
+    case string
+    case int
+    case multiline
+}
+
+/// A parsed placeholder from a prompt body.
+/// Syntax variants:
+///   `{{name}}`                 → name, .string, nil
+///   `{{name:string=default}}`  → name, .string, "default"
+///   `{{count:int=5}}`          → count, .int,    "5"
+///   `{{notes:multiline=}}`     → notes, .multiline, ""
+struct PromptVariable: Equatable, Hashable {
+    let name: String
+    let type: VariableType
+    let defaultValue: String?
+}
+
 struct Prompt: Identifiable, Codable, Hashable {
     var id: UUID = UUID()
     var title: String
@@ -55,6 +76,60 @@ struct Prompt: Identifiable, Codable, Hashable {
         for (key, val) in values {
             result = result.replacingOccurrences(of: "{{\(key)}}", with: val)
             result = result.replacingOccurrences(of: "{{ \(key) }}", with: val)
+        }
+        return result
+    }
+
+    /// Parse all `{{name}}` / `{{name:type=default}}` placeholders found in the
+    /// prompt body and return them as typed `PromptVariable` instances.
+    ///
+    /// - Deduplication: first occurrence wins; subsequent identical names ignored.
+    /// - Unknown type tokens fall back to `.string`.
+    /// - Whitespace around name/type/default is trimmed.
+    ///
+    /// Examples:
+    ///   `{{topic}}`              → PromptVariable(name:"topic", type:.string, defaultValue:nil)
+    ///   `{{lang:string=Japanese}}`→ PromptVariable(name:"lang", type:.string, defaultValue:"Japanese")
+    ///   `{{count:int=5}}`        → PromptVariable(name:"count", type:.int,    defaultValue:"5")
+    ///   `{{notes:multiline=}}`   → PromptVariable(name:"notes", type:.multiline, defaultValue:"")
+    func parseVariables() -> [PromptVariable] {
+        // Regex captures everything between {{ and }}, non-greedy
+        let pattern = #/\{\{\s*([^}]+?)\s*\}\}/#
+        var seen: Set<String> = []
+        var result: [PromptVariable] = []
+        for match in body.matches(of: pattern) {
+            let raw = String(match.output.1).trimmingCharacters(in: .whitespaces)
+            // Split on first ':' to separate name from "type=default"
+            let colonIdx = raw.firstIndex(of: ":")
+            let name: String
+            let typeAndDefault: String?
+            if let idx = colonIdx {
+                name = String(raw[raw.startIndex..<idx]).trimmingCharacters(in: .whitespaces)
+                typeAndDefault = String(raw[raw.index(after: idx)...]).trimmingCharacters(in: .whitespaces)
+            } else {
+                name = raw
+                typeAndDefault = nil
+            }
+            guard !name.isEmpty, !seen.contains(name) else { continue }
+            seen.insert(name)
+            let varType: VariableType
+            let defaultVal: String?
+            if let td = typeAndDefault {
+                // Split on first '=' to separate type from default value
+                if let eqIdx = td.firstIndex(of: "=") {
+                    let typePart = String(td[td.startIndex..<eqIdx]).trimmingCharacters(in: .whitespaces)
+                    let defPart  = String(td[td.index(after: eqIdx)...])
+                    varType    = VariableType(rawValue: typePart) ?? .string
+                    defaultVal = defPart  // preserve internal whitespace in default
+                } else {
+                    varType    = VariableType(rawValue: td) ?? .string
+                    defaultVal = nil
+                }
+            } else {
+                varType    = .string
+                defaultVal = nil
+            }
+            result.append(PromptVariable(name: name, type: varType, defaultValue: defaultVal))
         }
         return result
     }
