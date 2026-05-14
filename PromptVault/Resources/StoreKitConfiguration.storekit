@@ -27,7 +27,48 @@
     "_storefront" : "USA",
     "_storeKitErrors" : []
   },
-  "subscriptionGroups" : [],
+  "subscriptionGroups" : [
+    {
+      "id" : "promptvault_pro",
+      "localizations" : [
+        {
+          "displayName" : "PromptVault Pro",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "PromptVault Pro",
+      "performanceSKUs" : [],
+      "subscriptions" : [
+        {
+          "adHocOfferCodeRedemptionLimit" : 1000000,
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "PRO_MONTHLY_INTERNAL_ID",
+          "introductoryOffer" : {
+            "displayPrice" : "0.00",
+            "eligibilityWindowDays" : 0,
+            "offerIdentifier" : "intro_free_trial",
+            "paymentMode" : "FREE_TRIAL",
+            "period" : 1,
+            "periodUnit" : "WEEK",
+            "type" : "introductory"
+          },
+          "localizations" : [
+            {
+              "description" : "Access all prompts, Action Extension for share sheet, and upcoming Pro features. Includes 7-day free trial. Renews monthly at $0.99. Cancel anytime.",
+              "displayName" : "PromptVault Pro Monthly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.jiejuefuyou.promptvault.pro.monthly",
+          "referenceName" : "Pro Monthly",
+          "subscriptionPeriod" : "P1M",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
   "version" : {
     "major" : 3,
     "minor" : 0

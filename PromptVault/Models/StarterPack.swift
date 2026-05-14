@@ -24,12 +24,14 @@ enum StarterPack {
     ]
 
     private struct RawPrompt: Codable {
+        let id: String?
         let title: String
         let body: String
         let tags: [String]?
+        let category: String?   // v1.1.0: 5-bucket categorisation
 
         var prompt: Prompt {
-            Prompt(title: title, body: body, tags: tags ?? [])
+            Prompt(title: title, body: body, tags: tags ?? [], category: category)
         }
     }
 }

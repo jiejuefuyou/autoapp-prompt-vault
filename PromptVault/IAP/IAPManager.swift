@@ -5,8 +5,18 @@ import Observation
 @MainActor
 @Observable
 final class IAPManager {
-    // Must match the IAP product ID configured in App Store Connect for PromptVault.
+    // MARK: - Product IDs
+
+    /// One-time unlock — must match ASC record and StoreKitConfiguration.storekit.
     static let premiumProductID = "com.jiejuefuyou.promptvault.premium"
+
+    /// v1.1.0 scaffold: Monthly subscription — $0.99/mo with 7-day free trial.
+    /// TODO before ship:
+    ///   1. Create subscription group "promptvault_pro" in ASC
+    ///   2. Add ASC IAP record with this product ID
+    ///   3. Add Apple 3.1.2 compliance: Terms of Use link, auto-renewal disclosure,
+    ///      restore button visible — see PaywallView sprint
+    static let subscriptionProductID = "com.jiejuefuyou.promptvault.pro.monthly"
 
     /// Hard ceiling for product lookup. Sandbox StoreKit can stall silently;
     /// any wait beyond this and we surface a graceful empty state instead of
@@ -62,12 +72,16 @@ final class IAPManager {
         }
     }
 
-    var isPremium: Bool = false
+    var isPremium: Bool = false              // one-time unlock
+    var isProSubscriber: Bool = false        // v1.1.0: active subscription entitlement
     var products: [Product] = []
     var purchaseInProgress: Bool = false
     var lastError: String?
     var loadingState: LoadingState = .loading
     var purchaseState: PurchaseState = .idle
+
+    /// Convenience: user has any valid entitlement (one-time OR subscription).
+    var hasAnyEntitlement: Bool { isPremium || isProSubscriber }
 
     private nonisolated(unsafe) var listenerTask: Task<Void, Never>?
 
@@ -104,10 +118,15 @@ final class IAPManager {
     func loadProducts() async {
         loadingState = .loading
         lastError = nil
+        // Include both one-time and subscription product IDs.
+        // The subscription product (subscriptionProductID) is a v1.1.0 scaffold:
+        // it will return empty from StoreKit until the ASC record is created,
+        // which is intentional — the product list gracefully degrades to just premium.
+        let productIDs: Set<String> = [Self.premiumProductID, Self.subscriptionProductID]
         do {
             let fetched = try await withThrowingTaskGroup(of: [Product].self) { group in
                 group.addTask {
-                    try await Product.products(for: [Self.premiumProductID])
+                    try await Product.products(for: productIDs)
                 }
                 group.addTask {
                     try await Task.sleep(for: Self.productsLoadTimeout)
@@ -215,14 +234,17 @@ final class IAPManager {
     }
 
     private func refreshEntitlements() async {
-        var entitled = false
+        var oneTime = false
+        var subscription = false
         for await result in Transaction.currentEntitlements {
-            if case .verified(let t) = result,
-               t.productID == Self.premiumProductID,
-               t.revocationDate == nil {
-                entitled = true
+            guard case .verified(let t) = result, t.revocationDate == nil else { continue }
+            if t.productID == Self.premiumProductID {
+                oneTime = true
+            } else if t.productID == Self.subscriptionProductID {
+                subscription = true
             }
         }
-        isPremium = entitled
+        isPremium = oneTime
+        isProSubscriber = subscription
     }
 }

@@ -28,6 +28,7 @@ struct Prompt: Identifiable, Codable, Hashable {
     var title: String
     var body: String
     var tags: [String] = []
+    var category: String? = nil   // v1.1.0: 5-bucket categorisation (coding/writing/research/translation/business)
     var useCount: Int = 0
     var createdAt: Date = .now
 
@@ -35,18 +36,20 @@ struct Prompt: Identifiable, Codable, Hashable {
          title: String,
          body: String,
          tags: [String] = [],
+         category: String? = nil,
          useCount: Int = 0,
          createdAt: Date = .now) {
         self.id = id
         self.title = title
         self.body = body
         self.tags = tags
+        self.category = category
         self.useCount = useCount
         self.createdAt = createdAt
     }
 
     enum CodingKeys: String, CodingKey {
-        case id, title, body, tags, useCount, createdAt
+        case id, title, body, tags, category, useCount, createdAt
     }
 
     init(from decoder: Decoder) throws {
@@ -55,6 +58,7 @@ struct Prompt: Identifiable, Codable, Hashable {
         self.title     = try c.decode(String.self,            forKey: .title)
         self.body      = try c.decode(String.self,            forKey: .body)
         self.tags      = try c.decodeIfPresent([String].self, forKey: .tags) ?? []
+        self.category  = try c.decodeIfPresent(String.self,   forKey: .category)
         self.useCount  = try c.decodeIfPresent(Int.self,      forKey: .useCount) ?? 0
         self.createdAt = try c.decodeIfPresent(Date.self,     forKey: .createdAt) ?? .now
     }
@@ -254,6 +258,8 @@ final class PromptStore {
         if let data = try? JSONEncoder().encode(prompts) {
             try? data.write(to: saveURL, options: .atomic)
         }
+        // Sync to App Group container so the Action Extension can access prompts.
+        AppGroupSyncService.writePromptsToGroup(prompts)
     }
 
     private func load() {
