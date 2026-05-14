@@ -125,3 +125,30 @@
 
 /* v1.0.4 — variable UI + paywall reposition */
 "default" = "預設值";
+
+/* v1.1.0 — dual-tier paywall + Apple 3.1.2 compliance */
+"Upgrade" = "升級";
+"Unlock PromptVault Pro" = "解鎖 PromptVault Pro";
+"200+ AI workflows. Variable templates. Action Extension." = "200+ 條 AI 工作流程、變數範本、Action Extension。";
+"200+ Pro prompts (5 categories)" = "Pro 提示詞 200+ 條（5 個分類）";
+"Variable templates {{name:type=default}}" = "變數範本 {{名稱:類型=預設值}}";
+"Action Extension (share sheet)" = "Action Extension（分享選單）";
+"iCloud sync across devices" = "iCloud 跨裝置同步";
+"Unlimited tags" = "標籤數量無上限";
+"Pro Monthly" = "Pro 月訂閱";
+"7 DAYS FREE" = "免費 7 天";
+"Then %@/month. Cancel anytime." = "之後每月 %@，隨時可取消。";
+"Lifetime" = "買斷版";
+"One-time. Yours forever." = "一次購買，永久使用。";
+"Start 7-day free trial" = "開始 7 天免費試用";
+"Buy lifetime" = "買斷";
+"Start 7 day free trial then %@ per month" = "開始 7 天免費試用，之後每月 %@";
+"Buy lifetime for %@" = "以 %@ 買斷";
+"Restore Purchases" = "回復購買";
+"Manage Subscription" = "管理訂閱";
+"Restores a previous purchase or subscription" = "回復先前的購買或訂閱";
+"Subscription auto-renews monthly. Cancel anytime in your Apple ID settings at least 24 hours before the period ends. Trial ends automatically if not canceled before 7-day mark." = "訂閱每月自動續訂。請在當前訂閱期結束前至少 24 小時，於 Apple ID 設定中取消。免費試用期結束前未取消，將自動轉為付費訂閱。";
+"Terms of Use" = "使用條款";
+"No purchases to restore" = "沒有可回復的購買記錄";
+"Purchase Issue" = "購買問題";
+"Unknown purchase outcome" = "未知購買結果";

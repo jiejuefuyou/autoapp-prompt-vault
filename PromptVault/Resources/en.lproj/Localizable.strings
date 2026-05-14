@@ -125,3 +125,30 @@
 
 /* v1.0.4 — variable UI + paywall reposition */
 "default" = "default";
+
+/* v1.1.0 — dual-tier paywall + Apple 3.1.2 compliance */
+"Upgrade" = "Upgrade";
+"Unlock PromptVault Pro" = "Unlock PromptVault Pro";
+"200+ AI workflows. Variable templates. Action Extension." = "200+ AI workflows. Variable templates. Action Extension.";
+"200+ Pro prompts (5 categories)" = "200+ Pro prompts (5 categories)";
+"Variable templates {{name:type=default}}" = "Variable templates {{name:type=default}}";
+"Action Extension (share sheet)" = "Action Extension (share sheet)";
+"iCloud sync across devices" = "iCloud sync across devices";
+"Unlimited tags" = "Unlimited tags";
+"Pro Monthly" = "Pro Monthly";
+"7 DAYS FREE" = "7 DAYS FREE";
+"Then %@/month. Cancel anytime." = "Then %@/month. Cancel anytime.";
+"Lifetime" = "Lifetime";
+"One-time. Yours forever." = "One-time. Yours forever.";
+"Start 7-day free trial" = "Start 7-day free trial";
+"Buy lifetime" = "Buy lifetime";
+"Start 7 day free trial then %@ per month" = "Start 7-day free trial, then %@/month";
+"Buy lifetime for %@" = "Buy lifetime for %@";
+"Restore Purchases" = "Restore Purchases";
+"Manage Subscription" = "Manage Subscription";
+"Restores a previous purchase or subscription" = "Restores a previous purchase or subscription";
+"Subscription auto-renews monthly. Cancel anytime in your Apple ID settings at least 24 hours before the period ends. Trial ends automatically if not canceled before 7-day mark." = "Subscription auto-renews monthly. Cancel anytime in your Apple ID settings at least 24 hours before the period ends. Trial ends automatically if not canceled before the 7-day mark.";
+"Terms of Use" = "Terms of Use";
+"No purchases to restore" = "No purchases to restore";
+"Purchase Issue" = "Purchase Issue";
+"Unknown purchase outcome" = "Unknown purchase outcome";

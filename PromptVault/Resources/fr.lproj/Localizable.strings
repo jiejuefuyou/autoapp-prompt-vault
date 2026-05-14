@@ -125,3 +125,30 @@
 
 /* v1.0.4 — variable UI + paywall reposition */
 "default" = "défaut";
+
+/* v1.1.0 — dual-tier paywall + Apple 3.1.2 compliance */
+"Upgrade" = "Passer à Pro";
+"Unlock PromptVault Pro" = "Débloquer PromptVault Pro";
+"200+ AI workflows. Variable templates. Action Extension." = "Plus de 200 flux IA, modèles à variables, Action Extension.";
+"200+ Pro prompts (5 categories)" = "Plus de 200 prompts Pro (5 catégories)";
+"Variable templates {{name:type=default}}" = "Modèles à variables {{nom:type=défaut}}";
+"Action Extension (share sheet)" = "Action Extension (feuille de partage)";
+"iCloud sync across devices" = "Synchronisation iCloud entre appareils";
+"Unlimited tags" = "Étiquettes illimitées";
+"Pro Monthly" = "Pro mensuel";
+"7 DAYS FREE" = "7 JOURS OFFERTS";
+"Then %@/month. Cancel anytime." = "Puis %@/mois. Annulez à tout moment.";
+"Lifetime" = "Accès à vie";
+"One-time. Yours forever." = "Paiement unique. Pour toujours.";
+"Start 7-day free trial" = "Commencer l'essai gratuit de 7 jours";
+"Buy lifetime" = "Acheter l'accès à vie";
+"Start 7 day free trial then %@ per month" = "Essai gratuit 7 jours, puis %@/mois";
+"Buy lifetime for %@" = "Acheter l'accès à vie pour %@";
+"Restore Purchases" = "Restaurer les achats";
+"Manage Subscription" = "Gérer l'abonnement";
+"Restores a previous purchase or subscription" = "Restaure un achat ou un abonnement précédent";
+"Subscription auto-renews monthly. Cancel anytime in your Apple ID settings at least 24 hours before the period ends. Trial ends automatically if not canceled before 7-day mark." = "L'abonnement se renouvelle automatiquement chaque mois. Annulez à tout moment dans les paramètres de votre Apple ID, au moins 24 heures avant la fin de la période en cours. L'essai gratuit se termine automatiquement s'il n'est pas annulé avant les 7 jours.";
+"Terms of Use" = "Conditions d'utilisation";
+"No purchases to restore" = "Aucun achat à restaurer";
+"Purchase Issue" = "Problème d'achat";
+"Unknown purchase outcome" = "Résultat d'achat inconnu";

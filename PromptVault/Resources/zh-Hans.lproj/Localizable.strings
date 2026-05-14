@@ -125,3 +125,30 @@
 
 /* v1.0.4 — variable UI + paywall reposition */
 "default" = "默认值";
+
+/* v1.1.0 — dual-tier paywall + Apple 3.1.2 compliance */
+"Upgrade" = "升级";
+"Unlock PromptVault Pro" = "解锁 PromptVault Pro";
+"200+ AI workflows. Variable templates. Action Extension." = "200+ 条 AI 工作流、变量模板、Action Extension。";
+"200+ Pro prompts (5 categories)" = "Pro 提示词 200+ 条（5 个分类）";
+"Variable templates {{name:type=default}}" = "变量模板 {{名称:类型=默认值}}";
+"Action Extension (share sheet)" = "Action Extension（分享菜单）";
+"iCloud sync across devices" = "iCloud 多设备同步";
+"Unlimited tags" = "标签数量无限制";
+"Pro Monthly" = "Pro 月度订阅";
+"7 DAYS FREE" = "免费 7 天";
+"Then %@/month. Cancel anytime." = "之后每月 %@，随时可取消。";
+"Lifetime" = "买断版";
+"One-time. Yours forever." = "一次购买，永久使用。";
+"Start 7-day free trial" = "开始 7 天免费试用";
+"Buy lifetime" = "买断";
+"Start 7 day free trial then %@ per month" = "开始 7 天免费试用，之后每月 %@";
+"Buy lifetime for %@" = "以 %@ 买断";
+"Restore Purchases" = "恢复购买";
+"Manage Subscription" = "管理订阅";
+"Restores a previous purchase or subscription" = "恢复之前的购买或订阅";
+"Subscription auto-renews monthly. Cancel anytime in your Apple ID settings at least 24 hours before the period ends. Trial ends automatically if not canceled before 7-day mark." = "订阅每月自动续费。请在当前订阅期结束前至少 24 小时，在 Apple ID 设置中取消。免费试用期结束前未取消，将自动转为付费订阅。";
+"Terms of Use" = "使用条款";
+"No purchases to restore" = "没有可恢复的购买记录";
+"Purchase Issue" = "购买问题";
+"Unknown purchase outcome" = "未知购买结果";

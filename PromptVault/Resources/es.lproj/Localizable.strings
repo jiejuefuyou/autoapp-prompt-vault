@@ -125,3 +125,30 @@
 
 /* v1.0.4 — variable UI + paywall reposition */
 "default" = "predeterminado";
+
+/* v1.1.0 — dual-tier paywall + Apple 3.1.2 compliance */
+"Upgrade" = "Mejorar plan";
+"Unlock PromptVault Pro" = "Desbloquear PromptVault Pro";
+"200+ AI workflows. Variable templates. Action Extension." = "Más de 200 flujos de trabajo de IA, plantillas con variables, Action Extension.";
+"200+ Pro prompts (5 categories)" = "Más de 200 prompts Pro (5 categorías)";
+"Variable templates {{name:type=default}}" = "Plantillas con variables {{nombre:tipo=predeterminado}}";
+"Action Extension (share sheet)" = "Action Extension (hoja de compartir)";
+"iCloud sync across devices" = "Sincronización iCloud entre dispositivos";
+"Unlimited tags" = "Etiquetas ilimitadas";
+"Pro Monthly" = "Pro mensual";
+"7 DAYS FREE" = "7 DÍAS GRATIS";
+"Then %@/month. Cancel anytime." = "Luego %@/mes. Cancela cuando quieras.";
+"Lifetime" = "Acceso vitalicio";
+"One-time. Yours forever." = "Pago único. Tuyo para siempre.";
+"Start 7-day free trial" = "Iniciar prueba gratis de 7 días";
+"Buy lifetime" = "Comprar acceso vitalicio";
+"Start 7 day free trial then %@ per month" = "Prueba gratis 7 días, luego %@/mes";
+"Buy lifetime for %@" = "Comprar acceso vitalicio por %@";
+"Restore Purchases" = "Restaurar compras";
+"Manage Subscription" = "Gestionar suscripción";
+"Restores a previous purchase or subscription" = "Restaura una compra o suscripción anterior";
+"Subscription auto-renews monthly. Cancel anytime in your Apple ID settings at least 24 hours before the period ends. Trial ends automatically if not canceled before 7-day mark." = "La suscripción se renueva automáticamente cada mes. Cancela en cualquier momento en la configuración de tu Apple ID al menos 24 horas antes de que finalice el período. La prueba gratuita termina automáticamente si no se cancela antes de los 7 días.";
+"Terms of Use" = "Términos de uso";
+"No purchases to restore" = "No hay compras que restaurar";
+"Purchase Issue" = "Problema con la compra";
+"Unknown purchase outcome" = "Resultado de compra desconocido";

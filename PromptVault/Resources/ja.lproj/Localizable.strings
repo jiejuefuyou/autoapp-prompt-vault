@@ -125,3 +125,30 @@
 
 /* v1.0.4 — variable UI + paywall reposition */
 "default" = "既定値";
+
+/* v1.1.0 — dual-tier paywall + Apple 3.1.2 compliance */
+"Upgrade" = "アップグレード";
+"Unlock PromptVault Pro" = "PromptVault Pro を解除";
+"200+ AI workflows. Variable templates. Action Extension." = "200 種以上の AI ワークフロー、変数テンプレート、Action Extension。";
+"200+ Pro prompts (5 categories)" = "Pro プロンプト 200 種以上（5 カテゴリー）";
+"Variable templates {{name:type=default}}" = "変数テンプレート {{名前:型=既定値}}";
+"Action Extension (share sheet)" = "Action Extension（共有シート）";
+"iCloud sync across devices" = "iCloud で複数端末に同期";
+"Unlimited tags" = "タグ数無制限";
+"Pro Monthly" = "Pro 月額プラン";
+"7 DAYS FREE" = "7 日間無料";
+"Then %@/month. Cancel anytime." = "その後 %@/月。いつでもキャンセル可。";
+"Lifetime" = "買い切りプラン";
+"One-time. Yours forever." = "一度きりの購入。永久に使えます。";
+"Start 7-day free trial" = "7 日間無料トライアルを開始";
+"Buy lifetime" = "買い切りで購入";
+"Start 7 day free trial then %@ per month" = "7 日間無料トライアルを開始、その後 %@/月";
+"Buy lifetime for %@" = "%@ で買い切り購入";
+"Restore Purchases" = "購入を復元";
+"Manage Subscription" = "サブスクリプションを管理";
+"Restores a previous purchase or subscription" = "過去の購入またはサブスクリプションを復元します";
+"Subscription auto-renews monthly. Cancel anytime in your Apple ID settings at least 24 hours before the period ends. Trial ends automatically if not canceled before 7-day mark." = "サブスクリプションは毎月自動更新されます。現在の期間終了の少なくとも 24 時間前に Apple ID 設定からキャンセルしてください。7 日間のトライアルは、トライアル期間終了前にキャンセルしない場合、自動的に有料プランに移行します。";
+"Terms of Use" = "利用規約";
+"No purchases to restore" = "復元できる購入履歴がありません";
+"Purchase Issue" = "購入の問題";
+"Unknown purchase outcome" = "購入結果が不明です";

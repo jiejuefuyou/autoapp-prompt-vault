@@ -44,6 +44,7 @@ final class IAPManager {
         case failed(String)
         case cancelled
         case pending
+        case unverified
     }
 
     enum PurchaseError: LocalizedError {
@@ -214,16 +215,113 @@ final class IAPManager {
         }
     }
 
-    func restore() async {
-        purchaseState = .idle
+    // MARK: - Subscription purchase (v1.1.0, Apple 3.1.2 compliant)
+
+    /// Convenience: localised price string for the subscription product.
+    var subscriptionPrice: String? {
+        products.first(where: { $0.id == Self.subscriptionProductID })?.displayPrice
+    }
+
+    /// Convenience: localised price string for the one-time product.
+    var oneTimePrice: String? {
+        products.first(where: { $0.id == Self.premiumProductID })?.displayPrice
+    }
+
+    /// Purchase the auto-renewable monthly subscription.
+    /// All 6 StoreKit 2 outcomes are surfaced to the caller via `purchaseState`
+    /// (idle / purchasing / success / cancelled / pending / unverified / failed).
+    func purchaseSubscription() async {
+        guard !purchaseInProgress else { return }
+        guard let product = products.first(where: { $0.id == Self.subscriptionProductID }) else {
+            await loadProducts()
+            guard let retried = products.first(where: { $0.id == Self.subscriptionProductID }) else {
+                let msg = PurchaseError.productNotFound.errorDescription ?? ""
+                purchaseState = .failed(msg)
+                lastError = msg
+                return
+            }
+            await performPurchase(retried)
+            return
+        }
+        await performPurchase(product)
+    }
+
+    /// Purchase the one-time lifetime unlock.
+    func purchaseOneTime() async {
+        guard !purchaseInProgress else { return }
+        guard let product = products.first(where: { $0.id == Self.premiumProductID }) else {
+            await loadProducts()
+            guard let retried = products.first(where: { $0.id == Self.premiumProductID }) else {
+                let msg = PurchaseError.productNotFound.errorDescription ?? ""
+                purchaseState = .failed(msg)
+                lastError = msg
+                return
+            }
+            await performPurchase(retried)
+            return
+        }
+        await performPurchase(product)
+    }
+
+    /// Shared purchase execution path used by both subscription and one-time flows.
+    /// Mirrors the existing `purchase()` implementation but is product-agnostic.
+    private func performPurchase(_ product: Product) async {
+        purchaseState = .purchasing
+        purchaseInProgress = true
+        defer { purchaseInProgress = false }
+
+        do {
+            let result = try await product.purchase()
+            switch result {
+            case .success(let verification):
+                switch verification {
+                case .verified(let t):
+                    await t.finish()
+                    await refreshEntitlements()
+                    purchaseState = .success
+                case .unverified(let t, _):
+                    await t.finish()
+                    purchaseState = .unverified
+                }
+            case .userCancelled:
+                purchaseState = .cancelled
+            case .pending:
+                purchaseState = .pending
+            @unknown default:
+                let msg = PurchaseError.unknownResult.errorDescription ?? ""
+                purchaseState = .failed(msg)
+                lastError = msg
+            }
+        } catch {
+            let msg = error.localizedDescription
+            purchaseState = .failed(msg)
+            lastError = msg
+        }
+    }
+
+    /// Restore both one-time purchases and active subscriptions via
+    /// StoreKit 2 `AppStore.sync()`. Sets `purchaseState` to `.success` when
+    /// at least one entitlement is found, or `.failed` when nothing to restore.
+    func restorePurchases() async {
+        purchaseState = .purchasing
+        purchaseInProgress = true
+        defer { purchaseInProgress = false }
         do {
             try await AppStore.sync()
         } catch {
             let msg = error.localizedDescription
             lastError = msg
             purchaseState = .failed(msg)
+            return
         }
         await refreshEntitlements()
+        purchaseState = hasAnyEntitlement
+            ? .success
+            : .failed(NSLocalizedString("No purchases to restore", comment: "Restore: nothing found"))
+    }
+
+    func restore() async {
+        await restorePurchases()
     }
 
     /// Allow the view to clear a stale failed/cancelled state once the user

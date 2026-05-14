@@ -125,3 +125,30 @@
 
 /* v1.0.4 — variable UI + paywall reposition */
 "default" = "Standard";
+
+/* v1.1.0 — dual-tier paywall + Apple 3.1.2 compliance */
+"Upgrade" = "Upgrade";
+"Unlock PromptVault Pro" = "PromptVault Pro freischalten";
+"200+ AI workflows. Variable templates. Action Extension." = "Über 200 KI-Workflows, Variablenvorlagen, Action Extension.";
+"200+ Pro prompts (5 categories)" = "Über 200 Pro-Prompts (5 Kategorien)";
+"Variable templates {{name:type=default}}" = "Variablenvorlagen {{Name:Typ=Standard}}";
+"Action Extension (share sheet)" = "Action Extension (Teilen-Menü)";
+"iCloud sync across devices" = "iCloud-Synchronisierung auf allen Geräten";
+"Unlimited tags" = "Unbegrenzte Tags";
+"Pro Monthly" = "Pro Monatsabo";
+"7 DAYS FREE" = "7 TAGE GRATIS";
+"Then %@/month. Cancel anytime." = "Danach %@/Monat. Jederzeit kündbar.";
+"Lifetime" = "Dauerhafter Zugang";
+"One-time. Yours forever." = "Einmalige Zahlung. Dauerhaft verfügbar.";
+"Start 7-day free trial" = "7-tägige Testphase starten";
+"Buy lifetime" = "Dauerhaften Zugang kaufen";
+"Start 7 day free trial then %@ per month" = "7 Tage gratis testen, dann %@/Monat";
+"Buy lifetime for %@" = "Dauerhaften Zugang für %@ kaufen";
+"Restore Purchases" = "Käufe wiederherstellen";
+"Manage Subscription" = "Abonnement verwalten";
+"Restores a previous purchase or subscription" = "Stellt einen früheren Kauf oder ein Abonnement wieder her";
+"Subscription auto-renews monthly. Cancel anytime in your Apple ID settings at least 24 hours before the period ends. Trial ends automatically if not canceled before 7-day mark." = "Das Abonnement verlängert sich automatisch monatlich. Kündige jederzeit in deinen Apple-ID-Einstellungen, mindestens 24 Stunden vor Ende des aktuellen Zeitraums. Die Testphase endet automatisch, wenn sie nicht vor Ablauf der 7 Tage gekündigt wird.";
+"Terms of Use" = "Nutzungsbedingungen";
+"No purchases to restore" = "Keine Käufe zum Wiederherstellen";
+"Purchase Issue" = "Kaufproblem";
+"Unknown purchase outcome" = "Unbekanntes Kaufergebnis";
