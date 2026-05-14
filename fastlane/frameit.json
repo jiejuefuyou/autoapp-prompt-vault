@@ -1,0 +1,34 @@
+{
+  "default": {
+    "keyword": {
+      "color": "#FFFFFF"
+    },
+    "title": {
+      "color": "#FFFFFF",
+      "font": "HelveticaNeue-Bold",
+      "size": 52
+    },
+    "background": "background-gradient.png",
+    "padding": 60,
+    "title_below_image": false,
+    "frame": "WHITE",
+    "show_complete_frame": false
+  },
+  "iPhone 17 Pro Max": {
+    "background": "background-gradient.png",
+    "padding": 70
+  },
+  "iPhone 16 Plus": {
+    "background": "background-gradient.png",
+    "padding": 60
+  },
+  "iPad Pro (12.9-inch) (3rd generation)": {
+    "background": "background-gradient.png",
+    "padding": 80,
+    "title": {
+      "color": "#FFFFFF",
+      "font": "HelveticaNeue-Bold",
+      "size": 64
+    }
+  }
+}
