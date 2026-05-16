@@ -64,7 +64,11 @@ struct ActionExtensionRootView: View {
     // MARK: - App Group Loading
 
     private func loadFromAppGroup() async -> [SharedPromptDTO] {
-        let groupID = AppGroupSyncService.groupID
+        // App Group constant duplicated from main app (AppGroupSyncService.groupID).
+        // Cannot import main-app type from extension target; literal is the cheapest
+        // safe fix. Keep both in sync — if changing here, also change in
+        // PromptVault/Services/AppGroupSyncService.swift.
+        let groupID = "group.com.jiejuefuyou.promptvault"
         guard let url = FileManager.default
             .containerURL(forSecurityApplicationGroupIdentifier: groupID)?
             .appendingPathComponent("prompts.json"),
