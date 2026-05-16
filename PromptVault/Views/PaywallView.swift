@@ -155,7 +155,7 @@ struct PaywallView: View {
                     isSelected: selectedTier == .subscription
                 )
             }
-            .buttonStyle(.plain)
+            .buttonStyle(.bordered)
             .accessibilityAddTraits(selectedTier == .subscription ? [.isSelected] : [])
 
             // One-time lifetime tier
@@ -173,7 +173,7 @@ struct PaywallView: View {
                     isSelected: selectedTier == .oneTime
                 )
             }
-            .buttonStyle(.plain)
+            .buttonStyle(.bordered)
             .accessibilityAddTraits(selectedTier == .oneTime ? [.isSelected] : [])
         }
     }
@@ -351,7 +351,7 @@ struct PaywallView: View {
             .contentShape(Rectangle())
             .accessibilityHint(Text(LocalizedStringKey("Restores a previous purchase or subscription")))
 
-            // Deep link to Apple subscription management â€” shown when user is
+            // Deep link to Apple subscription management â€?shown when user is
             // already a subscriber so they can cancel / modify from within app.
             if iap.isProSubscriber {
                 // swiftlint:disable:next force_unwrapping

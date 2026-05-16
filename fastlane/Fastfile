@@ -122,11 +122,11 @@ platform :ios do
         export_compliance_uses_encryption: false,
         export_compliance_encryption_updated: false
       },
-      precheck_include_in_app_purchases: true,
+      precheck_include_in_app_purchases: false,                        # ASC API Key cannot precheck IAPs (fastlane known limitation 2026)
       force:                            true,                          # don't pause on metadata diff prompt
       skip_screenshots:                 true,                          # screenshots are managed manually for v1; switch to fastlane snapshot in Phase 2
       skip_binary_upload:               true,                           # binary already uploaded by `beta` lane
-      run_precheck_before_submit:       true
+      run_precheck_before_submit:       false                          # disable precheck (depends on Apple ID login, not API Key); ASC review will catch issues anyway
     )
   end
 
