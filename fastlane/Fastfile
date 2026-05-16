@@ -3,6 +3,7 @@ default_platform(:ios)
 PROJECT       = "PromptVault.xcodeproj"
 SCHEME        = "PromptVault"
 BUNDLE_ID     = ENV["APP_BUNDLE_ID"] || "com.jiejuefuyou.promptvault"
+EXT_BUNDLE_ID = "#{BUNDLE_ID}.ActionExtension"
 TEST_DEVICE   = ENV["FASTLANE_TEST_DEVICE"] || "iPhone 15"
 
 platform :ios do
@@ -48,7 +49,7 @@ platform :ios do
       type:          "appstore",
       readonly:      is_ci,
       api_key:       api_key,
-      app_identifier: [BUNDLE_ID]
+      app_identifier: [BUNDLE_ID, EXT_BUNDLE_ID]
     )
 
     increment_build_number(
@@ -78,7 +79,8 @@ platform :ios do
       export_options: {
         method: "app-store",
         provisioningProfiles: {
-          BUNDLE_ID => real_profile_name
+          BUNDLE_ID     => real_profile_name,
+          EXT_BUNDLE_ID => "match AppStore #{EXT_BUNDLE_ID}"
         },
         signingStyle: "manual",
         teamID: ENV.fetch("TEAM_ID")
@@ -199,7 +201,7 @@ platform :ios do
       type:           match_type,
       readonly:       false,
       api_key:        api_key,
-      app_identifier: [BUNDLE_ID]
+      app_identifier: [BUNDLE_ID, EXT_BUNDLE_ID]
     )
   end
 end
