@@ -21,6 +21,9 @@ struct PromptVaultApp: App {
                 .environment(iap)
                 .environment(l10n)
                 .environment(\.locale, l10n.currentLocale)
+                .id(l10n.override)  // CRITICAL: force complete view tree rebuild on language change.
+                                    // Without this SwiftUI caches Text(LocalizedStringKey(...))
+                                    // resolutions and the new .lproj is never read.
                 .task {
                     await iap.refresh()
                     if iCloudSyncManager.isAvailable, icloud == nil {
