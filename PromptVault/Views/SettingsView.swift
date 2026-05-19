@@ -13,8 +13,13 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section(LocalizedStringKey("Premium")) {
-                    if iap.isPremium {
-                        Label(LocalizedStringKey("Premium unlocked"), systemImage: "checkmark.seal.fill").foregroundStyle(.green)
+                    if iap.hasAnyEntitlement {
+                        // Distinguish lifetime vs subscription so users know what they have.
+                        if iap.isProSubscriber && !iap.isPremium {
+                            Label(LocalizedStringKey("Pro subscriber (monthly)"), systemImage: "checkmark.seal.fill").foregroundStyle(.green)
+                        } else {
+                            Label(LocalizedStringKey("Premium unlocked (lifetime)"), systemImage: "checkmark.seal.fill").foregroundStyle(.green)
+                        }
                     } else {
                         HStack {
                             Text(LocalizedStringKey("Free tier"))

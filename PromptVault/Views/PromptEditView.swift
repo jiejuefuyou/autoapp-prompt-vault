@@ -57,7 +57,7 @@ struct PromptEditView: View {
                         .font(.system(.body, design: .monospaced))
                 }
                 Section {
-                    if iap.isPremium {
+                    if iap.hasAnyEntitlement {
                         TextField(LocalizedStringKey("comma,separated,tags"), text: $tagsText)
                     } else {
                         Button {
@@ -71,7 +71,7 @@ struct PromptEditView: View {
                 } header: {
                     Text(LocalizedStringKey("Tags"))
                 } footer: {
-                    if !iap.isPremium {
+                    if !iap.hasAnyEntitlement {
                         Text(LocalizedStringKey("Tags are a Premium feature."))
                             .foregroundStyle(.secondary)
                     }
@@ -181,7 +181,7 @@ struct PromptEditView: View {
     private func save() {
         let candidate = draft
         guard !candidate.title.isEmpty, !candidate.body.trimmingCharacters(in: .whitespaces).isEmpty else { return }
-        if !iap.isPremium && candidate.tags.count > PromptStore.freeTagLimit {
+        if !iap.hasAnyEntitlement && candidate.tags.count > PromptStore.freeTagLimit {
             // Trim silently — paywall is shown elsewhere; here we don't block save.
             var tagged = candidate
             tagged.tags = Array(candidate.tags.prefix(PromptStore.freeTagLimit))

@@ -18,7 +18,7 @@ struct PromptShareView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if iap.isPremium {
+                if iap.hasAnyEntitlement {
                     premiumContent
                 } else {
                     freeContent
@@ -158,7 +158,7 @@ struct PromptShareView: View {
     // MARK: - QR generation
 
     private func generateQRIfNeeded() {
-        guard iap.isPremium else { return }
+        guard iap.hasAnyEntitlement else { return }
         qrImage = Self.generateQRCode(for: prompt)
     }
 

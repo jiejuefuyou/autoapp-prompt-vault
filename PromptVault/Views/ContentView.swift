@@ -37,7 +37,7 @@ struct ContentView: View {
                     }
                 } else {
                     List {
-                        if iap.isPremium {
+                        if iap.hasAnyEntitlement {
                             if !store.allTags.isEmpty {
                                 tagFilterRow
                                     .listRowInsets(EdgeInsets())
@@ -84,7 +84,7 @@ struct ContentView: View {
 
                         Button {
                             Haptics.light()
-                            if !iap.isPremium && store.prompts.count >= PromptStore.freePromptLimit {
+                            if !iap.hasAnyEntitlement && store.prompts.count >= PromptStore.freePromptLimit {
                                 showPaywall = true
                             } else {
                                 addingPrompt = true

@@ -73,8 +73,17 @@ final class IAPManager {
         }
     }
 
-    var isPremium: Bool = false              // one-time unlock
-    var isProSubscriber: Bool = false        // v1.1.0: active subscription entitlement
+    /// UserDefaults keys for cached entitlement state. Used to avoid the 1-5s
+    /// "Go Premium" CTA flash on every cold start while StoreKit refreshes
+    /// the live entitlement (per Settings audit P0 2026-05-19).
+    private static let cachedIsPremiumKey = "PromptVault.iap.cachedIsPremium"
+    private static let cachedIsProKey = "PromptVault.iap.cachedIsProSubscriber"
+
+    /// Optimistically initialized from UserDefaults so the UI never shows
+    /// "Go Premium" to a paid/subscribed user during the entitlement refresh
+    /// window. Live StoreKit refresh overwrites within ~3s of cold start.
+    var isPremium: Bool = UserDefaults.standard.bool(forKey: IAPManager.cachedIsPremiumKey)
+    var isProSubscriber: Bool = UserDefaults.standard.bool(forKey: IAPManager.cachedIsProKey)
     var products: [Product] = []
     var purchaseInProgress: Bool = false
     var lastError: String?
@@ -343,6 +352,9 @@ final class IAPManager {
             }
         }
         isPremium = oneTime
+        // Persist for next cold start so optimistic init reflects truth.
+        UserDefaults.standard.set(oneTime, forKey: Self.cachedIsPremiumKey)
+        UserDefaults.standard.set(subscription, forKey: Self.cachedIsProKey)
         isProSubscriber = subscription
     }
 }
