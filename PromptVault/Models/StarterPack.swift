@@ -14,13 +14,18 @@ enum StarterPack {
     }
 
     /// In-binary fallback in case the JSON resource fails to load. Keeps app usable.
+    /// Starter pack prompts are marked `isStarter: true` so they don't count
+    /// against the free-tier `freePromptLimit` (v1.1.2 fix: prevent overflow on
+    /// first launch where 150 starter prompts blocked user from saving any).
     private static let fallback: [Prompt] = [
         Prompt(title: "Translate to natural English",
                body: "Translate the following text into natural, conversational English. Preserve the tone and any technical terms.\n\n{{text}}",
-               tags: ["翻译", "Translation"]),
+               tags: ["翻译", "Translation"],
+               isStarter: true),
         Prompt(title: "Summarize a long article",
                body: "Summarize the following article in 5 bullet points, then 1 takeaway sentence.\n\n{{article}}",
-               tags: ["总结", "Summarize"]),
+               tags: ["总结", "Summarize"],
+               isStarter: true),
     ]
 
     private struct RawPrompt: Codable {
@@ -31,7 +36,7 @@ enum StarterPack {
         let category: String?   // v1.1.0: 5-bucket categorisation
 
         var prompt: Prompt {
-            Prompt(title: title, body: body, tags: tags ?? [], category: category)
+            Prompt(title: title, body: body, tags: tags ?? [], category: category, isStarter: true)
         }
     }
 }

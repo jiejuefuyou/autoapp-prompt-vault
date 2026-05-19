@@ -24,7 +24,8 @@ struct SettingsView: View {
                         HStack {
                             Text(LocalizedStringKey("Free tier"))
                             Spacer()
-                            Text("\(store.prompts.count) / \(PromptStore.freePromptLimit) prompts used")
+                            // Show user-created count (excludes starter pack — they don't count toward limit).
+                            Text("\(store.prompts.filter({ !$0.isStarter }).count) / \(PromptStore.freePromptLimit) prompts used")
                                 .font(.caption).foregroundStyle(.secondary)
                         }
                         Button { showPaywall = true } label: { Label(LocalizedStringKey("Unlock Premium"), systemImage: "sparkles") }

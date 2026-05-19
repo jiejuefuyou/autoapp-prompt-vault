@@ -31,6 +31,11 @@ struct Prompt: Identifiable, Codable, Hashable {
     var category: String? = nil   // v1.1.0: 5-bucket categorisation (coding/writing/research/translation/business)
     var useCount: Int = 0
     var createdAt: Date = .now
+    /// True for prompts loaded from `StarterPack.load()` on first launch. Excluded
+    /// from `freePromptLimit` count so free users can save their own prompts even
+    /// when the 150-prompt starter pack ships pre-loaded. User can delete starters.
+    /// (v1.1.2 fix per Usability audit P0 2026-05-19.)
+    var isStarter: Bool = false
 
     init(id: UUID = UUID(),
          title: String,
@@ -38,7 +43,8 @@ struct Prompt: Identifiable, Codable, Hashable {
          tags: [String] = [],
          category: String? = nil,
          useCount: Int = 0,
-         createdAt: Date = .now) {
+         createdAt: Date = .now,
+         isStarter: Bool = false) {
         self.id = id
         self.title = title
         self.body = body
@@ -46,10 +52,11 @@ struct Prompt: Identifiable, Codable, Hashable {
         self.category = category
         self.useCount = useCount
         self.createdAt = createdAt
+        self.isStarter = isStarter
     }
 
     enum CodingKeys: String, CodingKey {
-        case id, title, body, tags, category, useCount, createdAt
+        case id, title, body, tags, category, useCount, createdAt, isStarter
     }
 
     init(from decoder: Decoder) throws {
@@ -61,6 +68,9 @@ struct Prompt: Identifiable, Codable, Hashable {
         self.category  = try c.decodeIfPresent(String.self,   forKey: .category)
         self.useCount  = try c.decodeIfPresent(Int.self,      forKey: .useCount) ?? 0
         self.createdAt = try c.decodeIfPresent(Date.self,     forKey: .createdAt) ?? .now
+        // Default false for pre-v1.1.2 prompts (none were marked); StarterPack.load()
+        // sets this true going forward.
+        self.isStarter = try c.decodeIfPresent(Bool.self, forKey: .isStarter) ?? false
     }
 
     /// All `{{var}}` placeholders found in the body, deduped, in order of first appearance.

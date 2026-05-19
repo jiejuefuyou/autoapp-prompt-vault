@@ -84,7 +84,9 @@ struct ContentView: View {
 
                         Button {
                             Haptics.light()
-                            if !iap.hasAnyEntitlement && store.prompts.count >= PromptStore.freePromptLimit {
+                            // Filter out starter prompts (loaded on first launch, not user-added)
+                            // so free user can save their own prompts even with 150 starter pack pre-loaded.
+                            if !iap.hasAnyEntitlement && store.prompts.filter({ !$0.isStarter }).count >= PromptStore.freePromptLimit {
                                 showPaywall = true
                             } else {
                                 addingPrompt = true
