@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(PromptStore.self) private var store
     @Environment(IAPManager.self) private var iap
+    @Environment(LocalizationManager.self) private var l10n
 
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
     @AppStorage("hasCompletedTour") private var hasCompletedTour: Bool = false
@@ -92,28 +93,54 @@ struct ContentView: View {
                     }
                 }
             }
-            .sheet(isPresented: $showSettings) { SettingsView() }
-            .sheet(isPresented: $showPaywall) { PaywallView() }
+            // CRITICAL: SwiftUI sheet/fullScreenCover attaches modal to scene
+            // presentation host, NOT to ContentView's view tree. The .id on
+            // PromptVaultApp.swift only rebuilds ContentView itself — modal
+            // content stays stale on language change. Force rebuild per-modal.
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+                    .environment(l10n)
+                    .environment(\.locale, l10n.currentLocale)
+                    .id(l10n.override)
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
+                    .environment(l10n)
+                    .environment(\.locale, l10n.currentLocale)
+                    .id(l10n.override)
+            }
             .sheet(isPresented: $addingPrompt) {
                 PromptEditView(initial: nil) { newPrompt in
                     store.add(newPrompt)
                     Haptics.success()
                 }
+                .environment(l10n)
+                .environment(\.locale, l10n.currentLocale)
+                .id(l10n.override)
             }
             .sheet(isPresented: $showScanner) {
                 PromptScanView()
+                    .environment(l10n)
+                    .environment(\.locale, l10n.currentLocale)
+                    .id(l10n.override)
             }
             .sheet(item: $editingPrompt) { p in
                 PromptEditView(initial: p,
                                onSave: { updated in store.update(updated) },
                                onDelete: { store.delete(p); Haptics.warning() },
                                onUse: { rendered in copy(p, body: rendered) })
+                    .environment(l10n)
+                    .environment(\.locale, l10n.currentLocale)
+                    .id(l10n.override)
             }
             .fullScreenCover(isPresented: Binding(
                 get: { !hasSeenOnboarding },
                 set: { _ in /* OnboardingView writes hasSeenOnboarding directly */ }
             )) {
                 OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
+                    .environment(l10n)
+                    .environment(\.locale, l10n.currentLocale)
+                    .id(l10n.override)
             }
             // Show the quick tour after onboarding finishes, only once.
             .sheet(isPresented: Binding(
@@ -121,6 +148,9 @@ struct ContentView: View {
                 set: { _ in /* QuickTourView writes hasCompletedTour directly */ }
             )) {
                 QuickTourView()
+                    .environment(l10n)
+                    .environment(\.locale, l10n.currentLocale)
+                    .id(l10n.override)
             }
         }
     }

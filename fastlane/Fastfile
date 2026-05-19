@@ -22,13 +22,20 @@ platform :ios do
   desc "Run unit tests on a simulator (UI tests live in the screenshots lane)"
   lane :test do
     generate
+    # iPhone 15 simulator requires iOS 17.x SDK which macos-15 GitHub Actions
+    # runners do not ship with by default; xcodebuild errors "iOS 18.4 is not
+    # installed". Switch to iPhone 16 Pro (ships in default macos-15 image) +
+    # explicit deployment_target_version + derived_data_path to fix
+    # "Can't retrieve BUILT_PRODUCTS_DIR" warning. See CLAUDE.md lesson #34.
     run_tests(
-      project:       PROJECT,
-      scheme:        SCHEME,
-      devices:       [TEST_DEVICE],
-      clean:         true,
-      code_coverage: true,
-      only_testing:  ["#{SCHEME}Tests"]
+      project:                    PROJECT,
+      scheme:                     SCHEME,
+      devices:                    ["iPhone 16 Pro"],
+      deployment_target_version:  "17.0",
+      clean:                      true,
+      code_coverage:              true,
+      only_testing:               ["#{SCHEME}Tests"],
+      derived_data_path:          "./fastlane/derived_data_test"
     )
   end
 

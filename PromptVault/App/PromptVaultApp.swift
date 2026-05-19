@@ -8,6 +8,12 @@ struct PromptVaultApp: App {
     @State private var icloud: iCloudSyncManager?
 
     init() {
+        // EAGER init: force LocalizationManager.shared (and its Bundle.main
+        // swizzle in installBundleOverride) to run BEFORE SwiftUI evaluates
+        // any Text(LocalizedStringKey(...)) in body. Otherwise swizzle may
+        // land after first localized string resolution → wrong .lproj cached.
+        _ = LocalizationManager.shared
+
         // Snapshot mode: skip onboarding so UI tests land on the main screen.
         if ProcessInfo.processInfo.arguments.contains("-FASTLANE_SNAPSHOT") {
             UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
